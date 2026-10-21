@@ -8,5 +8,10 @@ directory = "dist"
 pattern = "gastown.jaybulb.com"
 custom_domain = true
 
+# the old host keeps serving for links already out there
+[[routes]]
+pattern = "nyc.jaybulb.com"
+custom_domain = true
+
 [observability]
 enabled = true
