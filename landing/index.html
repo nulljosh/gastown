@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>NYC Survive. Times Square colony sim.</title>
+<meta name="description" content="Lead a small group of survivors through Times Square, street by street. Build shelters, food, power and filters, and get them through the night. On Mac, iPhone and iPad, and in your browser.">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#05070d" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://nyc.jaybulb.com/">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="NYC Survive">
+<meta property="og:title" content="NYC Survive. Times Square colony sim.">
+<meta property="og:description" content="Lead a small group of survivors through Times Square. Build what they need and get them through the night.">
+<meta property="og:url" content="https://nyc.jaybulb.com/">
+<meta property="og:image" content="https://nyc.jaybulb.com/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://nyc.jaybulb.com/og.png">
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="landing.css">
+<script src="landing.js" defer></script>
+</head>
+<body>
+
+<header class="nav" aria-label="Site">
+  <nav class="nav-links" aria-label="Main">
+    <a href="#features">The game</a>
+    <a href="#controls">Controls</a>
+  </nav>
+  <a class="nav-brand" href="#top" aria-label="NYC Survive home"><img src="icon.svg" alt="" width="28" height="28"><span>NYC Survive</span></a>
+  <div class="nav-end">
+    <a class="nav-get" href="https://apps.apple.com/app/id6782618198">App Store</a>
+    <a class="btn btn-solid" href="app/">Play now</a>
+  </div>
+</header>
+
+<!-- Art, dithered to halftone by hand, all public domain via Wikimedia Commons:
+     Longacre Square (Times Square) ca. 1904, Detroit Publishing Company, for the stage;
+     Brooklyn Bridge promenade, Detroit Publishing Co., for the blue band;
+     Panorama of Madison Square with the Flatiron Building, c. 1910-1915, Detroit Publishing Co.;
+     Lewis W. Hine, Old-timer structural worker on the Empire State Building, 1930 (NARA);
+     New York City Skyline, Irving Underhill, 1930 (National Museum of the U.S. Navy);
+     Samuel H. Gottscho, New York City, 1932-01-19 (Library of Congress), for the playthrough stage.
+     Every image is used once. -->
+<main id="top">
+<section class="hero" id="hero">
+  <div class="wrap center hero-copy">
+    <p class="label">Times Square colony sim</p>
+    <h1>NYC Survive</h1>
+    <p class="lead">Lead a small group of survivors, street by street. Build what they need and get them through the night.</p>
+    <div class="cta">
+      <a class="btn btn-solid" href="https://apps.apple.com/app/id6782618198">Get it on the App Store</a>
+      <a class="btn btn-ghost" href="#features">See what you do</a>
+    </div>
+    <p class="fine">On Mac, iPhone and iPad. Or play it right here.</p>
+  </div>
+
+  <div class="demo-wrap reveal" id="demo">
+    <div class="stage">
+      <div class="art stage-art" style="--img: url(art/times-square.png)" aria-hidden="true"></div>
+      <div class="win">
+        <iframe src="app/?embed" title="NYC Survive, running live" loading="lazy" allow="fullscreen"></iframe>
+      </div>
+    </div>
+    <p class="demo-hint">The real game, running live. Click a survivor, then click the ground.</p>
+  </div>
+</section>
+
+<section class="band" id="features">
+  <div class="band-head">
+    <div class="art band-art" style="--img: url(art/brooklyn.png)" aria-hidden="true"></div>
+    <div class="band-copy reveal">
+      <p class="label">What you do</p>
+      <h2>Hold the block</h2>
+      <p>Buildings burn materials. Survivors get hungry, tired and stressed. Keep the numbers up and the colony holds.</p>
+    </div>
+  </div>
+  <div class="frows">
+    <article class="frow reveal"><div class="art" style="--img: url(art/flatiron.png)" aria-hidden="true"></div><div><p class="label">Build</p><h3>Six kinds of building</h3><p>Shelters, food stalls, generators, filter stations, subway access and billboards.</p></div></article>
+    <article class="frow reveal"><div class="art" style="--img: url(art/hine.png)" aria-hidden="true"></div><div><p class="label">Keep alive</p><h3>Five numbers to watch</h3><p>Hunger, oxygen, stress, sleep and health. Let one slide and someone pays for it.</p></div></article>
+    <article class="frow reveal"><div class="art" style="--img: url(art/skyline.png)" aria-hidden="true"></div><div><p class="label">Nights</p><h3>Raids come after dark</h3><p>Put someone on patrol before the raids hit. Have shelters up and food stocked.</p></div></article>
+  </div>
+  <div class="cells" id="controls">
+    <article class="cell reveal"><p class="label">Your orders</p><h3>Nobody moves until you say so</h3><p>Colonists only move when you tell them to. Pick one, then pick the spot.</p></article>
+    <article class="cell reveal"><p class="label">Controls</p><h3>Touch or keys</h3><p>Tap a survivor, then the ground. On Mac, WASD pans, B opens the build menu and Space pauses.</p></article>
+    <article class="cell reveal"><p class="label">The win</p><h3>Times Square reclaimed</h3><p>Grow to 15 survivors, average level 8, with one at level 10.</p></article>
+  </div>
+</section>
+
+<section class="sec field" id="film">
+  <div class="wrap center">
+    <div class="reveal">
+      <i class="wing" aria-hidden="true"></i>
+      <p class="label">A real run</p>
+      <h2>See it played</h2>
+      <p class="body">Drag a box around survivors, click a resource to gather it, and press B to build.</p>
+    </div>
+    <div class="stage film-stage reveal">
+      <div class="art stage-art" style="--img: url(art/aerial.png)" aria-hidden="true"></div>
+      <figure class="film">
+        <video src="playthrough.mp4" autoplay muted loop playsinline controls preload="metadata" aria-label="A real playthrough: drag a box around survivors, click a resource to gather, press B to build."></video>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="sec plats" id="play">
+  <div class="wrap center">
+    <p class="label reveal">Play</p>
+    <h2 class="reveal">Pick your screen</h2>
+    <p class="body reveal">One game on every Apple device. Nothing to install in the browser.</p>
+    <div class="plat-row">
+      <div class="reveal"><small>Mac, iPhone and iPad</small><b>App Store</b><p>Touch on phone and tablet, keyboard and mouse on Mac.</p><a class="btn btn-solid" href="https://apps.apple.com/app/id6782618198">Get the app</a></div>
+      <div class="reveal"><small>Any browser</small><b>Play now</b><p>No install. Works on a phone, tablet or computer.</p><a class="btn btn-ghost" href="app/">Open the game</a></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot" id="footer">
+  <div class="foot-top">
+    <div class="foot-brand"><img src="icon.svg" alt="" width="40" height="40"><b>NYC Survive</b><p>Times Square colony sim.</p></div>
+    <nav class="foot-cols" aria-label="Footer">
+      <div><p class="label">Play</p><a href="app/">Play in browser</a><a href="https://apps.apple.com/app/id6782618198">App Store</a><a href="#features">The game</a><a href="#controls">Controls</a></div>
+      <div><p class="label">Source</p><a href="https://github.com/nulljosh/nyc">GitHub</a><a href="https://github.com/nulljosh/nyc/blob/main/docs/CONTROLS.md">Controls doc</a><a href="privacy.html">Privacy</a></div>
+      <div><p class="label">More</p><a href="https://jaybulb.com">Joshua Trommel</a><a href="mailto:trommatic@icloud.com?subject=NYC%20Survive">Feedback</a><a href="#top">Back to top</a></div>
+    </nav>
+  </div>
+  <div class="word-band" aria-hidden="true"><canvas class="word-canvas"></canvas></div>
+  <p class="legal">&copy; 2026 Joshua Trommel &middot; Apache License 2.0 &middot; <a href="privacy.html">Privacy</a></p>
+</footer>
+
+<script src="footer-band.js" defer></script>
+</body>
+</html>

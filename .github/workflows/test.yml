@@ -1,0 +1,52 @@
+name: Tests
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      # No package.json, so nothing to install. node's own runner finds web/*.test.mjs itself,
+      # including winnable.test.mjs, which plays the game to victory with the bot in web/sim.mjs.
+      - run: node --test
+
+  swift:
+    runs-on: macos-26
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - run: brew install xcodegen
+      - run: xcodegen generate
+      - name: SimTests (macOS)
+        run: set -o pipefail && xcodebuild test -project NYCSurvive.xcodeproj -scheme NYCSurvive -destination 'platform=macOS' -only-testing:SimTests CODE_SIGNING_ALLOWED=NO 2>&1 | grep -E 'error:|failed|Executed|TEST'
+      # The native game must stay winnable: the bot plays it headless to victory or the job fails.
+      - name: Headless playthrough
+        run: sh scripts/playthrough.sh 120
+
+  docs:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: README file references aren't stale
+        run: |
+          python3 - <<'PY'
+          import re, os, sys
+          refs = re.findall(r'(?:src="|\]\()([^")#?\s]+)', open("README.md").read())
+          bad = [r for r in refs if "://" not in r and not r.startswith(("mailto:", "/")) and not os.path.exists(r)]
+          print("stale README refs:", bad)
+          sys.exit(bool(bad))
+          PY

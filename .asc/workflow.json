@@ -1,0 +1,43 @@
+// Release automation. Run: asc workflow run ship-ios VERSION:x.y.z   |   asc workflow run ship-mac VERSION:x.y.z BUILD:$(date +%Y%m%d%H%M)  (set whatsNew on the MAC_OS version before submit)
+{
+  "env": {
+    "IOS_APP_ID": "6782618198",
+    "VERSION": "",
+    "BUILD": "",
+    "SUBMIT": "true"
+  },
+  "before_all": "asc auth status",
+  "workflows": {
+    "ship-mac": {
+      "description": "Archive, export pkg, upload, submit macOS (asc xcode export only writes ipa, so raw xcodebuild)",
+      "steps": [
+        { "name": "archive", "run": "xcodebuild archive -project NYCSurvive.xcodeproj -scheme NYCSurvive -destination 'generic/platform=macOS' -archivePath .asc/artifacts/NYCSurvive-mac.xcarchive -allowProvisioningUpdates MARKETING_VERSION=$VERSION CURRENT_PROJECT_VERSION=$BUILD | tail -3" },
+        { "name": "export", "run": "rm -rf .asc/artifacts/mac-export && xcodebuild -exportArchive -archivePath .asc/artifacts/NYCSurvive-mac.xcarchive -exportOptionsPlist ExportOptions.plist -exportPath .asc/artifacts/mac-export -allowProvisioningUpdates | tail -3 && ls .asc/artifacts/mac-export" },
+        { "name": "upload", "run": "asc publish appstore --app $IOS_APP_ID --pkg \"$(ls .asc/artifacts/mac-export/*.pkg)\" --version $VERSION --build-number $BUILD --wait --output json" },
+        { "name": "submit", "if": "SUBMIT", "run": "asc review submit --app $IOS_APP_ID --platform MAC_OS --version $VERSION --confirm --output json" }
+      ]
+    },
+    "ship-ios": {
+      "description": "Bump, archive, upload, submit iOS",
+      "steps": [
+        {
+          "name": "bump",
+          "run": "asc xcode version edit --version \"$VERSION\" --build-number \"$(date +%Y%m%d%H%M)\""
+        },
+        {
+          "name": "archive",
+          "run": "asc xcode archive --project NYCSurvive.xcodeproj --scheme NYCSurvive-iOS --archive-path .asc/artifacts/NYCSurvive.xcarchive --overwrite --xcodebuild-flag=-skipPackagePluginValidation --xcodebuild-flag=-allowProvisioningUpdates --output json"
+        },
+        {
+          "name": "export",
+          "run": "asc xcode export --archive-path .asc/artifacts/NYCSurvive.xcarchive --export-options .asc/ExportOptions-iOS.plist --xcodebuild-flag=-allowProvisioningUpdates --overwrite --ipa-path .asc/artifacts/NYCSurvive.ipa --output json"
+        },
+        {
+          "name": "publish",
+          "if": "SUBMIT",
+          "run": "asc publish appstore --app $IOS_APP_ID --ipa .asc/artifacts/NYCSurvive.ipa --version $VERSION --wait --submit --confirm --output json"
+        }
+      ]
+    }
+  }
+}

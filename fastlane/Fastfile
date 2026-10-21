@@ -1,0 +1,26 @@
+default_platform(:mac)
+
+platform :mac do
+  desc "Build and upload a macOS TestFlight beta"
+  lane :mac_beta do
+    app_store_connect_api_key(
+      key_id: "MUJM3PFMT4",
+      issuer_id: "56091958-7499-4e11-b1e6-a101531bcb26",
+      key_filepath: File.expand_path("~/.appstoreconnect/private_keys/AuthKey_MUJM3PFMT4.p8")
+    )
+    produce(
+      app_identifier: "com.heyitsmejosh.nyc",
+      app_name: "NYC Survive",
+      platform: "osx",
+      skip_itc: false
+    )
+    sh("cd .. && xcodegen generate")
+    gym(
+      scheme: "NYCSurvive",
+      export_method: "app-store",
+      xcargs: "-allowProvisioningUpdates",
+      clean: true
+    )
+    pilot(skip_waiting_for_build_processing: true)
+  end
+end

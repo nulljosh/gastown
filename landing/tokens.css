@@ -1,0 +1,64 @@
+/* NYC Survive design tokens, same system as the Hermes landing: 8 point grid, one radius set, 48 point capsule controls.
+   The brand blue (brand/tokens.css) is the only colour NYC owns. Light #3d7bff, deep #0b2f8a. */
+@font-face { font-family: "NYC Sans"; src: url("fonts/NYCSans-Regular.woff2") format("woff2"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "NYC Sans"; src: url("fonts/NYCSans-Medium.woff2") format("woff2"); font-weight: 500; font-display: swap; }
+@font-face { font-family: "NYC Sans"; src: url("fonts/NYCSans-Semibold.woff2") format("woff2"); font-weight: 600; font-display: swap; }
+@font-face { font-family: "NYC Sans"; src: url("fonts/NYCSans-Bold.woff2") format("woff2"); font-weight: 700; font-display: swap; }
+/* NYC Display: Antonio (SIL OFL 1.1, fonts/OFL-Antonio.txt), condensed caps for headlines and labels only */
+@font-face { font-family: "NYC Display"; src: url("fonts/NYCDisplay.woff2") format("woff2"); font-weight: 100 700; font-display: swap; }
+
+:root {
+  /* colour */
+  --accent: #0b2f8a;          /* actions and links; deep brand blue, AA on paper */
+  --accent-light: #3d7bff;    /* icon gradient top */
+  --accent-deep: #0b2f8a;     /* icon gradient bottom */
+  --btn: #0b2f8a;             /* solid buttons, white label */
+  --frame: #0b2f8a;           /* the thin frame down the window edges */
+  --band: #0b2f8a;            /* full-bleed blue sections */
+  --band-sub: #d6e0fa;        /* secondary text on the band, AA */
+  --band-art: #7ea3ff;        /* halftone photographs on the band */
+  --band-line: rgba(255, 255, 255, .22);
+  --ring: color-mix(in srgb, var(--accent) 30%, transparent);
+  --bg: #ffffff;
+  --surface: #f5f5f7;
+  --line: #d2d2d7;
+  --text: #1d1d1f;
+  --sub: #5f5f66;
+
+  /* type */
+  --display: "NYC Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font: "NYC Sans", -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --size-body: 17px;          /* 24 line */
+  --size-footnote: 13px;      /* 16 line */
+
+  /* space: the 8 point grid */
+  --sp-1: 4px; --sp-2: 8px; --sp-3: 12px; --sp-4: 16px; --sp-5: 24px; --sp-6: 32px; --sp-7: 48px; --sp-8: 64px; --sp-9: 96px;
+  --measure: 680px;
+  --wrap: 1120px;
+
+  /* shape */
+  --control: 48px;
+  --r-card: 28px;
+  --r-group: 20px;
+  --r-pill: 999px;
+  --r-sq: 2px;                /* landing buttons and panels */
+  --r-icon: 22.5%;
+  --motion: .2s ease;
+  color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --accent: #6c9bff;
+    --btn: #2a63e9;
+    --frame: #2a63e9;
+    --band: #0b2f8a;
+    --band-sub: #c9d6fb;
+    --band-art: #6f98ff;
+    --bg: #05070d;            /* near black, a breath of blue */
+    --surface: #10131c;
+    --line: #272c3a;
+    --text: #f5f5f7;
+    --sub: #a4a9b8;
+  }
+}

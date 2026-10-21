@@ -1,0 +1,866 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0125D98FB867ABBA2EA07631 /* HUDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D1B1D1E59674A173FAA173 /* HUDView.swift */; };
+		02E912E443029E820A236664 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726C54789E79556FA1775A89 /* AudioManager.swift */; };
+		0533C0DDB2BF863D83D26D0E /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB8E59CA64AAC68D9271EFF /* Resource.swift */; };
+		06D7CDEA381E2375B7943E58 /* SaveManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064B2AEBC8EAAE1BD24D5090 /* SaveManager.swift */; };
+		11EDDE9FBC8406B9E057053B /* NYCSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 410EFC97AB98A89269730A5E /* NYCSans-Bold.ttf */; };
+		12317B05F72B5D21DB6F24B1 /* NeedsSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F36295B5CB23AA72E528580 /* NeedsSystem.swift */; };
+		1575F6671F020DF66AEAEEC0 /* TileMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDE73063F75A3FD12AD3EB7 /* TileMap.swift */; };
+		15B4DE22C8F1FA600AF28F8A /* BuildSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0852054F2EBE0F76F774C060 /* BuildSystem.swift */; };
+		1DF548495BD7C2560FD34A71 /* NYCSans-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0FB190203D3A390A7BF038B7 /* NYCSans-Semibold.ttf */; };
+		1F2A4D0D13E767C09E4E969C /* GameScene+Backdrop.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24F138BF1AA03A7B2527E46 /* GameScene+Backdrop.swift */; };
+		252E698CE926883069074DBB /* BuildMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0544F474728B842695609312 /* BuildMenu.swift */; };
+		2599EFAB00A46E953D8641FC /* WorldGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D702C1A87282719DA4F0199 /* WorldGenerator.swift */; };
+		25E31E8C73E217531187C35A /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D9BBA495724A89451770D3 /* GameScene.swift */; };
+		288073BBD72C9F2AE3239674 /* NYCSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D74D0A0073C8CEE768991583 /* NYCSans-Regular.ttf */; };
+		2A35A16DA43D06FC618F833A /* NYCSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 410EFC97AB98A89269730A5E /* NYCSans-Bold.ttf */; };
+		2BC6F313EC3A0A29A9DB9921 /* Building.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0D7149C43BC846540B8E3C /* Building.swift */; };
+		2DAFE8EB0D7D122AAFA98BED /* TimeSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C698EA5D829B3189276D26 /* TimeSystem.swift */; };
+		2F37EBB862C45114CBAF8327 /* TileMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDE73063F75A3FD12AD3EB7 /* TileMap.swift */; };
+		2FFE462F497A5E7AC2767511 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D9BBA495724A89451770D3 /* GameScene.swift */; };
+		3219F3B03FF203FEA6A75202 /* NYCSurvive.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = 6917EAE44C0DC835136B5B42 /* NYCSurvive.entitlements */; };
+		33BDF5438AE0765E5D9BA621 /* MiniMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222B6FD5D7525CD8EB9A406E /* MiniMap.swift */; };
+		34AF3DA028D941BFDBF97B73 /* View+Glass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31054374AC2BC83D3D7B8BC /* View+Glass.swift */; };
+		3688634442DCC70157180613 /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A62DD5F691C3480F2FA3607 /* GameState.swift */; };
+		3BA2869689D89410C64D7B02 /* TimeSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C698EA5D829B3189276D26 /* TimeSystem.swift */; };
+		41C57ED1757B8A63A7F95D51 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB8E59CA64AAC68D9271EFF /* Resource.swift */; };
+		432FBB8AC41D437F48338CF7 /* CameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380E49196451FA445E2A4065 /* CameraController.swift */; };
+		51EA4AAB8B7CC152979ABD99 /* NYCSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 87701C84880BE1ABE2AE9C75 /* NYCSans-Medium.ttf */; };
+		55BC393E63ADD5A2210D79B4 /* ResourceBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3224EDEB15BF7951F877AF /* ResourceBar.swift */; };
+		57799C6F239B6A84280E397A /* ColonistPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8901915C46094E3EDCDC97 /* ColonistPanel.swift */; };
+		59DCD599448B559FB3025057 /* ResourceBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3224EDEB15BF7951F877AF /* ResourceBar.swift */; };
+		5C005AAD2340C58ED42FFC30 /* BuildSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0852054F2EBE0F76F774C060 /* BuildSystem.swift */; };
+		5CDF9391D482743E373781EB /* TileType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6AA4E11E5678AB148203FC /* TileType.swift */; };
+		61E1F8CE1340FF26D472D25F /* ColonistPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8901915C46094E3EDCDC97 /* ColonistPanel.swift */; };
+		6622D5920C7BADC24CD17360 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00038E1B47DA09A0EEF5B3C4 /* Assets.xcassets */; };
+		66482FEC69E9275292997B8A /* JobSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDEEE672F22D8FEEA9446954 /* JobSystem.swift */; };
+		6EC0624E3D9689B1973CA7D9 /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5691499E000399842B3CB30D /* TutorialView.swift */; };
+		74D09F31FE4A8199A28ADAEE /* ColonistModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE4C6EF54870683E05DBBAD /* ColonistModel.swift */; };
+		74F87CE8CB27A9222EA5E49E /* Info-iOS.plist in Resources */ = {isa = PBXBuildFile; fileRef = 83D293A5A28FB06742D243FD /* Info-iOS.plist */; };
+		755E64EF3E8C152DA8392330 /* NYC.icon in Resources */ = {isa = PBXBuildFile; fileRef = 72EEA1E52E12E0797D065E95 /* NYC.icon */; };
+		7B908715020063DECC3F5B9B /* NYCSurviveApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5248EB39603E63F3224EEF /* NYCSurviveApp.swift */; };
+		7C9E43DB43314CB3BB1421DE /* Info-iOS.plist in Resources */ = {isa = PBXBuildFile; fileRef = 83D293A5A28FB06742D243FD /* Info-iOS.plist */; };
+		7E0AF68DC69D73953628CFD0 /* NYCSurviveApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA3839862AB73E3B0E324B9 /* NYCSurviveApp.swift */; };
+		8307599784B3621D2A6DF7F8 /* CameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380E49196451FA445E2A4065 /* CameraController.swift */; };
+		83AB16F8AF34A29F4B23323B /* BuildingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A4334A20439528230C3EF3 /* BuildingModel.swift */; };
+		841E712E2DFE05930CF91AA6 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502457C288C5D0DB8F2216AF /* Theme.swift */; };
+		8D868B2494A91968A88EAE5C /* InputHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 610539CD021004A7786572C6 /* InputHandler.swift */; };
+		8DFE9E23E6ED2929FD5ACD63 /* Building.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0D7149C43BC846540B8E3C /* Building.swift */; };
+		90E47C3569919EDB7E2CC19B /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 71B9AC6CA07444FD0E0B6F24 /* OFL.txt */; };
+		98AB3F096C5BDF2421035C46 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76C33D384D2910BBCF73190 /* SettingsView.swift */; };
+		98E83FFFC8065BAF00F6DB05 /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 71B9AC6CA07444FD0E0B6F24 /* OFL.txt */; };
+		998CC74E1346C78D1EB7ACA8 /* HUDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D1B1D1E59674A173FAA173 /* HUDView.swift */; };
+		9A27F45B2E54BE052A678994 /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5691499E000399842B3CB30D /* TutorialView.swift */; };
+		9B663A76E454526C753B4A17 /* InputHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 610539CD021004A7786572C6 /* InputHandler.swift */; };
+		9E1055852946B034C217E3AC /* NYCSans-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0FB190203D3A390A7BF038B7 /* NYCSans-Semibold.ttf */; };
+		9F65F2C8D03F85B4005DF138 /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8861DB40895FE71F6960B9A9 /* MenuScene.swift */; };
+		A41D26FBF1F9FB7DFE5A3FEF /* SimTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 326800A355FDC8F9A4F56EBB /* SimTests.swift */; };
+		A5E03C4C185A60DEE7E25B40 /* NYC.icon in Resources */ = {isa = PBXBuildFile; fileRef = 72EEA1E52E12E0797D065E95 /* NYC.icon */; };
+		AA3D993DDA47CA1D50248B38 /* Colonist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E63894AD540CC50808099E /* Colonist.swift */; };
+		AA8258E64167EA55F8DB43E2 /* JobSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDEEE672F22D8FEEA9446954 /* JobSystem.swift */; };
+		AC35C92D99F329E89F25AA67 /* GameScene+Backdrop.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24F138BF1AA03A7B2527E46 /* GameScene+Backdrop.swift */; };
+		B15EE985FE68D1FE40C17708 /* WorldGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D702C1A87282719DA4F0199 /* WorldGenerator.swift */; };
+		B4B741251519E1F30F97C3BB /* Colonist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E63894AD540CC50808099E /* Colonist.swift */; };
+		B7FE208BFCA074C64E2328A5 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76C33D384D2910BBCF73190 /* SettingsView.swift */; };
+		B9FF3F59C06F6C1A0201C9BC /* ResourceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D4AC760E2D96DFF4188FC46 /* ResourceModel.swift */; };
+		BCC38A7FCA272550630C1DA1 /* NYCSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D74D0A0073C8CEE768991583 /* NYCSans-Regular.ttf */; };
+		BFD0CE73B55C0DF6956DAF96 /* ResourceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D4AC760E2D96DFF4188FC46 /* ResourceModel.swift */; };
+		C320495C0AECC20593EECFF4 /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8861DB40895FE71F6960B9A9 /* MenuScene.swift */; };
+		C6AC3284690C6785FA698952 /* NYCSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 87701C84880BE1ABE2AE9C75 /* NYCSans-Medium.ttf */; };
+		CA4613773EB3532475515757 /* ResourceSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB59C23D94F770C687F4E5AE /* ResourceSystem.swift */; };
+		D2EC101C1DBDF2F469D401E5 /* BuildingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A4334A20439528230C3EF3 /* BuildingModel.swift */; };
+		D30D1CD10A86D7D04C14AE15 /* NeedsSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F36295B5CB23AA72E528580 /* NeedsSystem.swift */; };
+		D3401169DDD10E5C7E48E801 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00038E1B47DA09A0EEF5B3C4 /* Assets.xcassets */; };
+		D45CA62ABCC9D812C430AF5B /* TileType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6AA4E11E5678AB148203FC /* TileType.swift */; };
+		DAC697A0FD3C0DDE860DFCD5 /* ResourceSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB59C23D94F770C687F4E5AE /* ResourceSystem.swift */; };
+		DC93431BF3A4429D8C228719 /* Pathfinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E4A32F1DC7BC7E89470C44 /* Pathfinder.swift */; };
+		E2C1C255FE41FF9142D2801B /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502457C288C5D0DB8F2216AF /* Theme.swift */; };
+		E325EA73F25635D7DAF20A02 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726C54789E79556FA1775A89 /* AudioManager.swift */; };
+		E4F3967534862056D528945D /* NYCSurvive.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = 6917EAE44C0DC835136B5B42 /* NYCSurvive.entitlements */; };
+		F13FF7708B9A5BAD5BDCCA7B /* Pathfinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E4A32F1DC7BC7E89470C44 /* Pathfinder.swift */; };
+		F7DE54BD562CAE78DDC8B997 /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A62DD5F691C3480F2FA3607 /* GameState.swift */; };
+		F7E112B33420143AC3A24BF3 /* ColonistModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE4C6EF54870683E05DBBAD /* ColonistModel.swift */; };
+		F8C4900DE5ECFB8B28A9B56F /* View+Glass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31054374AC2BC83D3D7B8BC /* View+Glass.swift */; };
+		FA62B878417B239715A57AE0 /* BuildMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0544F474728B842695609312 /* BuildMenu.swift */; };
+		FB2E35CB352E0CF777B5D3DF /* MiniMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222B6FD5D7525CD8EB9A406E /* MiniMap.swift */; };
+		FC42B363B48C0913038F4412 /* SaveManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064B2AEBC8EAAE1BD24D5090 /* SaveManager.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A6D2CC68FAF5AD9A080443AB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4A87CB692FFFE6ECAA358F80 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B7CC07D8E63A5AD9166C1057;
+			remoteInfo = NYCSurvive;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		00038E1B47DA09A0EEF5B3C4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0544F474728B842695609312 /* BuildMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildMenu.swift; sourceTree = "<group>"; };
+		064B2AEBC8EAAE1BD24D5090 /* SaveManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveManager.swift; sourceTree = "<group>"; };
+		06E63894AD540CC50808099E /* Colonist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colonist.swift; sourceTree = "<group>"; };
+		0852054F2EBE0F76F774C060 /* BuildSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildSystem.swift; sourceTree = "<group>"; };
+		0FB190203D3A390A7BF038B7 /* NYCSans-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NYCSans-Semibold.ttf"; sourceTree = "<group>"; };
+		12C698EA5D829B3189276D26 /* TimeSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSystem.swift; sourceTree = "<group>"; };
+		1E3224EDEB15BF7951F877AF /* ResourceBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceBar.swift; sourceTree = "<group>"; };
+		20D1B1D1E59674A173FAA173 /* HUDView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDView.swift; sourceTree = "<group>"; };
+		222B6FD5D7525CD8EB9A406E /* MiniMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniMap.swift; sourceTree = "<group>"; };
+		2FDE73063F75A3FD12AD3EB7 /* TileMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileMap.swift; sourceTree = "<group>"; };
+		326800A355FDC8F9A4F56EBB /* SimTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimTests.swift; sourceTree = "<group>"; };
+		380E49196451FA445E2A4065 /* CameraController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraController.swift; sourceTree = "<group>"; };
+		410EFC97AB98A89269730A5E /* NYCSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NYCSans-Bold.ttf"; sourceTree = "<group>"; };
+		4F36295B5CB23AA72E528580 /* NeedsSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeedsSystem.swift; sourceTree = "<group>"; };
+		502457C288C5D0DB8F2216AF /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		5691499E000399842B3CB30D /* TutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
+		5D702C1A87282719DA4F0199 /* WorldGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldGenerator.swift; sourceTree = "<group>"; };
+		610539CD021004A7786572C6 /* InputHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputHandler.swift; sourceTree = "<group>"; };
+		62A4334A20439528230C3EF3 /* BuildingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingModel.swift; sourceTree = "<group>"; };
+		68E4A32F1DC7BC7E89470C44 /* Pathfinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pathfinder.swift; sourceTree = "<group>"; };
+		6917EAE44C0DC835136B5B42 /* NYCSurvive.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NYCSurvive.entitlements; sourceTree = "<group>"; };
+		6D4AC760E2D96DFF4188FC46 /* ResourceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceModel.swift; sourceTree = "<group>"; };
+		71B9AC6CA07444FD0E0B6F24 /* OFL.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
+		726C54789E79556FA1775A89 /* AudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
+		72EEA1E52E12E0797D065E95 /* NYC.icon */ = {isa = PBXFileReference; lastKnownFileType = wrapper.icon; path = NYC.icon; sourceTree = "<group>"; };
+		7D6AA4E11E5678AB148203FC /* TileType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileType.swift; sourceTree = "<group>"; };
+		83D293A5A28FB06742D243FD /* Info-iOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Info-iOS.plist"; sourceTree = "<group>"; };
+		87701C84880BE1ABE2AE9C75 /* NYCSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NYCSans-Medium.ttf"; sourceTree = "<group>"; };
+		8861DB40895FE71F6960B9A9 /* MenuScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuScene.swift; sourceTree = "<group>"; };
+		8CB8E59CA64AAC68D9271EFF /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
+		9A62DD5F691C3480F2FA3607 /* GameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
+		9A8901915C46094E3EDCDC97 /* ColonistPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColonistPanel.swift; sourceTree = "<group>"; };
+		9BC89A5D14CAC050651CD5A4 /* NYCSurvive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NYCSurvive.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A443DADC44485D41E97E8B3B /* NYCSurvive-iOS.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = "NYCSurvive-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB59C23D94F770C687F4E5AE /* ResourceSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceSystem.swift; sourceTree = "<group>"; };
+		AE0D7149C43BC846540B8E3C /* Building.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Building.swift; sourceTree = "<group>"; };
+		B24F138BF1AA03A7B2527E46 /* GameScene+Backdrop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GameScene+Backdrop.swift"; sourceTree = "<group>"; };
+		BDEEE672F22D8FEEA9446954 /* JobSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobSystem.swift; sourceTree = "<group>"; };
+		BEA3839862AB73E3B0E324B9 /* NYCSurviveApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NYCSurviveApp.swift; sourceTree = "<group>"; };
+		C31054374AC2BC83D3D7B8BC /* View+Glass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Glass.swift"; sourceTree = "<group>"; };
+		D74D0A0073C8CEE768991583 /* NYCSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NYCSans-Regular.ttf"; sourceTree = "<group>"; };
+		D76C33D384D2910BBCF73190 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		EDE4C6EF54870683E05DBBAD /* ColonistModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColonistModel.swift; sourceTree = "<group>"; };
+		F0D9BBA495724A89451770D3 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		FB709F579DC45B3586C45EF7 /* SimTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SimTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FC5248EB39603E63F3224EEF /* NYCSurviveApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NYCSurviveApp.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		2354251DD85EFBAF6A1DE613 = {
+			isa = PBXGroup;
+			children = (
+				72EEA1E52E12E0797D065E95 /* NYC.icon */,
+				70FA75D225DB9321F2166DC8 /* AppiOS */,
+				ED2ACC04C70BB8F618FE0240 /* Resources */,
+				64909640FCD1621C40B39D1E /* Sources */,
+				E8D26DCD4736D8D6969D96AE /* Tests */,
+				C8D8875CABA6185458F35A4C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		37A188B0FE02E31770913798 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				AE0D7149C43BC846540B8E3C /* Building.swift */,
+				06E63894AD540CC50808099E /* Colonist.swift */,
+				8CB8E59CA64AAC68D9271EFF /* Resource.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		61C9D433BA5EF47AC16815EC /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				410EFC97AB98A89269730A5E /* NYCSans-Bold.ttf */,
+				87701C84880BE1ABE2AE9C75 /* NYCSans-Medium.ttf */,
+				D74D0A0073C8CEE768991583 /* NYCSans-Regular.ttf */,
+				0FB190203D3A390A7BF038B7 /* NYCSans-Semibold.ttf */,
+				71B9AC6CA07444FD0E0B6F24 /* OFL.txt */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		64909640FCD1621C40B39D1E /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				6E02123C63EB2174529552A3 /* App */,
+				C9935306A7900977E63AF650 /* Audio */,
+				6754911219067B5DE6201942 /* Game */,
+				A1D91D118CB28E6C6E6B79BF /* HUD */,
+				7D12D51D09098D9679EC1F3B /* Models */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		6754911219067B5DE6201942 /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				E83DED57EDCE870ECDC81088 /* Camera */,
+				37A188B0FE02E31770913798 /* Entities */,
+				B07930FF4969B86EC15247B9 /* Input */,
+				6B9DEA5490F9E701A3F6830F /* Scenes */,
+				72F43914161932DFFB6901DB /* Systems */,
+				FAB82C4AD19E892175685754 /* World */,
+			);
+			path = Game;
+			sourceTree = "<group>";
+		};
+		6B9DEA5490F9E701A3F6830F /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				F0D9BBA495724A89451770D3 /* GameScene.swift */,
+				B24F138BF1AA03A7B2527E46 /* GameScene+Backdrop.swift */,
+				8861DB40895FE71F6960B9A9 /* MenuScene.swift */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		6E02123C63EB2174529552A3 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				FC5248EB39603E63F3224EEF /* NYCSurviveApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		70FA75D225DB9321F2166DC8 /* AppiOS */ = {
+			isa = PBXGroup;
+			children = (
+				BEA3839862AB73E3B0E324B9 /* NYCSurviveApp.swift */,
+			);
+			name = AppiOS;
+			path = Sources/AppiOS;
+			sourceTree = "<group>";
+		};
+		72F43914161932DFFB6901DB /* Systems */ = {
+			isa = PBXGroup;
+			children = (
+				0852054F2EBE0F76F774C060 /* BuildSystem.swift */,
+				BDEEE672F22D8FEEA9446954 /* JobSystem.swift */,
+				4F36295B5CB23AA72E528580 /* NeedsSystem.swift */,
+				68E4A32F1DC7BC7E89470C44 /* Pathfinder.swift */,
+				AB59C23D94F770C687F4E5AE /* ResourceSystem.swift */,
+				12C698EA5D829B3189276D26 /* TimeSystem.swift */,
+			);
+			path = Systems;
+			sourceTree = "<group>";
+		};
+		7D12D51D09098D9679EC1F3B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				62A4334A20439528230C3EF3 /* BuildingModel.swift */,
+				EDE4C6EF54870683E05DBBAD /* ColonistModel.swift */,
+				9A62DD5F691C3480F2FA3607 /* GameState.swift */,
+				6D4AC760E2D96DFF4188FC46 /* ResourceModel.swift */,
+				064B2AEBC8EAAE1BD24D5090 /* SaveManager.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A1D91D118CB28E6C6E6B79BF /* HUD */ = {
+			isa = PBXGroup;
+			children = (
+				0544F474728B842695609312 /* BuildMenu.swift */,
+				9A8901915C46094E3EDCDC97 /* ColonistPanel.swift */,
+				20D1B1D1E59674A173FAA173 /* HUDView.swift */,
+				222B6FD5D7525CD8EB9A406E /* MiniMap.swift */,
+				1E3224EDEB15BF7951F877AF /* ResourceBar.swift */,
+				D76C33D384D2910BBCF73190 /* SettingsView.swift */,
+				502457C288C5D0DB8F2216AF /* Theme.swift */,
+				5691499E000399842B3CB30D /* TutorialView.swift */,
+				C31054374AC2BC83D3D7B8BC /* View+Glass.swift */,
+			);
+			path = HUD;
+			sourceTree = "<group>";
+		};
+		B07930FF4969B86EC15247B9 /* Input */ = {
+			isa = PBXGroup;
+			children = (
+				610539CD021004A7786572C6 /* InputHandler.swift */,
+			);
+			path = Input;
+			sourceTree = "<group>";
+		};
+		C8D8875CABA6185458F35A4C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A443DADC44485D41E97E8B3B /* NYCSurvive-iOS.app */,
+				9BC89A5D14CAC050651CD5A4 /* NYCSurvive.app */,
+				FB709F579DC45B3586C45EF7 /* SimTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C9935306A7900977E63AF650 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				726C54789E79556FA1775A89 /* AudioManager.swift */,
+			);
+			path = Audio;
+			sourceTree = "<group>";
+		};
+		E83DED57EDCE870ECDC81088 /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				380E49196451FA445E2A4065 /* CameraController.swift */,
+			);
+			path = Camera;
+			sourceTree = "<group>";
+		};
+		E8D26DCD4736D8D6969D96AE /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				326800A355FDC8F9A4F56EBB /* SimTests.swift */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		ED2ACC04C70BB8F618FE0240 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				00038E1B47DA09A0EEF5B3C4 /* Assets.xcassets */,
+				83D293A5A28FB06742D243FD /* Info-iOS.plist */,
+				6917EAE44C0DC835136B5B42 /* NYCSurvive.entitlements */,
+				61C9D433BA5EF47AC16815EC /* Fonts */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		FAB82C4AD19E892175685754 /* World */ = {
+			isa = PBXGroup;
+			children = (
+				2FDE73063F75A3FD12AD3EB7 /* TileMap.swift */,
+				7D6AA4E11E5678AB148203FC /* TileType.swift */,
+				5D702C1A87282719DA4F0199 /* WorldGenerator.swift */,
+			);
+			path = World;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		19E4A0207895D5F88219F50D /* SimTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8E146C4DFE3C452D990ED1F3 /* Build configuration list for PBXNativeTarget "SimTests" */;
+			buildPhases = (
+				C4BFAAD6201399076DA7F2F9 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5DCB771E1D41894B021ADBDE /* PBXTargetDependency */,
+			);
+			name = SimTests;
+			packageProductDependencies = (
+			);
+			productName = SimTests;
+			productReference = FB709F579DC45B3586C45EF7 /* SimTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		3DAA67B56A29D5649B0B82BF /* NYCSurvive-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D9EA7720F892C1C597DF3885 /* Build configuration list for PBXNativeTarget "NYCSurvive-iOS" */;
+			buildPhases = (
+				32C5899A572CB1C869BC4488 /* Sources */,
+				B6EC325CC1487C382F65C9DA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "NYCSurvive-iOS";
+			packageProductDependencies = (
+			);
+			productName = "NYCSurvive-iOS";
+			productReference = A443DADC44485D41E97E8B3B /* NYCSurvive-iOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B7CC07D8E63A5AD9166C1057 /* NYCSurvive */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ED2892CE9F3AAB5244CDD3F9 /* Build configuration list for PBXNativeTarget "NYCSurvive" */;
+			buildPhases = (
+				0D5D3C16FF9D6337324CBB91 /* Sources */,
+				E0A9B4E0ECDE5B0657250EA8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NYCSurvive;
+			packageProductDependencies = (
+			);
+			productName = NYCSurvive;
+			productReference = 9BC89A5D14CAC050651CD5A4 /* NYCSurvive.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4A87CB692FFFE6ECAA358F80 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					19E4A0207895D5F88219F50D = {
+						DevelopmentTeam = QMM486NPYC;
+					};
+					3DAA67B56A29D5649B0B82BF = {
+						DevelopmentTeam = QMM486NPYC;
+					};
+					B7CC07D8E63A5AD9166C1057 = {
+						DevelopmentTeam = QMM486NPYC;
+					};
+				};
+			};
+			buildConfigurationList = 2BD50CDA7BC94400658F0B5D /* Build configuration list for PBXProject "NYCSurvive" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 2354251DD85EFBAF6A1DE613;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = C8D8875CABA6185458F35A4C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B7CC07D8E63A5AD9166C1057 /* NYCSurvive */,
+				3DAA67B56A29D5649B0B82BF /* NYCSurvive-iOS */,
+				19E4A0207895D5F88219F50D /* SimTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B6EC325CC1487C382F65C9DA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6622D5920C7BADC24CD17360 /* Assets.xcassets in Resources */,
+				7C9E43DB43314CB3BB1421DE /* Info-iOS.plist in Resources */,
+				755E64EF3E8C152DA8392330 /* NYC.icon in Resources */,
+				2A35A16DA43D06FC618F833A /* NYCSans-Bold.ttf in Resources */,
+				C6AC3284690C6785FA698952 /* NYCSans-Medium.ttf in Resources */,
+				BCC38A7FCA272550630C1DA1 /* NYCSans-Regular.ttf in Resources */,
+				9E1055852946B034C217E3AC /* NYCSans-Semibold.ttf in Resources */,
+				E4F3967534862056D528945D /* NYCSurvive.entitlements in Resources */,
+				98E83FFFC8065BAF00F6DB05 /* OFL.txt in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E0A9B4E0ECDE5B0657250EA8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D3401169DDD10E5C7E48E801 /* Assets.xcassets in Resources */,
+				74F87CE8CB27A9222EA5E49E /* Info-iOS.plist in Resources */,
+				A5E03C4C185A60DEE7E25B40 /* NYC.icon in Resources */,
+				11EDDE9FBC8406B9E057053B /* NYCSans-Bold.ttf in Resources */,
+				51EA4AAB8B7CC152979ABD99 /* NYCSans-Medium.ttf in Resources */,
+				288073BBD72C9F2AE3239674 /* NYCSans-Regular.ttf in Resources */,
+				1DF548495BD7C2560FD34A71 /* NYCSans-Semibold.ttf in Resources */,
+				3219F3B03FF203FEA6A75202 /* NYCSurvive.entitlements in Resources */,
+				90E47C3569919EDB7E2CC19B /* OFL.txt in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0D5D3C16FF9D6337324CBB91 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E325EA73F25635D7DAF20A02 /* AudioManager.swift in Sources */,
+				252E698CE926883069074DBB /* BuildMenu.swift in Sources */,
+				15B4DE22C8F1FA600AF28F8A /* BuildSystem.swift in Sources */,
+				2BC6F313EC3A0A29A9DB9921 /* Building.swift in Sources */,
+				83AB16F8AF34A29F4B23323B /* BuildingModel.swift in Sources */,
+				432FBB8AC41D437F48338CF7 /* CameraController.swift in Sources */,
+				AA3D993DDA47CA1D50248B38 /* Colonist.swift in Sources */,
+				F7E112B33420143AC3A24BF3 /* ColonistModel.swift in Sources */,
+				57799C6F239B6A84280E397A /* ColonistPanel.swift in Sources */,
+				AC35C92D99F329E89F25AA67 /* GameScene+Backdrop.swift in Sources */,
+				25E31E8C73E217531187C35A /* GameScene.swift in Sources */,
+				F7DE54BD562CAE78DDC8B997 /* GameState.swift in Sources */,
+				998CC74E1346C78D1EB7ACA8 /* HUDView.swift in Sources */,
+				9B663A76E454526C753B4A17 /* InputHandler.swift in Sources */,
+				66482FEC69E9275292997B8A /* JobSystem.swift in Sources */,
+				C320495C0AECC20593EECFF4 /* MenuScene.swift in Sources */,
+				FB2E35CB352E0CF777B5D3DF /* MiniMap.swift in Sources */,
+				7B908715020063DECC3F5B9B /* NYCSurviveApp.swift in Sources */,
+				D30D1CD10A86D7D04C14AE15 /* NeedsSystem.swift in Sources */,
+				DC93431BF3A4429D8C228719 /* Pathfinder.swift in Sources */,
+				0533C0DDB2BF863D83D26D0E /* Resource.swift in Sources */,
+				55BC393E63ADD5A2210D79B4 /* ResourceBar.swift in Sources */,
+				BFD0CE73B55C0DF6956DAF96 /* ResourceModel.swift in Sources */,
+				DAC697A0FD3C0DDE860DFCD5 /* ResourceSystem.swift in Sources */,
+				FC42B363B48C0913038F4412 /* SaveManager.swift in Sources */,
+				98AB3F096C5BDF2421035C46 /* SettingsView.swift in Sources */,
+				841E712E2DFE05930CF91AA6 /* Theme.swift in Sources */,
+				1575F6671F020DF66AEAEEC0 /* TileMap.swift in Sources */,
+				5CDF9391D482743E373781EB /* TileType.swift in Sources */,
+				3BA2869689D89410C64D7B02 /* TimeSystem.swift in Sources */,
+				9A27F45B2E54BE052A678994 /* TutorialView.swift in Sources */,
+				F8C4900DE5ECFB8B28A9B56F /* View+Glass.swift in Sources */,
+				B15EE985FE68D1FE40C17708 /* WorldGenerator.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		32C5899A572CB1C869BC4488 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				02E912E443029E820A236664 /* AudioManager.swift in Sources */,
+				FA62B878417B239715A57AE0 /* BuildMenu.swift in Sources */,
+				5C005AAD2340C58ED42FFC30 /* BuildSystem.swift in Sources */,
+				8DFE9E23E6ED2929FD5ACD63 /* Building.swift in Sources */,
+				D2EC101C1DBDF2F469D401E5 /* BuildingModel.swift in Sources */,
+				8307599784B3621D2A6DF7F8 /* CameraController.swift in Sources */,
+				B4B741251519E1F30F97C3BB /* Colonist.swift in Sources */,
+				74D09F31FE4A8199A28ADAEE /* ColonistModel.swift in Sources */,
+				61E1F8CE1340FF26D472D25F /* ColonistPanel.swift in Sources */,
+				1F2A4D0D13E767C09E4E969C /* GameScene+Backdrop.swift in Sources */,
+				2FFE462F497A5E7AC2767511 /* GameScene.swift in Sources */,
+				3688634442DCC70157180613 /* GameState.swift in Sources */,
+				0125D98FB867ABBA2EA07631 /* HUDView.swift in Sources */,
+				8D868B2494A91968A88EAE5C /* InputHandler.swift in Sources */,
+				AA8258E64167EA55F8DB43E2 /* JobSystem.swift in Sources */,
+				9F65F2C8D03F85B4005DF138 /* MenuScene.swift in Sources */,
+				33BDF5438AE0765E5D9BA621 /* MiniMap.swift in Sources */,
+				7E0AF68DC69D73953628CFD0 /* NYCSurviveApp.swift in Sources */,
+				12317B05F72B5D21DB6F24B1 /* NeedsSystem.swift in Sources */,
+				F13FF7708B9A5BAD5BDCCA7B /* Pathfinder.swift in Sources */,
+				41C57ED1757B8A63A7F95D51 /* Resource.swift in Sources */,
+				59DCD599448B559FB3025057 /* ResourceBar.swift in Sources */,
+				B9FF3F59C06F6C1A0201C9BC /* ResourceModel.swift in Sources */,
+				CA4613773EB3532475515757 /* ResourceSystem.swift in Sources */,
+				06D7CDEA381E2375B7943E58 /* SaveManager.swift in Sources */,
+				B7FE208BFCA074C64E2328A5 /* SettingsView.swift in Sources */,
+				E2C1C255FE41FF9142D2801B /* Theme.swift in Sources */,
+				2F37EBB862C45114CBAF8327 /* TileMap.swift in Sources */,
+				D45CA62ABCC9D812C430AF5B /* TileType.swift in Sources */,
+				2DAFE8EB0D7D122AAFA98BED /* TimeSystem.swift in Sources */,
+				6EC0624E3D9689B1973CA7D9 /* TutorialView.swift in Sources */,
+				34AF3DA028D941BFDBF97B73 /* View+Glass.swift in Sources */,
+				2599EFAB00A46E953D8641FC /* WorldGenerator.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C4BFAAD6201399076DA7F2F9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A41D26FBF1F9FB7DFE5A3FEF /* SimTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5DCB771E1D41894B021ADBDE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B7CC07D8E63A5AD9166C1057 /* NYCSurvive */;
+			targetProxy = A6D2CC68FAF5AD9A080443AB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		2EC68D0458274B65AFA87934 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = NYC;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Resources/Info-iOS.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "NYC Survive";
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.games";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.heyitsmejosh.nyc;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4EB7A04097B481B3FD354E25 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = NYC;
+				CODE_SIGN_ENTITLEMENTS = Resources/NYCSurvive.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "NYC Survive";
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.games";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.heyitsmejosh.nyc;
+				PRODUCT_MODULE_NAME = NYCSurvive;
+				PRODUCT_NAME = "NYC Survive";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		61E5D0C33D4F585A2130014F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = NYC;
+				CODE_SIGN_ENTITLEMENTS = Resources/NYCSurvive.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "NYC Survive";
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.games";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.heyitsmejosh.nyc;
+				PRODUCT_MODULE_NAME = NYCSurvive;
+				PRODUCT_NAME = "NYC Survive";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		6E539E5C295CDD732EEAC691 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.heyitsmejosh.nyc.tests;
+				SDKROOT = macosx;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NYCSurvive.app/Contents/MacOS/NYCSurvive";
+			};
+			name = Debug;
+		};
+		7D3DBD2F515D01BC7A243942 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.heyitsmejosh.nyc.tests;
+				SDKROOT = macosx;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NYCSurvive.app/Contents/MacOS/NYCSurvive";
+			};
+			name = Release;
+		};
+		7EADCD48575637890F250628 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 202610052145;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = QMM486NPYC;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				MARKETING_VERSION = 1.1.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 6.0;
+			};
+			name = Release;
+		};
+		9EEEEE23A89CC032D6126E4D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 202610052145;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = QMM486NPYC;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				MARKETING_VERSION = 1.1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 6.0;
+			};
+			name = Debug;
+		};
+		BFC429A4E73D85BADE94E01C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = NYC;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Resources/Info-iOS.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "NYC Survive";
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.games";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.heyitsmejosh.nyc;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2BD50CDA7BC94400658F0B5D /* Build configuration list for PBXProject "NYCSurvive" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9EEEEE23A89CC032D6126E4D /* Debug */,
+				7EADCD48575637890F250628 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		8E146C4DFE3C452D990ED1F3 /* Build configuration list for PBXNativeTarget "SimTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6E539E5C295CDD732EEAC691 /* Debug */,
+				7D3DBD2F515D01BC7A243942 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		D9EA7720F892C1C597DF3885 /* Build configuration list for PBXNativeTarget "NYCSurvive-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2EC68D0458274B65AFA87934 /* Debug */,
+				BFC429A4E73D85BADE94E01C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		ED2892CE9F3AAB5244CDD3F9 /* Build configuration list for PBXNativeTarget "NYCSurvive" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4EB7A04097B481B3FD354E25 /* Debug */,
+				61E5D0C33D4F585A2130014F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4A87CB692FFFE6ECAA358F80 /* Project object */;
+}

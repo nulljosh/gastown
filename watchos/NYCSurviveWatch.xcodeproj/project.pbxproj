@@ -1,0 +1,344 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1BEA4D31DE7EE3195F075AB3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13F832E9D5F4E30E7D7DFC81 /* Assets.xcassets */; };
+		2F6368DD15F957D6FA42F803 /* BuildingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25DBD4E7CEA9E3AB98B297FD /* BuildingsView.swift */; };
+		4148CA161219F94014691E5F /* NYCSurviveWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6FAAF40F95794F87A72ED6 /* NYCSurviveWatchApp.swift */; };
+		6AC9708A556D5D8121DB2901 /* WeaponsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A2ADEACFA0D27F579E8F6F /* WeaponsView.swift */; };
+		8C8ED6532AF2171D53EF456F /* GameData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BC31A1D42DAE4AC5F8C279 /* GameData.swift */; };
+		9FE7BD12026FD42D0AC81486 /* TraitsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFA9CA75C1F5883BD9263FE /* TraitsView.swift */; };
+		BCD532B7BAE8E70779AE7BD0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF34369F99512751F149A1C /* ContentView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		13F832E9D5F4E30E7D7DFC81 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1B6FAAF40F95794F87A72ED6 /* NYCSurviveWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NYCSurviveWatchApp.swift; sourceTree = "<group>"; };
+		1DF34369F99512751F149A1C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		25DBD4E7CEA9E3AB98B297FD /* BuildingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingsView.swift; sourceTree = "<group>"; };
+		9B94CB82911F835FC5A74C98 /* NYCSurviveWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NYCSurviveWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9DFA9CA75C1F5883BD9263FE /* TraitsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraitsView.swift; sourceTree = "<group>"; };
+		A6BC31A1D42DAE4AC5F8C279 /* GameData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameData.swift; sourceTree = "<group>"; };
+		C3A2ADEACFA0D27F579E8F6F /* WeaponsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeaponsView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		3686D469F09C67108A881F45 /* watchos */ = {
+			isa = PBXGroup;
+			children = (
+				13F832E9D5F4E30E7D7DFC81 /* Assets.xcassets */,
+				1DF34369F99512751F149A1C /* ContentView.swift */,
+				1B6FAAF40F95794F87A72ED6 /* NYCSurviveWatchApp.swift */,
+				55887D325FEB917596DA0C9E /* Models */,
+				A1FDF157112295E8CEC9331C /* Views */,
+			);
+			name = watchos;
+			path = .;
+			sourceTree = "<group>";
+		};
+		55887D325FEB917596DA0C9E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A6BC31A1D42DAE4AC5F8C279 /* GameData.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		5843B8B256EC8481D4CFA64B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9B94CB82911F835FC5A74C98 /* NYCSurviveWatch.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A1FDF157112295E8CEC9331C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				25DBD4E7CEA9E3AB98B297FD /* BuildingsView.swift */,
+				9DFA9CA75C1F5883BD9263FE /* TraitsView.swift */,
+				C3A2ADEACFA0D27F579E8F6F /* WeaponsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B74B433B6B48EA30CF3A12FD = {
+			isa = PBXGroup;
+			children = (
+				55887D325FEB917596DA0C9E /* Models */,
+				A1FDF157112295E8CEC9331C /* Views */,
+				3686D469F09C67108A881F45 /* watchos */,
+				5843B8B256EC8481D4CFA64B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		402C4CE318FE56A09F5474C4 /* NYCSurviveWatch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 911D7C9F18F4871AC963BF86 /* Build configuration list for PBXNativeTarget "NYCSurviveWatch" */;
+			buildPhases = (
+				E7A5BABD71EC710412A8F47A /* Sources */,
+				AA625DC01911BF8D08EE17DE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NYCSurviveWatch;
+			packageProductDependencies = (
+			);
+			productName = NYCSurviveWatch;
+			productReference = 9B94CB82911F835FC5A74C98 /* NYCSurviveWatch.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AAE83AE2067CF8FCEFEEDAFA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					402C4CE318FE56A09F5474C4 = {
+						DevelopmentTeam = QMM486NPYC;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 553A0A784E39BA22A665EACF /* Build configuration list for PBXProject "NYCSurviveWatch" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = B74B433B6B48EA30CF3A12FD;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 5843B8B256EC8481D4CFA64B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				402C4CE318FE56A09F5474C4 /* NYCSurviveWatch */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AA625DC01911BF8D08EE17DE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1BEA4D31DE7EE3195F075AB3 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E7A5BABD71EC710412A8F47A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2F6368DD15F957D6FA42F803 /* BuildingsView.swift in Sources */,
+				BCD532B7BAE8E70779AE7BD0 /* ContentView.swift in Sources */,
+				8C8ED6532AF2171D53EF456F /* GameData.swift in Sources */,
+				4148CA161219F94014691E5F /* NYCSurviveWatchApp.swift in Sources */,
+				9FE7BD12026FD42D0AC81486 /* TraitsView.swift in Sources */,
+				6AC9708A556D5D8121DB2901 /* WeaponsView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		129197873F3E3ECD100F386E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "";
+				INFOPLIST_KEY_WKWatchOnly = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.heyitsmejosh.nyc.watchos;
+				PRODUCT_NAME = NYCSurvive;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+			};
+			name = Release;
+		};
+		5A3A57267DCCAAF39FDA4F92 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "";
+				INFOPLIST_KEY_WKWatchOnly = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.heyitsmejosh.nyc.watchos;
+				PRODUCT_NAME = NYCSurvive;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+			};
+			name = Debug;
+		};
+		B4C3EF70DF227B88B3CFF7CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = QMM486NPYC;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MARKETING_VERSION = 1.0.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 6.0;
+				WATCHOS_DEPLOYMENT_TARGET = 10.0;
+			};
+			name = Debug;
+		};
+		C0613419D99FDAA566A5397E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = QMM486NPYC;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MARKETING_VERSION = 1.0.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 6.0;
+				WATCHOS_DEPLOYMENT_TARGET = 10.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		553A0A784E39BA22A665EACF /* Build configuration list for PBXProject "NYCSurviveWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B4C3EF70DF227B88B3CFF7CD /* Debug */,
+				C0613419D99FDAA566A5397E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		911D7C9F18F4871AC963BF86 /* Build configuration list for PBXNativeTarget "NYCSurviveWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5A3A57267DCCAAF39FDA4F92 /* Debug */,
+				129197873F3E3ECD100F386E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AAE83AE2067CF8FCEFEEDAFA /* Project object */;
+}

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>NYC Survive</title>
+    <link rel="icon" href="icon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="style.css">
+    <style>.embed .menu-title,.embed .menu-subtitle{display:none}</style>
+    <script>if(/[?&]embed\b/.test(location.search))document.documentElement.classList.add('embed')</script>
+</head>
+<body>
+    <canvas id="game"></canvas>
+
+    <div id="menu">
+        <button class="theme-toggle" id="menu-theme" type="button">Theme</button>
+        <div class="menu-title">NYC SURVIVE</div>
+        <div class="menu-subtitle">Times Square Survival Simulator</div>
+        <button class="menu-btn" id="menu-new">NEW GAME</button>
+        <button class="menu-btn menu-btn-soft" id="menu-load">LOAD GAME</button>
+        <button class="menu-btn menu-btn-soft" id="menu-settings">SETTINGS</button>
+        <div class="menu-panel" id="menu-panel-load" hidden>
+            <div id="menu-slots"></div>
+        </div>
+        <div class="menu-panel" id="menu-panel-settings" hidden>
+            <div class="menu-load-title">DIFFICULTY</div>
+            <div class="difficulty-picker" id="difficulty-picker">
+                <button class="diff-btn" data-diff="easy">EASY</button>
+                <button class="diff-btn" data-diff="medium">MEDIUM</button>
+                <button class="diff-btn" data-diff="hard">HARD</button>
+            </div>
+            <div class="menu-load-title">HOW TO PLAY</div>
+            <div class="howto">
+                <div><b>Click</b> a survivor, or <b>drag a box</b> around a few</div>
+                <div><b>Click the ground</b> to send them there</div>
+                <div><b>Click a resource</b> to gather it</div>
+                <div><b>B</b> opens the build menu, <b>1-6</b> picks a building</div>
+                <div><b>WASD</b> pans, <b>scroll</b> zooms, <b>Esc</b> deselects</div>
+                <div>Buildings burn materials. Empty pile, they break.</div>
+                <div>Every third night: scavengers. <b>PATROL</b> near a building stops them.</div>
+                <div>Win: 15 survivors, average level 8.</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="hud">
+        <div id="resource-bar"></div>
+        <div id="build-menu"></div>
+        <div id="colonist-panel"></div>
+        <div id="game-log"></div>
+        <div id="time-display"></div>
+        <div id="minimap-container">
+            <canvas id="minimap" width="150" height="150"></canvas>
+        </div>
+    </div>
+
+    <div id="pause-overlay"></div>
+    <div id="save-indicator">SAVED</div>
+    <div id="settings-overlay"></div>
+    <div id="tutorial-overlay"></div>
+
+    <script type="module" src="js/main.js"></script>
+    <script type="module" src="js/webmcp.js"></script>
+</body>
+</html>

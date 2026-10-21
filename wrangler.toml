@@ -1,0 +1,12 @@
+name = "nyc"
+compatibility_date = "2025-01-01"
+
+[assets]
+directory = "dist"
+
+[[routes]]
+pattern = "nyc.jaybulb.com"
+custom_domain = true
+
+[observability]
+enabled = true
