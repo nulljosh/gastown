@@ -58,7 +58,8 @@ h3 { font-size: 28px; line-height: 32px; font-weight: 600; letter-spacing: -.01e
 .store-bar { display: flex; align-items: center; justify-content: center; gap: var(--sp-3); min-height: 48px; padding: var(--sp-1) var(--sp-4); background: #000; color: #fff; text-decoration: none; font-size: 14px; }
 .store-bar img { display: block; height: 32px; width: auto; }
 .store-bar:hover span { text-decoration: underline; }
-@media (max-width: 600px) { .store-bar span { display: none; } }
+/* iPhone and iPad already get Safari's smart App Store banner (meta apple-itunes-app), so the bar is desktop only. */
+@media (hover: none) { .store-bar { display: none; } }
 .store-badge { display: inline-flex; align-items: center; height: 40px; }
 .store-badge img { display: block; height: 40px; width: auto; }
 .lead { max-width: 560px; margin: var(--sp-6) auto 0; color: var(--sub); }
