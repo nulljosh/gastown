@@ -181,7 +181,7 @@ final class GameScene: SKScene {
         cameraController.update(deltaTime: dt)
         if gameState.isMenuBackdrop { animateBackdrop(dt) }
         let deep = gameState.currentHour >= 22 || gameState.currentHour < 4
-        nightOverlay.alpha = gameState.isNight ? (deep ? 0.42 : 0.24) : 0
+        nightOverlay.alpha = gameState.isNight ? (deep ? 0.32 : 0.18) : 0
 
         let due = timeSystem.update(deltaTime: dt, gameState: gameState)
         guard due > 0 else { return }
