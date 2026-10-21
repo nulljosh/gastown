@@ -86,7 +86,7 @@ A survival colony builder where players place buildings, manage colonists, and b
 
 | File | What it owns |
 |---|---|
-| `scripts/generate_sprites.py` | Python script to generate all Fez-style pixel art sprites at build time: colonists (walk cycle, dead), buildings (5 types), resources (5 types), outputs to `Resources/Assets.xcassets` |
+| `scripts/gen_sprites.py` | Draws every sprite from one palette (noir night, clay and cream accents) into `Resources/Assets.xcassets` and `web/sprites/` |
 
 ## Platforms (non-game)
 

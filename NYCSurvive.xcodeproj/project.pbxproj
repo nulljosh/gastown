@@ -38,6 +38,7 @@
 		55BC393E63ADD5A2210D79B4 /* ResourceBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3224EDEB15BF7951F877AF /* ResourceBar.swift */; };
 		57799C6F239B6A84280E397A /* ColonistPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8901915C46094E3EDCDC97 /* ColonistPanel.swift */; };
 		59DCD599448B559FB3025057 /* ResourceBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3224EDEB15BF7951F877AF /* ResourceBar.swift */; };
+		59F8353CED6ED0956575D66F /* GameScene+Colony.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07167E9927F48B15EA0E11D /* GameScene+Colony.swift */; };
 		5C005AAD2340C58ED42FFC30 /* BuildSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0852054F2EBE0F76F774C060 /* BuildSystem.swift */; };
 		5CDF9391D482743E373781EB /* TileType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6AA4E11E5678AB148203FC /* TileType.swift */; };
 		61E1F8CE1340FF26D472D25F /* ColonistPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8901915C46094E3EDCDC97 /* ColonistPanel.swift */; };
@@ -92,6 +93,7 @@
 		FA62B878417B239715A57AE0 /* BuildMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0544F474728B842695609312 /* BuildMenu.swift */; };
 		FB2E35CB352E0CF777B5D3DF /* MiniMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222B6FD5D7525CD8EB9A406E /* MiniMap.swift */; };
 		FC42B363B48C0913038F4412 /* SaveManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064B2AEBC8EAAE1BD24D5090 /* SaveManager.swift */; };
+		FE1524A1977C069814D2C52E /* GameScene+Colony.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07167E9927F48B15EA0E11D /* GameScene+Colony.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -149,6 +151,7 @@
 		D76C33D384D2910BBCF73190 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		E3375BB10B787C3C9ADA6A9E /* ColonySystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColonySystem.swift; sourceTree = "<group>"; };
 		EDE4C6EF54870683E05DBBAD /* ColonistModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColonistModel.swift; sourceTree = "<group>"; };
+		F07167E9927F48B15EA0E11D /* GameScene+Colony.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GameScene+Colony.swift"; sourceTree = "<group>"; };
 		F0D9BBA495724A89451770D3 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		FB709F579DC45B3586C45EF7 /* SimTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SimTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC5248EB39603E63F3224EEF /* NYCSurviveApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NYCSurviveApp.swift; sourceTree = "<group>"; };
@@ -219,6 +222,7 @@
 			children = (
 				F0D9BBA495724A89451770D3 /* GameScene.swift */,
 				B24F138BF1AA03A7B2527E46 /* GameScene+Backdrop.swift */,
+				F07167E9927F48B15EA0E11D /* GameScene+Colony.swift */,
 				8861DB40895FE71F6960B9A9 /* MenuScene.swift */,
 			);
 			path = Scenes;
@@ -494,6 +498,7 @@
 				57799C6F239B6A84280E397A /* ColonistPanel.swift in Sources */,
 				008F50FC553A75789F65BE9F /* ColonySystem.swift in Sources */,
 				AC35C92D99F329E89F25AA67 /* GameScene+Backdrop.swift in Sources */,
+				59F8353CED6ED0956575D66F /* GameScene+Colony.swift in Sources */,
 				25E31E8C73E217531187C35A /* GameScene.swift in Sources */,
 				F7DE54BD562CAE78DDC8B997 /* GameState.swift in Sources */,
 				998CC74E1346C78D1EB7ACA8 /* HUDView.swift in Sources */,
@@ -534,6 +539,7 @@
 				61E1F8CE1340FF26D472D25F /* ColonistPanel.swift in Sources */,
 				3C76723B9A7CA2638B3CD69A /* ColonySystem.swift in Sources */,
 				1F2A4D0D13E767C09E4E969C /* GameScene+Backdrop.swift in Sources */,
+				FE1524A1977C069814D2C52E /* GameScene+Colony.swift in Sources */,
 				2FFE462F497A5E7AC2767511 /* GameScene.swift in Sources */,
 				3688634442DCC70157180613 /* GameState.swift in Sources */,
 				0125D98FB867ABBA2EA07631 /* HUDView.swift in Sources */,

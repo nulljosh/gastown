@@ -4,11 +4,11 @@ import GameplayKit
 @MainActor
 final class GameScene: SKScene {
     let gameState: GameState
-    private var tileMap: TileMap!
+    var tileMap: TileMap!
     private var timeSystem = TimeSystem()
     private var colonySystem = ColonySystem()
     private var resourceSystem = ResourceSystem()
-    private var buildSystem = BuildSystem()
+    var buildSystem = BuildSystem()
     var jobSystem = JobSystem()
     var pathfinder: Pathfinder!
     private var inputHandler = InputHandler()
@@ -164,6 +164,8 @@ final class GameScene: SKScene {
         } else {
             gameState.log("Welcome to NYC Survive")
         }
+        let args = ProcessInfo.processInfo.arguments
+        if savedData == nil, !gameState.isMenuBackdrop, args.contains("-colony") { stageColony(beacon: args.contains("-beacon")) }
     }
 
     override func update(_ currentTime: TimeInterval) {
@@ -193,7 +195,7 @@ final class GameScene: SKScene {
             if !gameState.victoryShown, ColonySystem.isVictory(gameState) {
                 gameState.victoryShown = true
                 gameState.isPaused = true
-                gameState.log("THE BEACON STANDS. Victory on day \(gameState.currentTick / ColonySystem.ticksPerDay).")
+                gameState.log("THE BEACON STANDS. Victory on day \(gameState.currentTick / ColonySystem.ticksPerDay + 1).")
             }
         }
 
@@ -408,7 +410,7 @@ final class GameScene: SKScene {
         }
     }
 
-    private func placeBuilding(col: Int, row: Int) {
+    func placeBuilding(col: Int, row: Int) {
         guard let type = gameState.selectedBuildingType else { return }
         if let model = buildSystem.place(type: type, col: col, row: row, tileMap: tileMap, gameState: gameState, pathfinder: pathfinder) {
             let node = BuildingNode(model: model, tileSize: TileMap.tileSize)

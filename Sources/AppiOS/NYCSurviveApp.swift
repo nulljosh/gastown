@@ -5,7 +5,8 @@ import SpriteKit
 struct NYCSurviveApp: App {
     @State private var themeChoice = Theme.choice
     @State private var gameState = GameState()
-    @State private var showMenu = true
+    // ponytail: `-colony` (store screenshots and QA) skips the menu; GameScene stages the colony.
+    @State private var showMenu = !ProcessInfo.processInfo.arguments.contains("-colony")
     @State private var loadSlot: Int? = nil
     @State private var menuBackdrop = GameState.menuBackdrop()
 

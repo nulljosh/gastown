@@ -89,7 +89,7 @@ struct HUDView: View {
                     Text("THE BEACON STANDS")
                         .font(.nyc(size: 28, weight: .bold))
                         .foregroundStyle(Theme.accent)
-                    Text("Day \(gameState.currentTick / ColonySystem.ticksPerDay). \(gameState.colonists.count) survivors. Keep playing or start a new game.")
+                    Text("Day \(gameState.currentTick / ColonySystem.ticksPerDay + 1). \(gameState.colonists.count) survivors. Keep playing or start a new game.")
                         .font(.nyc(size: 13))
                         .foregroundStyle(Theme.text1)
                     Button("Keep playing") { gameState.victoryDismissed = true; gameState.isPaused = false }
@@ -217,7 +217,7 @@ struct ControlsHintView: View {
     @Bindable var gameState: GameState
     @AppStorage("nyc-controls-hint-seen") private var seen = false
 
-    private static let isScreenshotRun = ProcessInfo.processInfo.arguments.contains("-shot")
+    private static let isScreenshotRun = ProcessInfo.processInfo.arguments.contains { $0 == "-shot" || $0 == "-colony" }
 
     private struct Row: Identifiable {
         let key: String
