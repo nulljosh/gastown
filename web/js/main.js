@@ -243,7 +243,7 @@ function gameLoop(timestamp, id) {
             if (!state.demoMode && checkVictory(state) && !state.victoryShown) {
                 state.victoryShown = true;
                 state.isPaused = true;
-                gameLog(state, 'THE BEACON STANDS');
+                gameLog(state, 'THE STEAM CLOCK STANDS');
                 const elapsed = Math.floor(state.currentTick / 4 / 60);
                 state.toastMessage = { text: `Beacon raised in ${elapsed} minutes`, ticks: 300 };
             }

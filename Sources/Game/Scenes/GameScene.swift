@@ -215,7 +215,7 @@ final class GameScene: SKScene {
             if !gameState.victoryShown, ColonySystem.isVictory(gameState) {
                 gameState.victoryShown = true
                 gameState.isPaused = true
-                gameState.log("THE BEACON STANDS. Victory on day \(gameState.currentTick / ColonySystem.ticksPerDay + 1).")
+                gameState.log("THE STEAM CLOCK STANDS. Victory on day \(gameState.currentTick / ColonySystem.ticksPerDay + 1).")
             }
         }
 

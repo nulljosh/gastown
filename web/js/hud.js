@@ -79,7 +79,7 @@ function updateResourceBar(state) {
     }
     const alive = document.createElement('span');
     alive.style.cssText = 'margin-left:auto;font-size:11px;font-weight:700;color:var(--text-2)';
-    alive.textContent = `${state.colonists.length} survivors`;
+    alive.textContent = `${state.colonists.length} colonists`;
     resBar.appendChild(alive);
 }
 

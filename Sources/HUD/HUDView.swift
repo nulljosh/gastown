@@ -86,10 +86,10 @@ struct HUDView: View {
 
             if gameState.victoryShown && !gameState.victoryDismissed {
                 VStack(spacing: 8) {
-                    Text("THE BEACON STANDS")
+                    Text("THE STEAM CLOCK STANDS")
                         .font(.gastown(size: 28, weight: .bold))
                         .foregroundStyle(Theme.accent)
-                    Text("Day \(gameState.currentTick / ColonySystem.ticksPerDay + 1). \(gameState.colonists.count) survivors. Keep playing or start a new game.")
+                    Text("Day \(gameState.currentTick / ColonySystem.ticksPerDay + 1). \(gameState.colonists.count) colonists. Keep playing or start a new game.")
                         .font(.gastown(size: 13))
                         .foregroundStyle(Theme.text1)
                     Button("Keep playing") { gameState.victoryDismissed = true; gameState.isPaused = false }

@@ -19,7 +19,7 @@ struct ResourceBar: View {
                 resourcePill(type: type)
             }
             Spacer()
-            Text("\(gameState.colonists.count) survivors")
+            Text("\(gameState.colonists.count) colonists")
                 .font(.gastown(size: 11, weight: .bold))
                 .foregroundStyle(Theme.text2)
                 .fixedSize()

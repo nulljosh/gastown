@@ -44,7 +44,7 @@ final class MenuScene: SKScene {
         addChild(title)
 
         let subtitle = SKLabelNode(fontNamed: chill(.regular))
-        subtitle.text = "Send the crew. Build the machines. Raise the Beacon."
+        subtitle.text = "Send the crew. Raise the Steam Clock."
         subtitle.fontSize = 20
         subtitle.fontColor = SKColor(white: 1, alpha: 0.7)
         subtitle.position = CGPoint(x: size.width / 2, y: size.height * 0.59)
