@@ -1,42 +1,31 @@
-# Gastown loop handoff (2026-10-21, early afternoon)
+# Gastown loop handoff (2026-10-21, late morning)
 
-Gastown is the new name for NYC Survive. Joshua locked it on 2026-10-21. It is free on the App Store: it was probed on the real record, and the listing was then restored to "NYC Survive".
+Gastown is the new name for NYC Survive. Joshua locked it on 2026-10-21. The App Store listing still says NYC Survive until 2.0.0 ships.
 
 ## What the loop is
 
-Ship Gastown 2.0.0 to the App Store, then keep polishing. Stop at 96% weekly usage (the usage hook prints it every prompt). The headless bots are the win check: `node web/sim.mjs` and `scripts/playthrough.sh`. Both must keep winning after any rule change, with the same rules on web and native.
+Get Gastown 2.0.0 through CI and into App Review, then keep polishing. Stop at 96% weekly usage (the usage hook prints it every prompt). The headless bots are the win check: `node web/sim.mjs` and `scripts/playthrough.sh`. Both must keep winning after any rule change, with the same rules on web and native.
 
 ## Where things stand
 
-- **The game.** It's a Pikmin crew with Factorio machines, set in Vancouver. You send a crew to a resource and they keep working it. Generators make power. A drill beside a resource mines it and burns power, one per patch. Shelters add beds, and a bed plus 10 food brings a survivor each day. Raise the Steam Clock to win (internal id `beacon`, 8,000 materials and 1,000 power).
-- **The map.** It has Burrard Inlet and False Creek (water is `TileType.empty`), seawall paths, one bridge and SkyTrain stations. It rains on both platforms.
-- **Bots and tests.** The web bot wins in about 12 minutes and the native bot on day 12 or 13. 6 web tests and 19 Swift tests pass. CI goes yellow when pushes land close together (cancel-in-progress), so batch pushes.
-- **Rename sweep.** Gastown.xcodeproj, the Gastown and Gastown-iOS schemes, GastownWatch, Gastown.icon, Gastown Sans (rebuilt by `scripts/gen_font.py`), docs and landing.
-- **Still on old names on purpose.** These are the bundle IDs `com.heyitsmejosh.nyc*`, the Worker name `nyc`, web save key `nyc2_save_`, native save folder `NYCSurvive`, the `nyc-theme` keys, and `nyc-controls-hint-seen`.
-- **Art.** `scripts/gen_sprites.py` draws clay and cream on noir into the xcassets and `web/sprites/`, including water, SkyTrain and the Steam Clock. `scripts/gen_landing_art.py` makes the landing halftones from our own sprites and frames, with no outside photos. The hero film is `landing/hero.mp4`, recorded through `window._ff` (`?bg` only).
+- **The game.** A Vancouver colony game in the spirit of Pikmin and Factorio. You command a crew, and drills and generators run on their own. A drill beside a resource mines it and burns power, one per patch. Needs, raids, weapons, quests and cash are cut. Shelters add beds, and a bed plus 10 food brings a survivor each day. Raise the Steam Clock to win (internal id `beacon`, 8,000 materials and 1,000 power).
+- **Rules.** Web and native share the same rules. Both bots win in about 12 days.
+- **The map.** Burrard Inlet and False Creek (water is `TileType.empty`), seawall paths, one bridge and SkyTrain stations. It rains on both platforms.
+- **Tests and CI.** 6 web tests and 19 Swift tests pass locally. The test workflow runs the scheme test target, which is fixed. CI goes yellow when pushes land close together (cancel-in-progress), so batch pushes. Latest run: `5795fdf` (landing), still in progress at 10:53.
+- **Repo and domain.** Repo is `nulljosh/gastown` (public), folder `~/Documents/Code/gastown`. Labs CLAUDE.md and .gitignore are updated for the rename. The landing is at gastown.jaybulb.com with no embedded game, and nyc.jaybulb.com still serves.
+- **Brand and art.** New sprite set, Gastown Sans (rebuilt by `scripts/gen_font.py`), a blue Steam Clock icon and brand kit in `brand/` (BRAND.md, brand-board.png). The README has new screenshots. `scripts/gen_sprites.py` draws the sprites, and `scripts/gen_landing_art.py` makes the landing art from our own sprites.
+- **Still on old names on purpose.** Bundle IDs `com.heyitsmejosh.nyc*`, the Worker name `nyc`, web save key `nyc2_save_`, native save folder `NYCSurvive`, the `nyc-theme` keys and `nyc-controls-hint-seen`.
 - **QA hooks.** `-colony` builds a small working colony on both platforms. `-colony -beacon` also raises the clock and shows the win banner. Use them for store screenshots.
-- **Store.** iOS and Mac 1.1.0 are live as NYC Survive. An iOS 2.0.0 version exists in PREPARE_FOR_SUBMISSION (727699a1), with no build or new metadata yet.
+- **Store.** iOS and Mac 1.1.0 are live as NYC Survive. The iOS 2.0.0 version exists in App Store Connect (727699a1, PREPARE_FOR_SUBMISSION) with the app name set to Gastown. It has no build and no new metadata beyond the name. There is no Mac 2.0.0 yet. Nothing is submitted.
 
 ## Next, in order
 
-1. **Repo and domain.**
-   - `gh repo rename gastown`, then `git remote set-url`, plus homepage and description.
-   - Move `~/Documents/Code/nyc` to `gastown` and fix the paths in labs CLAUDE.md and .gitignore.
-   - Add the `gastown.jaybulb.com` route in `wrangler.toml` and keep `nyc.jaybulb.com`.
-   - Deploy and curl both hosts.
-2. **Brand kit.** The icon is still the Empire State Building.
-   - Make a Steam Clock glyph on clay `#b5502c` (Gastown.icon, `icon.svg`, favicons).
-   - Rewrite `brand/BRAND.md` and `brand/tokens.css` (clay accent, noir, cream).
-   - Move the landing accent from blue to clay.
-3. **Store metadata for 2.0.0.**
-   - Name Gastown, plus subtitle, description and keywords.
-   - whatsNew covering the new name, the new game, and that 1.x saves don't carry over.
-   - Review notes.
-   - Screenshots from `-colony` (6.5" iPhone, iPad 13", Mac).
-4. **Ship.** Bump `MARKETING_VERSION` to 2.0.0 with a new build. Run `asc workflow run ship-ios` and `ship-mac`, `asc validate`, `review items add`, and submit once CI is green.
-5. **Landing leftovers.** "See it played" still plays the 1.x `playthrough.mp4`, so re-record a 2.0 run. Remake `og.png`.
-6. **Docs.** `docs/API.md`, `ARCHITECTURE.md`, `CONTROLS.md` and `WHITEPAPER.md` still use 1.x terms. Autosave is every 60 ticks (15 s).
-7. **Embedded game.** The web game embedded on the landing runs in light theme. Force dark in `?embed`.
+1. **CI.** Confirm the Tests run on `5795fdf` goes green on main. If it goes red, fix the cause and do not mute it.
+2. **2.0.0 store metadata.** The name is Gastown. Still to write: subtitle, description, keywords, what's new (new name, new game, and that 1.x saves don't carry over) and review notes.
+3. **Screenshots.** From `-colony` and `-colony -beacon` for 6.5" iPhone, iPad 13" and Mac. Check that the landing's "See it played" section shows 2.0 footage.
+4. **Mac 2.0.0.** Create the Mac version beside iOS 2.0.0 in App Store Connect.
+5. **Version bump and build.** Set `MARKETING_VERSION` to 2.0.0 with a new build on both platforms. Run `asc workflow run ship-ios` and `ship-mac`, then `asc validate` and `review items add`. Submit only on Joshua's yes.
+6. **Docs.** Rewrite `docs/API.md`, `docs/ARCHITECTURE.md`, `docs/CONTROLS.md` and `WHITEPAPER.md`, which still use 1.x terms, for the 2.0 rules. Autosave is every 60 ticks (15 s).
 
 ## Restart prompt
 

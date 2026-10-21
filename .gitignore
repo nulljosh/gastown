@@ -37,8 +37,7 @@ Thumbs.db
 *.swp
 *.swo
 
-# fastlane / Xcode build artifacts
-fastlane/report.xml
+# Xcode build artifacts
 *.dSYM.zip
 *.pkg
 *.ipa

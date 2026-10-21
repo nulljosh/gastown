@@ -12,7 +12,7 @@
       "description": "Archive, export pkg, upload, submit macOS (asc xcode export only writes ipa, so raw xcodebuild)",
       "steps": [
         { "name": "archive", "run": "xcodebuild archive -project Gastown.xcodeproj -scheme Gastown -destination 'generic/platform=macOS' -archivePath .asc/artifacts/Gastown-mac.xcarchive -allowProvisioningUpdates MARKETING_VERSION=$VERSION CURRENT_PROJECT_VERSION=$BUILD | tail -3" },
-        { "name": "export", "run": "rm -rf .asc/artifacts/mac-export && xcodebuild -exportArchive -archivePath .asc/artifacts/Gastown-mac.xcarchive -exportOptionsPlist ExportOptions.plist -exportPath .asc/artifacts/mac-export -allowProvisioningUpdates | tail -3 && ls .asc/artifacts/mac-export" },
+        { "name": "export", "run": "rm -rf .asc/artifacts/mac-export && xcodebuild -exportArchive -archivePath .asc/artifacts/Gastown-mac.xcarchive -exportOptionsPlist .asc/ExportOptions-mac.plist -exportPath .asc/artifacts/mac-export -allowProvisioningUpdates | tail -3 && ls .asc/artifacts/mac-export" },
         { "name": "upload", "run": "asc publish appstore --app $IOS_APP_ID --pkg \"$(ls .asc/artifacts/mac-export/*.pkg)\" --version $VERSION --build-number $BUILD --wait --output json" },
         { "name": "submit", "if": "SUBMIT", "run": "asc review submit --app $IOS_APP_ID --platform MAC_OS --version $VERSION --confirm --output json" }
       ]

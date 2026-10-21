@@ -1,6 +1,8 @@
 # Architecture
 
-A survival colony builder where players place buildings, manage colonists, and balance five resources (food, power, materials, oxygen, cash) on a 128x128 grid. The core game loop runs on SpriteKit (macOS and iOS), with optional watchOS quick-reference and terminal versions for reference.
+A Vancouver colony game where you command a crew, build machines that run themselves, and raise the Steam Clock on a 128x128 grid. Three resources: food, materials and power. The game runs on SpriteKit (macOS and iOS) and in the browser (`web/`), with a watchOS quick-reference companion.
+
+![Gastown architecture](architecture.svg)
 
 ## How it runs
 
@@ -93,7 +95,6 @@ A survival colony builder where players place buildings, manage colonists, and b
 | File | What it owns |
 |---|---|
 | `watchos/GastownWatchApp.swift` + `watchos/ContentView.swift` | watchOS app entry, quick-reference tabs (buildings, traits, weapons stats), NOT a live save mirror, no pairing |
-| `tui/main.swift` | Terminal UI reference card using SwiftTUI, quick-reference building costs and stats, NOT a live game |
 
 ## Audio
 

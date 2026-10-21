@@ -53,11 +53,11 @@ xcodebuild test -project Gastown.xcodeproj -scheme Gastown -destination 'platfor
 ## Docs
 
 - [Controls](docs/CONTROLS.md): every key, click and tap.
-- [Whitepaper](WHITEPAPER.md): how the game works and why.
+- [Whitepaper](docs/WHITEPAPER.md): how the game works and why.
 - [Architecture](docs/ARCHITECTURE.md) and [Web API](docs/API.md).
-- [Changelog](CHANGELOG.md).
+- [Changelog](docs/CHANGELOG.md).
 
-Found a security problem? Email trommatic@icloud.com. See [SECURITY.md](SECURITY.md).
+Found a security problem? Email trommatic@icloud.com. See [SECURITY.md](docs/SECURITY.md).
 
 ## Privacy
 
