@@ -10,7 +10,7 @@ NYC Survive is a colony survival game. You run a small group of survivors in the
 
 <img src="screenshots/nyc-2.jpg" width="600" alt="NYC Survive: survivors, two shelters and the build menu">
 
-<img src="screenshots/nyc-1.jpg" width="296" alt="Title menu over the live city"> <img src="screenshots/nyc-3.jpg" width="296" alt="Times Square reclaimed">
+<img src="screenshots/nyc-1.jpg" width="600" alt="Title menu over the live city">
 
 ## Features
 
