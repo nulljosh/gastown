@@ -8,7 +8,7 @@ Gastown (formerly NYC Survive) is a small colony game set in rainy Vancouver. Yo
 
 **[gastown.jaybulb.com](https://gastown.jaybulb.com)** · **[Play in the browser](https://gastown.jaybulb.com/app/)** · **[App Store](https://apps.apple.com/app/id6782618198)**
 
-<a href="https://apps.apple.com/app/id6782618198"><img src="https://tools.applemarketingtools.com/api/badges/download-on-the-app-store/black/en-us" alt="Download on the App Store" height="40"></a>
+<a href="https://apps.apple.com/app/id6782618198"><img src="landing/app-store.svg" alt="Download on the App Store" height="40"></a>
 
 <img src="screenshots/gastown-2.jpg" width="600" alt="Gastown in the browser: a crew selected beside a shelter and a generator, rain over the map">
 

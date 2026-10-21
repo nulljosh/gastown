@@ -54,7 +54,6 @@ def main():
     os.makedirs(OUT, exist_ok=True)
     frame = lambda f: Image.open(os.path.join(HERE, "landing", f)).convert("RGB")
     jobs = {
-        "stage": (frame("hero-poster.jpg"), (1600, 900)),
         "band": (scene((1800, 950), [("tile_subway", 14, .78, .62), ("beacon", 13, .36, .9), ("shelter", 6, .62, .9), ("colonist_walk1", 6, .86, .9)], ground=.9), (1800, 950)),
         "crew": (scene((900, 600), [("colonist_idle", 9, .3, .9), ("colonist_walk1", 9, .52, .88), ("colonist_walk2", 9, .74, .9)], ground=.9), (900, 600)),
         "machines": (scene((900, 600), [("generator", 7, .34, .9), ("drill", 12, .74, .9)], ground=.9), (900, 600)),

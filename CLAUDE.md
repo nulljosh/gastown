@@ -1,6 +1,6 @@
 # gastown
 
-Gastown (formerly NYC Survive). v1.1.0 live as NYC Survive, 2.0.0 in progress. macOS + iOS colony game set in Vancouver, fully player-controlled (no autoplay). 2.0 is the simplification: a swarm you command, machines that run themselves, one goal (the Beacon). Live at `https://gastown.jaybulb.com`, web app at `/app`. License Apache 2.0.
+Gastown (formerly NYC Survive). v1.1.0 live as NYC Survive, 2.0.0 in progress. macOS + iOS colony game set in Vancouver, fully player-controlled (no autoplay). 2.0 is the simplification: a swarm you command, machines that run themselves, one goal (raise the Gastown Steam Clock, internal id `beacon`). Live at `https://gastown.jaybulb.com`, web app at `/app`. License Apache 2.0.
 
 ## The loop
 
@@ -14,6 +14,11 @@ Live /loop on gastown: fix the game, QA until it works. See `docs/LOOP-HANDOFF.m
 - 2.0 cut: no needs, stats, traits, XP, weapons, raids, quests, oxygen or cash. Saves moved to `nyc2_save_` (web) and `save2_N.json` (native); 1.x saves are ignored.
 - The Gastown Sans typeface is built by `scripts/gen_font.py`. Don't hand-edit the .ttf files.
 - No emojis. No em dashes in docs.
+
+## Landing
+
+- No embedded game on the landing (Joshua, 2026-10-21): the hero film plus "Play now" (`/app`) and the App Store badge (`landing/app-store.svg`, Apple's official file). This overrides the labs "real app on the page" rule for this repo.
+- Re-record `landing/hero.mp4` with the headless frame capture in docs/LOOP-HANDOFF.md whenever the map or sprites change.
 
 ## Structure
 

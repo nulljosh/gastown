@@ -182,7 +182,7 @@ export function demoTick(state, grid, pathfinder) {
         c.pathIndex = 0;
     }
     if (state.currentTick % 16 !== 0 || !state.colonists.length) return;
-    const types = Object.keys(BuildingType).filter(t => t !== 'beacon');
+    const types = Object.keys(BuildingType); // the attract city may raise a Steam Clock too; demo never checks victory
     const type = types[Math.floor(Math.random() * types.length)];
     const near = state.colonists[Math.floor(Math.random() * state.colonists.length)];
     for (let i = 0; i < 12; i++) {
