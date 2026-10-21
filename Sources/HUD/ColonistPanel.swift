@@ -34,7 +34,8 @@ struct ColonistPanel: View {
                     .font(.nyc(size: 9, weight: .bold))
                     .foregroundStyle(Theme.text2)
 
-                HStack(spacing: 4) {
+                // Three to a row, full words: five pills in one row wrapped to "PAT R" and "ATT A".
+                LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 4), count: 3), spacing: 4) {
                     ForEach(ColonistJob.allCases, id: \.self) { job in
                         jobPill(job: job, isActive: colonist.job == job)
                     }
@@ -76,10 +77,12 @@ struct ColonistPanel: View {
                   let idx = gameState.colonists.firstIndex(where: { $0.id == id }) else { return }
             gameState.colonists[idx].job = job
         }) {
-            Text(job.rawValue.prefix(4).uppercased())
+            Text(job.rawValue.uppercased())
                 .font(.nyc(size: 9, weight: .bold))
+                .lineLimit(1)
                 .foregroundStyle(isActive ? .white : Theme.text2)
-                .padding(.horizontal, 8)
+                .frame(maxWidth: .infinity)
+                .padding(.horizontal, 4)
                 .padding(.vertical, 4)
                 .background(
                     Capsule()

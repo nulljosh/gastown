@@ -8,7 +8,7 @@ NYC Survive is a colony survival game. You run a small group of survivors in the
 
 **[nyc.jaybulb.com](https://nyc.jaybulb.com)** · **[Play in the browser](https://nyc.jaybulb.com/app/)** · **[App Store](https://apps.apple.com/app/id6782618198)**
 
-<img src="screenshots/nyc-2.jpg" width="600" alt="NYC Survive: survivors, two shelters and the build menu">
+<img src="screenshots/nyc-2.jpg" width="600" alt="NYC Survive: survivors, a shelter, a hot-dog cart and the build menu">
 
 <img src="screenshots/nyc-1.jpg" width="600" alt="Title menu over the live city">
 
