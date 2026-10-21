@@ -8,7 +8,7 @@
 }
 /* Halftone art: each image is a dot mask (art/*.png, dithered from public domain works), tinted with --band-art */
 .art { position: relative; overflow: hidden; background: var(--grain), var(--band); }
-.art::before { content: ""; position: absolute; inset: 0; background: var(--band-art); -webkit-mask: var(--img) center / cover no-repeat; mask: var(--img) center / cover no-repeat; }
+.art::before { content: ""; position: absolute; inset: -9% 0; transform: translate3d(0, var(--ty, 0px), 0); background: var(--band-art); -webkit-mask: var(--img) center / cover no-repeat; mask: var(--img) center / cover no-repeat; }
 * { box-sizing: border-box; margin: 0; }
 html { scroll-behavior: smooth; }
 body { font-family: var(--font); font-size: var(--size-body); line-height: 24px; color: var(--text); background: var(--bg); -webkit-font-smoothing: antialiased; }
@@ -44,7 +44,16 @@ h3 { font-size: 30px; line-height: 32px; font-weight: 300; }
 /* the thin blue frame down both edges of the window */
 @media (min-width: 900px) { body::after { content: ""; position: fixed; inset: 0; border-inline: 4px solid var(--frame); pointer-events: none; z-index: 30; } }
 
-.hero { padding: var(--sp-9) 0 var(--sp-8); }
+.hero { position: relative; isolation: isolate; overflow: hidden; display: grid; align-items: center; min-height: calc(100svh - 56px); padding: var(--sp-9) 0; background: #05070d; color: #fff; }
+.hero-bg { position: absolute; inset: 0; z-index: -1; overflow: hidden; }
+/* the film, a little oversize so the parallax drift never shows an edge, under a dark wash that lets the type read */
+.hero-video { position: absolute; left: 0; top: -12%; width: 100%; height: 124%; object-fit: cover; will-change: transform; }
+.hero-bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(5,7,13,.72), rgba(5,7,13,.5) 45%, rgba(5,7,13,.86)); }
+.hero .label, .hero .lead, .hero .fine { color: rgba(255,255,255,.78); }
+.hero .btn-ghost { background: rgba(255,255,255,.1); border-color: rgba(255,255,255,.4); color: #fff; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+.hero .btn-ghost:hover { border-color: #fff; }
+.hero-copy { will-change: transform, opacity; }
+.sec-demo { padding-top: var(--sp-8); }
 .lead { max-width: 560px; margin: var(--sp-6) auto 0; color: var(--sub); }
 .cta { display: flex; flex-wrap: wrap; gap: var(--sp-2); margin-top: var(--sp-6); }
 .center .cta { justify-content: center; }
@@ -52,7 +61,7 @@ h3 { font-size: 30px; line-height: 32px; font-weight: 300; }
 
 
 /* the stage: a halftone photograph with the live game sitting on it */
-.demo-wrap { margin: var(--sp-8) clamp(0px, 3vw, 44px) 0; }
+.demo-wrap { margin: 0 clamp(0px, 3vw, 44px); }
 .stage { position: relative; overflow: hidden; background: var(--grain), var(--band); padding: clamp(24px, 6vw, 96px) clamp(12px, 7vw, 128px); }
 .stage-art { position: absolute; inset: 0; }
 .stage .win { position: relative; max-width: 1040px; margin: 0 auto; }
@@ -154,6 +163,9 @@ h3 { font-size: 30px; line-height: 32px; font-weight: 300; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
+  .hero-video { top: 0; height: 100%; transform: none !important; }
+  .hero-copy { transform: none !important; opacity: 1 !important; }
+  .art::before { transform: none; inset: 0; }
   .js .reveal { opacity: 1; transform: none; transition: none; }
   .btn { transition: none; }
 }

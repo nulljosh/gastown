@@ -31,6 +31,9 @@ targets:
       INFOPLIST_KEY_ITSAppUsesNonExemptEncryption: false
       CODE_SIGN_ENTITLEMENTS: Resources/NYCSurvive.entitlements
       ENABLE_HARDENED_RUNTIME: YES
+    scheme:
+      testTargets:
+        - SimTests
   NYCSurvive-iOS:
     type: application
     platform: iOS

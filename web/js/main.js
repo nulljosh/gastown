@@ -149,13 +149,22 @@ function startGame(loadSlot, demo = false) {
     camera.x = center * TILE_SIZE;
     camera.y = center * TILE_SIZE;
     if (demo) {
-        camera.zoom = 1.9;
+        camera.zoom = new URLSearchParams(location.search).has('bg') ? 0.85 : 1.9; // the landing hero film wants it close
         Object.keys(state.resources).forEach(k => { state.resources[k] = (state.resources[k] || 0) + 400; });
     }
 
     // Expose state for the HUD
     window._gameState = state;
     window._camera = camera;
+    // ?bg only: the landing film fast-forwards the attract city with this before it records.
+    if (demo && new URLSearchParams(location.search).has('bg')) window._ff = n => {
+        for (let i = 0; i < n; i++) {
+            state.currentTick++;
+            state.currentHour = Math.floor((state.currentTick % 240) / 10);
+            state.isNight = state.currentHour >= 20 || state.currentHour < 6;
+            machineTick(state); jobTick(state); resourceTick(state); demoTick(state, grid, pathfinder);
+        }
+    };
     window._gameCallbacks = {
         toggleWallpaper: () => {
             state.wallpaperMode = !state.wallpaperMode;

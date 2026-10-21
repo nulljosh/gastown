@@ -181,13 +181,16 @@ export function demoTick(state, grid, pathfinder) {
         c.pathRows = path.map(p => p.row);
         c.pathIndex = 0;
     }
-    if (state.currentTick % 40 !== 0 || !state.colonists.length) return;
+    if (state.currentTick % 16 !== 0 || !state.colonists.length) return;
     const types = Object.keys(BuildingType).filter(t => t !== 'beacon');
     const type = types[Math.floor(Math.random() * types.length)];
     const near = state.colonists[Math.floor(Math.random() * state.colonists.length)];
     for (let i = 0; i < 12; i++) {
-        const col = near.col + Math.floor(Math.random() * 11) - 5;
-        const row = near.row + Math.floor(Math.random() * 11) - 5;
+        let col = near.col + Math.floor(Math.random() * 11) - 5, row = near.row + Math.floor(Math.random() * 11) - 5;
+        if (type === 'drill') { // a drill only works beside a resource
+            const rn = state.resourceNodes[Math.floor(Math.random() * state.resourceNodes.length)];
+            col = rn.col + Math.floor(Math.random() * 3) - 1; row = rn.row + Math.floor(Math.random() * 3) - 1;
+        }
         if (placeBuilding(type, col, row, grid, state, pathfinder)) return;
     }
 }

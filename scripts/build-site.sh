@@ -4,7 +4,7 @@ set -e
 cd "$(dirname "$0")/.."
 rm -rf dist && mkdir -p dist/app
 cp -R landing/. dist/
-for f in index.html style.css js icon.svg favicon.svg favicon-32.png apple-touch-icon.png privacy.html; do
+for f in index.html style.css js sprites icon.svg favicon.svg favicon-32.png apple-touch-icon.png privacy.html; do
   cp -R "web/$f" "dist/app/$f"
 done
 echo "built dist/ (landing at /, game at /app)"

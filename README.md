@@ -2,9 +2,9 @@
 
 ![version](https://img.shields.io/badge/version-v1.1.0-blue) [![tests](https://github.com/nulljosh/nyc/actions/workflows/test.yml/badge.svg)](https://github.com/nulljosh/nyc/actions/workflows/test.yml) ![license](https://img.shields.io/badge/license-Apache%202.0-green)
 
-Reclaim Times Square.
+Raise the Beacon.
 
-NYC Survive is a colony survival game. You run a small group of survivors in the middle of the city. Gather food and materials, build shelters, and let new survivors move in when there is a bed for them. Scavengers come every third night. You decide what everyone does.
+NYC Survive is a small colony game in the middle of Times Square. You send a crew of survivors to work, build machines that run on their own, and raise the Beacon. Think Pikmin's crew and Factorio's machines, cut down to four buildings and one goal. You decide what everyone does.
 
 **[nyc.jaybulb.com](https://nyc.jaybulb.com)** · **[Play in the browser](https://nyc.jaybulb.com/app/)** · **[App Store](https://apps.apple.com/app/id6782618198)**
 
@@ -14,16 +14,15 @@ NYC Survive is a colony survival game. You run a small group of survivors in the
 
 ## Features
 
-- **Survivors move in.** One arrives each day when there is a free bed and 10 food. Shelters add beds. The colony holds up to 20.
-- **Five resources.** Food, power, materials, oxygen and cash. Hunger and oxygen drain every survivor, so the stockpile has to keep up.
-- **Buildings cost upkeep.** Each building uses one material every 10 seconds at normal speed to keep running. Run out and it breaks until you can pay again.
-- **Raids.** Every third night at 22:00, scavengers take a fifth of your food, materials and cash. A survivor on patrol near your buildings turns them back.
-- **You give every order.** Click a survivor, or drag a box around several. Click the ground to move them. Click a resource to gather it. Nobody works on their own.
-- **Win.** Have 15 survivors alive, an average level of 8, and one at level 10. A full game takes about an hour and a half.
+- **Send the crew.** Click a survivor, or drag a box around several. Click a resource and they work it until you say otherwise. Click the ground to move them. Nobody works on their own.
+- **Three resources.** Food, materials and power.
+- **Four buildings.** Shelters add four beds. Generators make power. A drill beside a resource mines it and burns power, one drill per patch. The Beacon is the win.
+- **The crew grows.** A free bed and 10 food bring a new survivor each day, up to 20.
+- **Win.** Raise the Beacon: 8,000 materials and 1,000 power. About fifteen minutes if you build well.
 - **Saves.** Autosave runs about once a minute. There are three save slots.
 - **Apple.** iPhone, iPad and Mac. The Mac app has a resizable window and a full screen switch in Settings.
 - **Web.** The same game runs in a browser at [/app](https://nyc.jaybulb.com/app/), with WebMCP tools for browser agents.
-- **Apple Watch.** A quick reference for building costs, survivor traits and weapon stats.
+- **Apple Watch.** A quick reference for building costs.
 
 ## Run
 
@@ -37,7 +36,6 @@ Other ways in:
 
 - **Web.** `cd web && python3 -m http.server 8000`, then open http://localhost:8000. Modules need a server, so `file://` will not work.
 - **Headless playthrough.** `scripts/playthrough.sh 200` plays the bot to the win with no window.
-- **Recorded demo.** `"NYC Survive.app/Contents/MacOS/NYC Survive" -demo 200` runs the tutorial, then the bot at 200 ticks a second with the window on top.
 - **Apple Watch.** `cd watchos && xcodegen generate && open NYCSurviveWatch.xcodeproj`
 
 ## Tests
