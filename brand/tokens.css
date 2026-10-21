@@ -1,7 +1,7 @@
 /* Gastown brand tokens. The accent is the only colour this app owns; spacing, radii and type come from the shared system. */
 :root {
-  --accent: #b5502c;
-  --accent-light: #e07a52;
-  --accent-deep: #b5502c;
-  --accent-ring: color-mix(in srgb, #b5502c 30%, transparent);
+  --accent: #0b2f8a;
+  --accent-light: #3d7bff;
+  --accent-deep: #0b2f8a;
+  --accent-ring: color-mix(in srgb, #0b2f8a 30%, transparent);
 }

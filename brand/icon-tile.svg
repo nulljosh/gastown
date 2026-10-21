@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024"><defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e07a52"/><stop offset="1" stop-color="#b5502c"/></linearGradient></defs><rect width="1024" height="1024" rx="0" fill="url(#g)"/><g fill="#fff">
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024"><defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3d7bff"/><stop offset="1" stop-color="#0b2f8a"/></linearGradient></defs><rect width="1024" height="1024" rx="0" fill="url(#g)"/><g fill="#fff">
   <circle cx="548" cy="232" r="26"/><circle cx="598" cy="196" r="36"/><circle cx="660" cy="160" r="28"/>
   <rect x="500" y="236" width="24" height="56" rx="6"/>
   <polygon points="384,350 512,280 640,350"/>
