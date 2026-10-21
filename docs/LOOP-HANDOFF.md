@@ -19,13 +19,13 @@ Today's Mac QA also fixed these:
 
 The menu now sits over a live city with hover buttons, NYC Sans and the new Empire State icon. The Dock name is "NYC Survive", the window resizes, and Settings has a Full screen switch. LICENSE is already Apache 2.0.
 
-The landing is being rebuilt on the Hermes system and is not deployed.
+The landing is rebuilt on the Hermes system and live at nyc.jaybulb.com, with the web game at /app.
 
 ## Next, in order
 
 1. Settings QA after a game. The Full screen switch goes stale if the green window button is used. Check save slots, sound and appearance. The first click into an inactive window only focuses it.
 2. Design system: Theme.accent is still #0071e3 next to brand blue #3d7bff, and the HUD mixes yellow, cyan and red. Record the NYC Sans override in brand/BRAND.md the way Coda does.
-3. Landing: finish the Hermes-style rebuild. Run `scripts/build-site.sh`, deploy, and check nyc.jaybulb.com live.
+3. Landing polish: the stage shows the web game in its light theme on a dark page, and landing/hero-city.png is unused. Deploy is `sh scripts/build-site.sh && npx wrangler deploy`.
 
 ## Restart prompt
 
