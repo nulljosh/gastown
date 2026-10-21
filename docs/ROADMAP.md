@@ -248,7 +248,6 @@ improvement notes in App Review Information -> Notes.
 
 ## Ingested 2026-08-24
 
-- [x] Come up with an original name for the game (currently just "NYC"). Done 2026-10-21: Gastown.
 - [ ] Write a script that plays through the whole game end to end (regression walkthrough).
 - [ ] Confirm autoplay is disabled and removed. Autoplay should only run when connected via a server, or when the playthrough script above is run explicitly. (Directive engine was deleted 2026-07, this is a verification pass, not a rebuild.)
 - [ ] **Hero: game simulation (full version, deferred).** Future iteration: a canvas running a render loop with the game simulating itself, instead of the current static drifting-tile wall. Slot into `nyc/landing/index.html` the same way: absolute layer at `z-index:0` behind `.hero .container`, the `.hero::after` scrim above it, and a `prefers-reduced-motion` bail-out. **Guardrail:** this is decoration on the marketing page only, it must not resurrect the deleted directive/autoplay engine, and must not touch `Sources/`.
@@ -262,12 +261,6 @@ improvement notes in App Review Information -> Notes.
       which is exactly what drew the Guideline 2.3.3 rejection on 2026-08-26; `ipad-final.png` and
       `ipad-try2.png` carry the `nodes:16481 60.0 fps` debug counter from before the `#if DEBUG`
       gate. They also show the pre-rename "TIMES SQUARE" title, the app now reads "NYC SURVIVE".
-- [x] **Original name for the game.** "NYC Survive" is descriptive, not a name. Use the
-      `asc-name-creator` skill to find an available single-word App Store name, same process as
-      the Echo→Voxprint rename.
-- [x] **Playthrough script.** Done 2026-10-21: `scripts/playthrough.sh` (bot in scripts/playthrough/, never in the app). A script that plays the game start to finish, for verification
-      only. Must live outside `Sources/` and stay opt-in (server-driven or explicitly invoked),
-      never wired into the app, see the no-autoplay rule below.
 - [ ] **Confirm autoplay is gone.** Re-verify the game never plays itself in a normal session;
       the directive engine was deleted 2026-07-02 and must not have crept back.
 
@@ -330,10 +323,8 @@ nyc/ROADMAP.md
 - [ ] Game still too confusing. Tutorial isn't playable because the window covers the build menu. Minimap doesn't work. App just needs a lot of updating. (screenshot: notes/attachments/2026-10-16/nyc-1.png)
 
 ## QA 2026-10-21 (Mac, full pass)
-- [x] Balance: the game could not be won (avg level 5.2 after 200 days). Native had ported the wrong XP curve (level N cost N*100; web steps 50/100/200/300) and has no quests. Now the web curve plus 1 XP per harvest: `scripts/playthrough.sh` wins 3 of 3 worlds on days 21 to 23, about 1.5 h at 1x.
 - [ ] Record the demo once it can win: `"NYC Survive.app/Contents/MacOS/NYC Survive" -demo 200` (menu, scripted tutorial, then DemoBot at 200 ticks/s, window floats on top) and record the window region with `screencapture -v -R`. Send the video.
 - [ ] First click into an inactive window only focuses it; MenuSKView.acceptsFirstMouse does not get through SwiftUI's host view.
 - [ ] Settings QA after the game: Full screen switch goes stale if the green window button is used; check save slots, sound, appearance.
 - [ ] Design system: in-app Theme.accent is still #0071e3 next to brand blue #3d7bff; HUD mixes yellow headers, cyan tutorial titles, red SKIP. Record the NYC Sans override in CLAUDE.md and brand/BRAND.md (as Coda does).
 - [ ] Landing (Joshua: C-): rebuild against hermes/landing for real, load NYC Sans from landing/fonts, add the missing dist copy step (no deploy.sh copies landing/ into dist/), deploy, check live at nyc.jaybulb.com.
-- [x] Joshua 2026-10-21: refresh README and the other markdowns (done 2026-10-21); LICENSE switched to Apache 2.0; web/privacy.html checked and updated (no network calls, dated 21 Oct 2026), linked from README. Still open: link it from the landing page, which another session is rebuilding.
