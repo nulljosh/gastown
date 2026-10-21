@@ -13,11 +13,13 @@
 		0E81B27FC981A23D3B8D7CAC /* TimeSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C880AFC71614E9D1601843E4 /* TimeSystem.swift */; };
 		0F7660BAC77610758E07A1DD /* GastownSans-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8A7F5B1029625C2D2063FA0E /* GastownSans-Semibold.ttf */; };
 		146DA4402A827C0F8DA3511B /* ColonySystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B88711443489637B13156F /* ColonySystem.swift */; };
+		1A9EF67FE2C44ADD3DB4BE58 /* Gastown.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = 6CCFEA9DE35B6FB6463B59E1 /* Gastown.entitlements */; };
 		1BC055DA69170852F02DC580 /* BuildMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EF4DE4A8B0D6BB69FA68EC /* BuildMenu.swift */; };
 		1E2CB60CE69FA684C03737DE /* SimTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24565DEBAFFBCC7E2DC4B3C /* SimTests.swift */; };
 		20D07732E2CAB3EEE5055A11 /* CameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97AF2600E9F1A7B9DBB277C /* CameraController.swift */; };
 		2608D965033B4B95D00A2EC2 /* BuildSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E129B2D6398CE58ADDF865 /* BuildSystem.swift */; };
 		2CD0A45F70255790B32A3C96 /* WorldGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE42912AC6179097A61DCC1 /* WorldGenerator.swift */; };
+		2FD3FC28596437A15D651476 /* Gastown.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = 6CCFEA9DE35B6FB6463B59E1 /* Gastown.entitlements */; };
 		30E67D2E096262FE0D2DA9C9 /* InputHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2766244A93F1D3BE40884A89 /* InputHandler.swift */; };
 		32D25F2DCEE84C0C6B6D61A1 /* Info-iOS.plist in Resources */ = {isa = PBXBuildFile; fileRef = F5B9288C3694A662FDD66A50 /* Info-iOS.plist */; };
 		395AFC0E6F6F17FC467C7559 /* GastownSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 22B5E54D0D95492FDB09C1E5 /* GastownSans-Regular.ttf */; };
@@ -45,7 +47,6 @@
 		6CE1859D66FF1AC0D78426E5 /* ColonistPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1C9C81E3F83DAF0F2FB2FF /* ColonistPanel.swift */; };
 		7169AF97B15F13848377ADFA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91FE93FD9B8B955069B139DE /* Assets.xcassets */; };
 		7840D0329EA69878E93A1113 /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B3B73EDF4221F3E99C34757 /* MenuScene.swift */; };
-		7E1DE6E1D69CD86FE2F55813 /* NYCSurvive.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = 95D1B93E9DE2C8C5F9632BEC /* NYCSurvive.entitlements */; };
 		80E9AEECEC3CAD5D3A00E88D /* ResourceBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50A15F64D3961AD4789DDCC /* ResourceBar.swift */; };
 		8101D87B8F318B1D302850D7 /* ColonistModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7029DB69EB0292F154F8747 /* ColonistModel.swift */; };
 		8335E03F7F79D42171AD93DD /* TileType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C1CEE4B21F7BD2C1F6B5DF /* TileType.swift */; };
@@ -87,7 +88,6 @@
 		D249A0B8E26FC278059990B7 /* Colonist.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CAFFD76DAFDE2273D1B623 /* Colonist.swift */; };
 		D3DF7B91369123997CDA46B3 /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B3B73EDF4221F3E99C34757 /* MenuScene.swift */; };
 		D501023A92959DDB3EAB0564 /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5B500235295D5BA186E6FB /* GameState.swift */; };
-		D7F2EFF4216945E4E19D72DE /* NYCSurvive.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = 95D1B93E9DE2C8C5F9632BEC /* NYCSurvive.entitlements */; };
 		DB68BE12534D1A71DBA9D15A /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB3A655A5590D550B1E8BB9 /* TutorialView.swift */; };
 		DE7B8BED12723755B46520DB /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE41D6B7C2B09963D7E88AD1 /* SettingsView.swift */; };
 		E1D8E610FF96C948C992C3EC /* ColonySystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B88711443489637B13156F /* ColonySystem.swift */; };
@@ -124,11 +124,11 @@
 		3E2D3340B5B150195F45CBCA /* ResourceSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceSystem.swift; sourceTree = "<group>"; };
 		4850B9B0FAF7F29155D9E3EF /* HUDView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDView.swift; sourceTree = "<group>"; };
 		5E61D493FBB9827F429E8C42 /* GameScene+Backdrop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GameScene+Backdrop.swift"; sourceTree = "<group>"; };
+		6CCFEA9DE35B6FB6463B59E1 /* Gastown.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Gastown.entitlements; sourceTree = "<group>"; };
 		8698AE57078F234D85B200DD /* GastownSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GastownSans-Medium.ttf"; sourceTree = "<group>"; };
 		8A7F5B1029625C2D2063FA0E /* GastownSans-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GastownSans-Semibold.ttf"; sourceTree = "<group>"; };
 		8FB3A655A5590D550B1E8BB9 /* TutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
 		91FE93FD9B8B955069B139DE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		95D1B93E9DE2C8C5F9632BEC /* NYCSurvive.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NYCSurvive.entitlements; sourceTree = "<group>"; };
 		9881010EA2A3FAF0B8785A15 /* MiniMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniMap.swift; sourceTree = "<group>"; };
 		98C272C34E1C4AD322BCC7B4 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		A06A2ABA316373F22D0721C1 /* OFL.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
@@ -224,8 +224,8 @@
 			isa = PBXGroup;
 			children = (
 				91FE93FD9B8B955069B139DE /* Assets.xcassets */,
+				6CCFEA9DE35B6FB6463B59E1 /* Gastown.entitlements */,
 				F5B9288C3694A662FDD66A50 /* Info-iOS.plist */,
-				95D1B93E9DE2C8C5F9632BEC /* NYCSurvive.entitlements */,
 				49F642BBC99270687FA08F59 /* Fonts */,
 			);
 			path = Resources;
@@ -453,13 +453,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				8C0F666A06A4310FD019B810 /* Assets.xcassets in Resources */,
+				2FD3FC28596437A15D651476 /* Gastown.entitlements in Resources */,
 				C535AF5E892A6C6A9304AAD5 /* Gastown.icon in Resources */,
 				C94F3BA68CE1DA8EEDC41A96 /* GastownSans-Bold.ttf in Resources */,
 				8F9C7B7F7177FB23E1C407FE /* GastownSans-Medium.ttf in Resources */,
 				B06214A156ADC64B88C7064E /* GastownSans-Regular.ttf in Resources */,
 				8450A96E0A85356F1C373E33 /* GastownSans-Semibold.ttf in Resources */,
 				32D25F2DCEE84C0C6B6D61A1 /* Info-iOS.plist in Resources */,
-				7E1DE6E1D69CD86FE2F55813 /* NYCSurvive.entitlements in Resources */,
 				83F70857144870676730B933 /* OFL.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -469,13 +469,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				7169AF97B15F13848377ADFA /* Assets.xcassets in Resources */,
+				1A9EF67FE2C44ADD3DB4BE58 /* Gastown.entitlements in Resources */,
 				CEE5B3AFFD401D80D0820FD9 /* Gastown.icon in Resources */,
 				8894A506AD41B54FFB9B52B5 /* GastownSans-Bold.ttf in Resources */,
 				60627C8924A729EFD4B8BF96 /* GastownSans-Medium.ttf in Resources */,
 				395AFC0E6F6F17FC467C7559 /* GastownSans-Regular.ttf in Resources */,
 				0F7660BAC77610758E07A1DD /* GastownSans-Semibold.ttf in Resources */,
 				4EDFB7ACB77BD03BDF6BC4DA /* Info-iOS.plist in Resources */,
-				D7F2EFF4216945E4E19D72DE /* NYCSurvive.entitlements in Resources */,
 				8D60A40056CF70264F8802C2 /* OFL.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
