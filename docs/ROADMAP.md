@@ -248,7 +248,7 @@ improvement notes in App Review Information -> Notes.
 
 ## Ingested 2026-08-24
 
-- [ ] Come up with an original name for the game (currently just "NYC").
+- [x] Come up with an original name for the game (currently just "NYC"). Done 2026-10-21: Gastown.
 - [ ] Write a script that plays through the whole game end to end (regression walkthrough).
 - [ ] Confirm autoplay is disabled and removed. Autoplay should only run when connected via a server, or when the playthrough script above is run explicitly. (Directive engine was deleted 2026-07, this is a verification pass, not a rebuild.)
 - [ ] **Hero: game simulation (full version, deferred).** Future iteration: a canvas running a render loop with the game simulating itself, instead of the current static drifting-tile wall. Slot into `nyc/landing/index.html` the same way: absolute layer at `z-index:0` behind `.hero .container`, the `.hero::after` scrim above it, and a `prefers-reduced-motion` bail-out. **Guardrail:** this is decoration on the marketing page only, it must not resurrect the deleted directive/autoplay engine, and must not touch `Sources/`.
@@ -262,7 +262,7 @@ improvement notes in App Review Information -> Notes.
       which is exactly what drew the Guideline 2.3.3 rejection on 2026-08-26; `ipad-final.png` and
       `ipad-try2.png` carry the `nodes:16481 60.0 fps` debug counter from before the `#if DEBUG`
       gate. They also show the pre-rename "TIMES SQUARE" title, the app now reads "NYC SURVIVE".
-- [ ] **Original name for the game.** "NYC Survive" is descriptive, not a name. Use the
+- [x] **Original name for the game.** "NYC Survive" is descriptive, not a name. Use the
       `asc-name-creator` skill to find an available single-word App Store name, same process as
       the Echo→Voxprint rename.
 - [x] **Playthrough script.** Done 2026-10-21: `scripts/playthrough.sh` (bot in scripts/playthrough/, never in the app). A script that plays the game start to finish, for verification
