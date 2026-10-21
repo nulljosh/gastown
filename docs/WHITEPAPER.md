@@ -50,7 +50,7 @@ Auto-assignment was removed on 2026-07-02 and again on 2026-08-02, when two othe
 
 ## Open Work
 
-The open list lives in [ROADMAP.md](../ROADMAP.md).
+The open list lives in [ROADMAP.md](ROADMAP.md).
 
 ## License
 
