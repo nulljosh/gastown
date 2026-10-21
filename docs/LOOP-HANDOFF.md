@@ -1,34 +1,36 @@
-# NYC Survive loop handoff (2026-10-21, late morning)
+# NYC Survive loop handoff (2026-10-21, midday)
 
 ## What the loop is
 
-A QA and polish cycle on the Mac build, the web port and the landing. The headless bot (`scripts/playthrough.sh`, bot in `scripts/playthrough/`, never in the app) is the win check. It exits 0 on victory.
+Ship NYC Survive 2.0.0, then keep polishing. Stop at 96% weekly usage (the usage hook prints it every prompt). The headless bots are the win check: `node web/sim.mjs` and `scripts/playthrough.sh`. Both must keep winning after any rule change, with the same rules on web and native.
 
 ## Where things stand
 
-iOS 1.1.0 is live. Check macOS with `asc` before relying on it.
+2.0 is the simplification Joshua asked for ("radical simplicity, more like Pikmin and Factorio"). You send a crew to a resource and they keep working it. Generators make power. A drill beside a resource mines it and burns power, one drill per patch. Shelters add beds, and a bed plus 10 food brings a survivor each day. The Beacon (8,000 materials, 1,000 power) is the win. Needs, stats, traits, XP, weapons, raids, quests, oxygen and cash are gone.
 
-The game can be won. Native had ported the wrong XP curve (level N cost N*100), so the bot averaged level 5.2 after 200 days. With the web curve and 1 XP per harvest, the headless bot wins 3 of 3 worlds on days 21 to 23, about 1.5 hours at normal speed. A recorded run won on day 24 and was sent to Joshua.
-
-Today's Mac QA also fixed these:
-- the 7.7 second New Game freeze, now 0.05 seconds with a bitmap and BFS pathfinder
-- map clicks lost to hand jitter
-- the tutorial
-- the HUD contrast
-- the empty minimap
-
-The menu now sits over a live city with hover buttons, NYC Sans and the new Empire State icon. The Dock name is "NYC Survive", the window resizes, and Settings has a Full screen switch. LICENSE is already Apache 2.0.
-
-The landing is rebuilt on the Hermes system and live at nyc.jaybulb.com, with the web game at /app.
+- Web and native rules match. The web bot wins in about 12 minutes, and the native playthrough wins on day 13.
+- Tests: 6 web tests and 19 Swift tests, all green. CI was broken before 2.0 because the scheme had no test action and the test host used the old app name. That's fixed in `project.yml`.
+- Sprites are clay and cream on noir, with chamfered corners and soft shadows. They come from `scripts/gen_sprites.py`, which writes both the xcassets and `web/sprites/`.
+- The landing is live at nyc.jaybulb.com. It has a dark hero over `landing/hero.mp4`, a film of the attract city recorded with headless Chrome frame capture through `window._ff` (`?bg` only), plus parallax and the 2.0 copy.
+- Saves moved to `nyc2_save_` (web) and `save2_N.json` (native). 1.x saves are ignored, never decoded.
+- Store: iOS and Mac 1.1.0 are live. 2.0.0 is not created or submitted yet.
 
 ## Next, in order
 
-1. Settings QA after a game. The Full screen switch goes stale if the green window button is used. Check save slots, sound and appearance. The first click into an inactive window only focuses it.
-2. Design system: Theme.accent is still #0071e3 next to brand blue #3d7bff, and the HUD mixes yellow, cyan and red. Record the NYC Sans override in brand/BRAND.md the way Coda does.
-3. Landing polish: the stage shows the web game in its light theme on a dark page, and landing/hero-city.png is unused. Deploy is `sh scripts/build-site.sh && npx wrangler deploy`.
+1. Confirm CI on main is green across all three jobs (`gh run list -R nulljosh/nyc -L 1`).
+2. Native visual QA on a Release build, Mac and iOS sim. Cover the 3 tutorial steps, squad select and gather, all 4 buildings (a drill beside a node), and the Beacon banner, then Keep playing (it must not re-pause).
+3. Store metadata for 2.0.0:
+   - new gameplay screenshots (6.5" iPhone, iPad 12.9", Mac; Release build, not the menu)
+   - rewritten description and promo text
+   - whatsNew that says 1.x saves don't carry over
+   - App Review notes on the redesign
+4. Bump `MARKETING_VERSION` to 2.0.0 with a new build number. Then `asc workflow run ship-ios VERSION:2.0.0` and `ship-mac VERSION:2.0.0 BUILD:$(date +%Y%m%d%H%M)`, `asc validate`, `review items add`, submit.
+5. Landing: "See it played" still plays the 1.x `playthrough.mp4`. Re-record a 2.0 run, and check `og.png`.
+6. README screenshots and alt text, plus `docs/API.md`, `ARCHITECTURE.md` and `CONTROLS.md`: replace old terms. Autosave is every 60 ticks (15 s).
+7. Embedded web game on the landing runs in light theme on the blue stage. Consider forcing dark in `?embed`.
 
 ## Restart prompt
 
 ```
-/loop NYC Survive. Work nyc/docs/LOOP-HANDOFF.md "Next, in order" top to bottom. scripts/playthrough.sh must keep winning after any rule change (same rules on web and native). nyc is its own repo now (nulljosh/nyc): commit and push there. Send screenshots of every visible change.
+/loop NYC Survive 2.0. Work nyc/docs/LOOP-HANDOFF.md "Next, in order" top to bottom. Both bots must keep winning (same rules on web and native). Commit and push in nulljosh/nyc. Send screenshots of every visible change. Stop at 96% weekly usage.
 ```
