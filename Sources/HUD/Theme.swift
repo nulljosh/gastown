@@ -208,7 +208,7 @@ struct GlassButton: View {
     var body: some View {
         Button(action: action) {
             Text(label)
-                .font(.nyc(size: 11, weight: .bold))
+                .font(.gastown(size: 11, weight: .bold))
                 .foregroundStyle(foreColor)
                 .padding(.horizontal, 14)
                 .padding(.vertical, 8)
@@ -243,13 +243,13 @@ struct GlassButton: View {
     }
 }
 
-/// NYC Sans (scripts/gen_font.py): Inter renamed, proportional figures. Bundled in Resources/Fonts and
+/// Gastown Sans (scripts/gen_font.py): Inter renamed, proportional figures. Bundled in Resources/Fonts and
 /// registered for this process on first use, so there is no Info.plist font list to keep in step.
-enum NYCFont {
+enum GastownFont {
     static let registered: Void = {
         let urls = (Bundle.main.urls(forResourcesWithExtension: "ttf", subdirectory: nil) ?? [])
             + (Bundle.main.urls(forResourcesWithExtension: "ttf", subdirectory: "Fonts") ?? [])
-        for url in urls where url.lastPathComponent.hasPrefix("NYCSans-") {
+        for url in urls where url.lastPathComponent.hasPrefix("GastownSans-") {
             CTFontManagerRegisterFontsForURL(url as CFURL, .process, nil)
         }
     }()
@@ -258,17 +258,17 @@ enum NYCFont {
     static func name(_ weight: Font.Weight) -> String {
         _ = registered
         switch weight {
-        case .bold, .heavy, .black: return "NYCSans-Bold"
-        case .semibold: return "NYCSans-Semibold"
-        case .medium: return "NYCSans-Medium"
-        default: return "NYCSans-Regular"
+        case .bold, .heavy, .black: return "GastownSans-Bold"
+        case .semibold: return "GastownSans-Semibold"
+        case .medium: return "GastownSans-Medium"
+        default: return "GastownSans-Regular"
         }
     }
 }
 
 extension Font {
     /// The game's face at a fixed size, the drop-in for SwiftUI's `.system(size:weight:)`.
-    static func nyc(size: CGFloat, weight: Font.Weight = .regular) -> Font {
-        .custom(NYCFont.name(weight), fixedSize: size)
+    static func gastown(size: CGFloat, weight: Font.Weight = .regular) -> Font {
+        .custom(GastownFont.name(weight), fixedSize: size)
     }
 }

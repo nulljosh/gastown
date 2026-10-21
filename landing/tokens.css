@@ -1,9 +1,9 @@
-/* NYC Survive design tokens, same system as the Hermes landing: 8 point grid, one radius set, 48 point capsule controls.
-   The brand blue (brand/tokens.css) is the only colour NYC owns. Light #3d7bff, deep #0b2f8a. */
-@font-face { font-family: "NYC Sans"; src: url("fonts/NYCSans-Regular.woff2") format("woff2"); font-weight: 400; font-display: swap; }
-@font-face { font-family: "NYC Sans"; src: url("fonts/NYCSans-Medium.woff2") format("woff2"); font-weight: 500; font-display: swap; }
-@font-face { font-family: "NYC Sans"; src: url("fonts/NYCSans-Semibold.woff2") format("woff2"); font-weight: 600; font-display: swap; }
-@font-face { font-family: "NYC Sans"; src: url("fonts/NYCSans-Bold.woff2") format("woff2"); font-weight: 700; font-display: swap; }
+/* Gastown design tokens, same system as the Hermes landing: 8 point grid, one radius set, 48 point capsule controls.
+   The brand blue (brand/tokens.css) is the only colour Gastown owns. Light #3d7bff, deep #0b2f8a. */
+@font-face { font-family: "Gastown Sans"; src: url("fonts/GastownSans-Regular.woff2") format("woff2"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Gastown Sans"; src: url("fonts/GastownSans-Medium.woff2") format("woff2"); font-weight: 500; font-display: swap; }
+@font-face { font-family: "Gastown Sans"; src: url("fonts/GastownSans-Semibold.woff2") format("woff2"); font-weight: 600; font-display: swap; }
+@font-face { font-family: "Gastown Sans"; src: url("fonts/GastownSans-Bold.woff2") format("woff2"); font-weight: 700; font-display: swap; }
 
 :root {
   /* colour */
@@ -24,8 +24,8 @@
   --sub: #5f5f66;
 
   /* type */
-  --display: var(--font);    /* one face everywhere: NYC Sans, built by scripts/gen_font.py */
-  --font: "NYC Sans", -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --display: var(--font);    /* one face everywhere: Gastown Sans, built by scripts/gen_font.py */
+  --font: "Gastown Sans", -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
   --size-body: 17px;          /* 24 line */
   --size-footnote: 13px;      /* 16 line */
 

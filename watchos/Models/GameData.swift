@@ -1,7 +1,7 @@
 import Foundation
 
 // Ported directly from Sources/Models/{BuildingModel,ResourceModel}.swift.
-// NYC Survive is a fully local colony builder (no backend, JSON save-slots on device), so
+// Gastown is a fully local colony builder (no backend, JSON save-slots on device), so
 // there is no live game state to sync here. This is a standalone quick-reference for the
 // same static building costs and resource types the main app ships with.
 
@@ -28,7 +28,7 @@ enum BuildingType: String, CaseIterable {
         case .shelter: "Shelter"
         case .generator: "Generator"
         case .drill: "Drill"
-        case .beacon: "Beacon"
+        case .beacon: "Steam Clock"
         }
     }
 

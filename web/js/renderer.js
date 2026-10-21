@@ -235,6 +235,23 @@ export function renderWorld(ctx, canvas, camera, grid, state) {
         ctx.fillRect(0, 0, canvas.width, canvas.height);
         ctx.restore();
     }
+    renderRain(ctx, canvas, state.isNight);
+}
+
+// Vancouver rain: light, always, a little heavier at night. Screen space, so it never pans.
+const DROPS = Array.from({ length: 140 }, (_, i) => ({ x: (i * 97.13) % 1, y: (i * 57.71) % 1, s: 0.6 + ((i * 31) % 10) / 20 }));
+function renderRain(ctx, canvas, night) {
+    ctx.save(); ctx.setTransform(1, 0, 0, 1, 0, 0);
+    ctx.strokeStyle = night ? 'rgba(160, 180, 230, 0.32)' : 'rgba(190, 205, 235, 0.22)';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    const t = renderTick * 0.012;
+    for (const d of DROPS) {
+        const x = ((d.x + t * 0.25 * d.s) % 1) * canvas.width, y = ((d.y + t * d.s) % 1) * canvas.height;
+        ctx.moveTo(x, y); ctx.lineTo(x - 3, y + 11 * d.s);
+    }
+    ctx.stroke();
+    ctx.restore();
 }
 
 // Minimap

@@ -10,9 +10,9 @@ final class MenuScene: SKScene {
     var onNewGame: (() -> Void)?
     var onLoadGame: ((Int) -> Void)?
 
-    /// NYC Sans, the same face as the HUD (see NYCFont in Theme.swift).
+    /// Gastown Sans, the same face as the HUD (see GastownFont in Theme.swift).
     private func chill(_ weight: ChillWeight = .semibold) -> String {
-        NYCFont.name(weight == .bold ? .bold : weight == .regular ? .regular : .semibold)
+        GastownFont.name(weight == .bold ? .bold : weight == .regular ? .regular : .semibold)
     }
     private enum ChillWeight { case regular, semibold, bold }
 
@@ -36,7 +36,7 @@ final class MenuScene: SKScene {
         let title = SKLabelNode(fontNamed: chill(.bold))
         // Must match the App Store name — a title screen that says something else
         // reads as the wrong app to a reviewer (see wiki: app-renaming).
-        title.text = "NYC Survive"
+        title.text = "Gastown"
         title.fontSize = 64
         title.fontColor = .white
         title.position = CGPoint(x: size.width / 2, y: size.height * 0.66)

@@ -11,7 +11,7 @@
 	<key>provisioningProfiles</key>
 	<dict>
 		<key>com.heyitsmejosh.nyc</key>
-		<string>NYC Survive iOS App Store Universal</string>
+		<string>Gastown iOS App Store Universal</string>
 	</dict>
 	<key>signingCertificate</key>
 	<string>Apple Distribution</string>

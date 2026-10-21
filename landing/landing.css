@@ -1,5 +1,5 @@
-/* NYC Survive landing, built on the Hermes landing system: a near-black page in a thin blue frame, giant thin condensed caps,
-   tiny caps labels, small square buttons, all in NYC Sans, and one full-bleed blue band where an old photograph of New York sits in halftone.
+/* Gastown landing, built on the Hermes landing system: a near-black page in a thin blue frame, giant thin condensed caps,
+   tiny caps labels, small square buttons, all in Gastown Sans, and one full-bleed blue band where an old photograph of New York sits in halftone.
    Every colour, both faces and the radii come from tokens.css. */
 :root {
   --scan: repeating-linear-gradient(to bottom, #000 0 1.5px, transparent 1.5px 3px);  /* scanlines for the engravings */
@@ -54,6 +54,8 @@ h3 { font-size: 28px; line-height: 32px; font-weight: 600; letter-spacing: -.01e
 .hero .btn-ghost:hover { border-color: #fff; }
 .hero-copy { will-change: transform, opacity; }
 .sec-demo { padding-top: var(--sp-8); }
+.store-badge { display: inline-flex; align-items: center; height: 40px; }
+.store-badge img { display: block; height: 40px; width: auto; }
 .lead { max-width: 560px; margin: var(--sp-6) auto 0; color: var(--sub); }
 .cta { display: flex; flex-wrap: wrap; gap: var(--sp-2); margin-top: var(--sp-6); }
 .center .cta { justify-content: center; }

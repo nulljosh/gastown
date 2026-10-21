@@ -3,21 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>NYC Survive. Times Square colony sim.</title>
-<meta name="description" content="Lead a small crew through Times Square. Send them to work, build drills and generators that run on their own, and raise the Beacon. On Mac, iPhone and iPad, and in your browser.">
+<title>Gastown. A Vancouver colony game.</title>
+<meta name="description" content="Lead a small crew through rainy Vancouver. Send them to work, build drills and generators that run on their own, and raise the Gastown Steam Clock. On Mac, iPhone and iPad, and in your browser.">
 <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#05070d" media="(prefers-color-scheme: dark)">
-<link rel="canonical" href="https://nyc.jaybulb.com/">
+<link rel="canonical" href="https://gastown.jaybulb.com/">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="NYC Survive">
-<meta property="og:title" content="NYC Survive. Times Square colony sim.">
-<meta property="og:description" content="Lead a small crew through Times Square. Build machines that run on their own and raise the Beacon.">
-<meta property="og:url" content="https://nyc.jaybulb.com/">
-<meta property="og:image" content="https://nyc.jaybulb.com/og.png">
+<meta property="og:site_name" content="Gastown">
+<meta property="og:title" content="Gastown. A Vancouver colony game.">
+<meta property="og:description" content="Lead a small crew through rainy Vancouver. Build machines that run on their own and raise the Steam Clock.">
+<meta property="og:url" content="https://gastown.jaybulb.com/">
+<meta property="og:image" content="https://gastown.jaybulb.com/og.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://nyc.jaybulb.com/og.png">
+<meta name="twitter:image" content="https://gastown.jaybulb.com/og.png">
+<meta name="apple-itunes-app" content="app-id=6782618198">
 <link rel="stylesheet" href="tokens.css">
 <link rel="stylesheet" href="landing.css">
 <script src="landing.js" defer></script>
@@ -29,33 +30,26 @@
     <a href="#features">The game</a>
     <a href="#controls">Controls</a>
   </nav>
-  <a class="nav-brand" href="#top" aria-label="NYC Survive home"><img src="icon.svg" alt="" width="28" height="28"><span>NYC Survive</span></a>
+  <a class="nav-brand" href="#top" aria-label="Gastown home"><img src="icon.svg" alt="" width="28" height="28"><span>Gastown</span></a>
   <div class="nav-end">
     <a class="nav-get" href="https://apps.apple.com/app/id6782618198">App Store</a>
     <a class="btn btn-solid" href="app/">Play now</a>
   </div>
 </header>
 
-<!-- Art, dithered to halftone by hand, all public domain via Wikimedia Commons:
-     Longacre Square (Times Square) ca. 1904, Detroit Publishing Company, for the stage;
-     Brooklyn Bridge promenade, Detroit Publishing Co., for the blue band;
-     Panorama of Madison Square with the Flatiron Building, c. 1910-1915, Detroit Publishing Co.;
-     Lewis W. Hine, Old-timer structural worker on the Empire State Building, 1930 (NARA);
-     New York City Skyline, Irving Underhill, 1930 (National Museum of the U.S. Navy);
-     Samuel H. Gottscho, New York City, 1932-01-19 (Library of Congress), for the playthrough stage.
-     Every image is used once. -->
+<!-- Art: halftone dot masks drawn from the game's own sprites and frames by scripts/gen_landing_art.py. No outside photos. -->
 <main id="top">
 <section class="hero" id="hero">
   <div class="hero-bg" aria-hidden="true">
     <video class="hero-video" src="hero.mp4" poster="hero-poster.jpg" autoplay muted loop playsinline preload="auto" data-parallax="0.35"></video>
   </div>
   <div class="wrap center hero-copy" data-parallax="0.3" data-fade>
-    <p class="label">Times Square colony sim</p>
-    <h1>NYC Survive</h1>
-    <p class="lead">Lead a small crew, street by street. Send them to work, build machines that run on their own, and raise the Beacon.</p>
+    <p class="label">A Vancouver colony game</p>
+    <h1>Gastown</h1>
+    <p class="lead">Vancouver started as a few people and a saloon on the waterfront. Start it again in the rain: send your crew to work, build machines that run on their own, and raise the Steam Clock.</p>
     <div class="cta">
-      <a class="btn btn-solid" href="https://apps.apple.com/app/id6782618198">Get it on the App Store</a>
-      <a class="btn btn-ghost" href="#features">See what you do</a>
+      <a class="store-badge" href="https://apps.apple.com/app/id6782618198"><img src="https://tools.applemarketingtools.com/api/badges/download-on-the-app-store/black/en-us" alt="Download on the App Store" width="150" height="50"></a>
+      <a class="btn btn-ghost" href="app/">Play in the browser</a>
     </div>
     <p class="fine">On Mac, iPhone and iPad. Or play it right here.</p>
   </div>
@@ -64,9 +58,9 @@
 <section class="sec-demo">
   <div class="demo-wrap reveal" id="demo">
     <div class="stage">
-      <div class="art stage-art" style="--img: url(art/times-square.png)" aria-hidden="true" data-parallax-art="0.18"></div>
+      <div class="art stage-art" style="--img: url(art/stage.png)" aria-hidden="true" data-parallax-art="0.18"></div>
       <div class="win">
-        <iframe src="app/?embed" title="NYC Survive, running live" loading="lazy" allow="fullscreen"></iframe>
+        <iframe src="app/?embed" title="Gastown, running live" loading="lazy" allow="fullscreen"></iframe>
       </div>
     </div>
     <p class="demo-hint">The real game, running live. Drag a box around a few survivors, then click a resource.</p>
@@ -75,22 +69,22 @@
 
 <section class="band" id="features">
   <div class="band-head">
-    <div class="art band-art" style="--img: url(art/brooklyn.png)" aria-hidden="true" data-parallax-art="0.2"></div>
+    <div class="art band-art" style="--img: url(art/band.png)" aria-hidden="true" data-parallax-art="0.2"></div>
     <div class="band-copy reveal">
       <p class="label">What you do</p>
-      <h2>Raise the Beacon</h2>
-      <p>Gather materials and power. Drills mine for you and generators keep them running. Build enough and the Beacon goes up.</p>
+      <h2>Raise the Steam Clock</h2>
+      <p>Gather materials and power. Drills mine for you and generators keep them running. Build enough and the clock on Water Street whistles again.</p>
     </div>
   </div>
   <div class="frows">
-    <article class="frow reveal"><div class="art" style="--img: url(art/flatiron.png)" aria-hidden="true" data-parallax-art="0.14"></div><div><p class="label">Command</p><h3>Send the crew</h3><p>Drag a box around survivors, click a resource, and they work it until you say otherwise.</p></div></article>
-    <article class="frow reveal"><div class="art" style="--img: url(art/hine.png)" aria-hidden="true" data-parallax-art="0.14"></div><div><p class="label">Build</p><h3>Four buildings</h3><p>Shelters add beds. Generators make power. A drill beside a resource mines it and burns power. The Beacon wins.</p></div></article>
-    <article class="frow reveal"><div class="art" style="--img: url(art/skyline.png)" aria-hidden="true" data-parallax-art="0.14"></div><div><p class="label">Grow</p><h3>A crew that grows</h3><p>A free bed and ten food bring a new survivor every day, up to twenty. More hands, faster Beacon.</p></div></article>
+    <article class="frow reveal"><div class="art" style="--img: url(art/crew.png)" aria-hidden="true" data-parallax-art="0.14"></div><div><p class="label">Command</p><h3>Send the crew</h3><p>Drag a box around survivors, click a resource, and they work it until you say otherwise.</p></div></article>
+    <article class="frow reveal"><div class="art" style="--img: url(art/machines.png)" aria-hidden="true" data-parallax-art="0.14"></div><div><p class="label">Build</p><h3>Four buildings</h3><p>Shelters add beds. Generators make power. A drill beside a resource mines it and burns power. The Steam Clock wins.</p></div></article>
+    <article class="frow reveal"><div class="art" style="--img: url(art/clock.png)" aria-hidden="true" data-parallax-art="0.14"></div><div><p class="label">Grow</p><h3>A crew that grows</h3><p>A free bed and ten food bring a new survivor every day, up to twenty. More hands, a sooner clock.</p></div></article>
   </div>
   <div class="cells" id="controls">
     <article class="cell reveal"><p class="label">Your orders</p><h3>Nobody moves until you say so</h3><p>Colonists only move when you tell them to. Pick one, then pick the spot. Machines are the only thing that works alone.</p></article>
     <article class="cell reveal"><p class="label">Controls</p><h3>Touch or keys</h3><p>Tap a survivor, then the ground. On Mac, WASD pans, B opens the build menu, 1 to 4 pick a building and Space pauses.</p></article>
-    <article class="cell reveal"><p class="label">The win</p><h3>The Beacon stands</h3><p>Raise it and Times Square is yours. About fifteen minutes if you build well.</p></article>
+    <article class="cell reveal"><p class="label">The win</p><h3>The clock whistles</h3><p>Raise the Steam Clock and Gastown is yours. About fifteen minutes if you build well.</p></article>
   </div>
 </section>
 
@@ -103,7 +97,7 @@
       <p class="body">Drag a box around survivors, click a resource to gather it, and press B to build.</p>
     </div>
     <div class="stage film-stage reveal">
-      <div class="art stage-art" style="--img: url(art/aerial.png)" aria-hidden="true" data-parallax-art="0.18"></div>
+      <div class="art stage-art" style="--img: url(art/film.png)" aria-hidden="true" data-parallax-art="0.18"></div>
       <figure class="film">
         <video src="playthrough.mp4" autoplay muted loop playsinline controls preload="metadata" aria-label="A real playthrough: drag a box around survivors, click a resource to gather, press B to build."></video>
       </figure>
@@ -117,7 +111,7 @@
     <h2 class="reveal">Pick your screen</h2>
     <p class="body reveal">One game on every Apple device. Nothing to install in the browser.</p>
     <div class="plat-row">
-      <div class="reveal"><small>Mac, iPhone and iPad</small><b>App Store</b><p>Touch on phone and tablet, keyboard and mouse on Mac.</p><a class="btn btn-solid" href="https://apps.apple.com/app/id6782618198">Get the app</a></div>
+      <div class="reveal"><small>Mac, iPhone and iPad</small><b>App Store</b><p>Touch on phone and tablet, keyboard and mouse on Mac.</p><a class="store-badge" href="https://apps.apple.com/app/id6782618198"><img src="https://tools.applemarketingtools.com/api/badges/download-on-the-app-store/black/en-us" alt="Download on the App Store" width="150" height="50"></a></div>
       <div class="reveal"><small>Any browser</small><b>Play now</b><p>No install. Works on a phone, tablet or computer.</p><a class="btn btn-ghost" href="app/">Open the game</a></div>
     </div>
   </div>
@@ -126,11 +120,11 @@
 
 <footer class="foot" id="footer">
   <div class="foot-top">
-    <div class="foot-brand"><img src="icon.svg" alt="" width="40" height="40"><b>NYC Survive</b><p>Times Square colony sim.</p></div>
+    <div class="foot-brand"><img src="icon.svg" alt="" width="40" height="40"><b>Gastown</b><p>A Vancouver colony game.</p></div>
     <nav class="foot-cols" aria-label="Footer">
       <div><p class="label">Play</p><a href="app/">Play in browser</a><a href="https://apps.apple.com/app/id6782618198">App Store</a><a href="#features">The game</a><a href="#controls">Controls</a></div>
-      <div><p class="label">Source</p><a href="https://github.com/nulljosh/nyc">GitHub</a><a href="https://github.com/nulljosh/nyc/blob/main/docs/CONTROLS.md">Controls doc</a><a href="privacy.html">Privacy</a></div>
-      <div><p class="label">More</p><a href="https://jaybulb.com">Joshua Trommel</a><a href="mailto:trommatic@icloud.com?subject=NYC%20Survive">Feedback</a><a href="#top">Back to top</a></div>
+      <div><p class="label">Source</p><a href="https://github.com/nulljosh/gastown">GitHub</a><a href="https://github.com/nulljosh/gastown/blob/main/docs/CONTROLS.md">Controls doc</a><a href="privacy.html">Privacy</a></div>
+      <div><p class="label">More</p><a href="https://jaybulb.com">Joshua Trommel</a><a href="mailto:trommatic@icloud.com?subject=Gastown">Feedback</a><a href="#top">Back to top</a></div>
     </nav>
   </div>
   <div class="word-band" aria-hidden="true"><canvas class="word-canvas"></canvas></div>

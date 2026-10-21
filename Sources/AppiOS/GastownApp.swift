@@ -2,7 +2,7 @@ import SwiftUI
 import SpriteKit
 
 @main
-struct NYCSurviveApp: App {
+struct GastownApp: App {
     @State private var themeChoice = Theme.choice
     @State private var gameState = GameState()
     // ponytail: `-colony` (store screenshots and QA) skips the menu; GameScene stages the colony.

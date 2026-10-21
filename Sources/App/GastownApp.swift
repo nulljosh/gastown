@@ -2,7 +2,7 @@ import SwiftUI
 import SpriteKit
 
 @main
-struct NYCSurviveApp: App {
+struct GastownApp: App {
     /// ponytail: App Store screenshot hook. `-shot N` skips the menu straight into a
     /// fresh game and preselects a panel, so captures show the app in use instead of
     /// the title screen (Guideline 2.3.3). Nothing else reads it; ignore in normal runs.
@@ -14,7 +14,7 @@ struct NYCSurviveApp: App {
 
     @State private var themeChoice = Theme.choice
     @State private var gameState = GameState()
-    @State private var showMenu = NYCSurviveApp.shotVariant == nil
+    @State private var showMenu = GastownApp.shotVariant == nil
     @State private var loadSlot: Int? = nil
     @State private var menuBackdrop = GameState.menuBackdrop()
 
@@ -102,7 +102,7 @@ struct GameView: View {
         .task {
             // ponytail: colonists are spawned by GameScene, so the shot preset has to
             // run after the scene has ticked at least once.
-            guard let shot = NYCSurviveApp.shotVariant else { return }
+            guard let shot = GastownApp.shotVariant else { return }
             gameState.tutorialStep = nil
             try? await Task.sleep(for: .seconds(2))
             switch shot {

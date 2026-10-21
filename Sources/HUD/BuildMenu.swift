@@ -6,7 +6,7 @@ struct BuildMenu: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 4) {
             Text("BUILD")
-                .font(.nyc(size: 11, weight: .bold))
+                .font(.gastown(size: 11, weight: .bold))
                 .foregroundStyle(Theme.yellow)
                 .padding(.bottom, 4)
 
@@ -18,12 +18,12 @@ struct BuildMenu: View {
                     let isSelected = gameState.selectedBuildingType == type
                     VStack(alignment: .leading, spacing: 2) {
                         Text("\(i + 1). \(type.displayName)")
-                            .font(.nyc(size: 12, weight: .semibold))
+                            .font(.gastown(size: 12, weight: .semibold))
                             .foregroundStyle(Theme.text1)
                         HStack(spacing: 4) {
                             ForEach(Array(type.cost.sorted(by: { $0.key.rawValue < $1.key.rawValue })), id: \.key) { resource, amount in
                                 Text("\(resource.symbol)\(amount)")
-                                    .font(.nyc(size: 9))
+                                    .font(.gastown(size: 9))
                                     .foregroundStyle(Theme.text3)
                             }
                         }
@@ -49,7 +49,7 @@ struct BuildMenu: View {
                 gameState.inputMode = .demolish
             } label: {
                 Text("DEMOLISH")
-                    .font(.nyc(size: 12, weight: .semibold))
+                    .font(.gastown(size: 12, weight: .semibold))
                     .foregroundStyle(Theme.red)
                     .padding(8)
                     .frame(maxWidth: .infinity, alignment: .leading)

@@ -1,20 +1,20 @@
-# Contributing to NYC Survive
+# Contributing to Gastown
 
 ## Setup
 
-NYC Survive lives in the `labs` repo, in the `nyc/` folder.
+Gastown lives in its own repo, `nulljosh/gastown`.
 
 ```bash
-git clone https://github.com/nulljosh/nyc.git
-cd nyc
-xcodegen generate && open NYCSurvive.xcodeproj
+git clone https://github.com/nulljosh/gastown.git
+cd gastown
+xcodegen generate && open Gastown.xcodeproj
 ```
 
 `project.yml` is the source of the Xcode project. Run `xcodegen generate` after you change it.
 
 ## Run
 
-- **Apple apps.** Pick the `NYCSurvive` scheme for Mac or `NYCSurvive-iOS` for iPhone and iPad, then run.
+- **Apple apps.** Pick the `Gastown` scheme for Mac or `Gastown-iOS` for iPhone and iPad, then run.
 - **Web.** `cd web && python3 -m http.server 8000`, then open http://localhost:8000.
 - **Headless.** `scripts/playthrough.sh 200` plays the game to a win with no window.
 
@@ -22,10 +22,10 @@ xcodegen generate && open NYCSurvive.xcodeproj
 
 ```bash
 node --test
-xcodebuild test -project NYCSurvive.xcodeproj -scheme NYCSurvive -destination 'platform=macOS' -only-testing:SimTests
+xcodebuild test -project Gastown.xcodeproj -scheme Gastown -destination 'platform=macOS' -only-testing:SimTests
 ```
 
-CI runs both (`.github/workflows/nyc-test.yml`), plus a check that the file references in the README still exist.
+CI runs both (`.github/workflows/test.yml`), plus a check that the file references in the README still exist.
 
 ## Rules
 

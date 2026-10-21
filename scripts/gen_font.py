@@ -1,4 +1,4 @@
-"""NYC Sans: Inter (rsms/inter, SIL Open Font License 1.1, no reserved name), renamed, figures made proportional.
+"""Gastown Sans: Inter (rsms/inter, SIL Open Font License 1.1, no reserved name), renamed, figures made proportional.
 
 Inter was drawn for screens in the same grotesk family as San Francisco and Helvetica, which is the brief
 (Joshua, 2026-10-21: "more like Helvetica or San Francisco, just sans serif, proportionally spaced"). Same method
@@ -6,7 +6,7 @@ as Coda's Quip Sans: pinned release, renamed, OFL shipped beside the fonts, orig
 table. Four weights, Latin only, every build the same bytes.
 
     uv run --with fonttools --with brotli python3 scripts/gen_font.py           # Resources/Fonts/*.ttf, landing/fonts/*.woff2, OFL.txt in both
-    uv run --with fonttools --with brotli python3 scripts/gen_font.py --check   # named NYC Sans, OFL present, proportional, I l 1 O 0 distinct
+    uv run --with fonttools --with brotli python3 scripts/gen_font.py --check   # named Gastown Sans, OFL present, proportional, I l 1 O 0 distinct
 """
 import io
 import os
@@ -42,16 +42,16 @@ def proportional_figures(font):
 
 
 def rename(font, style):
-    """Give the outlines the NYC Sans name; copyright (0) and license (13, 14) stay as the authors wrote them."""
-    names = {1: "NYC Sans", 2: style, 3: f"NYCSans-{style}", 4: f"NYC Sans {style}", 5: "Version 1.000",
-             6: f"NYCSans-{style}", 16: "NYC Sans", 17: style}
+    """Give the outlines the Gastown Sans name; copyright (0) and license (13, 14) stay as the authors wrote them."""
+    names = {1: "Gastown Sans", 2: style, 3: f"GastownSans-{style}", 4: f"Gastown Sans {style}", 5: "Version 1.000",
+             6: f"GastownSans-{style}", 16: "Gastown Sans", 17: style}
     table = font["name"]
     table.names = [n for n in table.names if n.nameID in (0, 13, 14)]
     for nid, text in names.items():
         table.setName(text, nid, 3, 1, 0x409)
         table.setName(text, nid, 1, 0, 0)
     font["head"].created = font["head"].modified = 3_700_000_000   # fixed, so every build is the same bytes
-    font["OS/2"].achVendID = "NYCS"
+    font["OS/2"].achVendID = "GTWN"
 
 
 def to_bytes(font, flavor):
@@ -67,16 +67,16 @@ def check():
     for d in (TTF_DIR, WOFF_DIR):
         assert os.path.exists(os.path.join(d, "OFL.txt")), "the OFL must ship with the fonts"
     for style in WEIGHTS:
-        for path in (os.path.join(TTF_DIR, f"NYCSans-{style}.ttf"), os.path.join(WOFF_DIR, f"NYCSans-{style}.woff2")):
+        for path in (os.path.join(TTF_DIR, f"GastownSans-{style}.ttf"), os.path.join(WOFF_DIR, f"GastownSans-{style}.woff2")):
             f = TTFont(path)
-            assert f["name"].getDebugName(1) == "NYC Sans" and f["name"].getDebugName(6) == f"NYCSans-{style}"
+            assert f["name"].getDebugName(1) == "Gastown Sans" and f["name"].getDebugName(6) == f"GastownSans-{style}"
             assert "Inter" in (f["name"].getDebugName(0) or ""), "the original copyright must stay in the name table"
             cmap, hmtx, glyf = f.getBestCmap(), f["hmtx"], f["glyf"]
             assert hmtx[cmap[ord("i")]][0] < hmtx[cmap[ord("m")]][0], "letters are not proportional"
             assert hmtx[cmap[ord("1")]][0] < hmtx[cmap[ord("0")]][0], "figures are not proportional"
             shapes = {glyf[cmap[ord(c)]].coordinates.array.tobytes() for c in "Il1O0"}
             assert len(shapes) == 5, "two of I l 1 O 0 are drawn the same"
-    print(f"font ok: NYC Sans (Inter, OFL), {len(WEIGHTS)} weights, proportional figures")
+    print(f"font ok: Gastown Sans (Inter, OFL), {len(WEIGHTS)} weights, proportional figures")
 
 
 def main():
@@ -92,11 +92,11 @@ def main():
         font = TTFont(io.BytesIO(fetch(f"files/inter-latin-{weight}-normal.woff2")))
         proportional_figures(font)
         rename(font, style)
-        with open(os.path.join(TTF_DIR, f"NYCSans-{style}.ttf"), "wb") as f:
+        with open(os.path.join(TTF_DIR, f"GastownSans-{style}.ttf"), "wb") as f:
             f.write(to_bytes(font, None))
-        with open(os.path.join(WOFF_DIR, f"NYCSans-{style}.woff2"), "wb") as f:
+        with open(os.path.join(WOFF_DIR, f"GastownSans-{style}.woff2"), "wb") as f:
             f.write(to_bytes(font, "woff2"))
-        print(f"NYCSans-{style}: Inter {weight}")
+        print(f"GastownSans-{style}: Inter {weight}")
 
 
 if __name__ == "__main__":

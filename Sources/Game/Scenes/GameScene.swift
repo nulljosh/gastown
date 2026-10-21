@@ -129,6 +129,7 @@ final class GameScene: SKScene {
         nightOverlay.zPosition = 90
         nightOverlay.alpha = 0
         cameraController.cameraNode.addChild(nightOverlay)
+        cameraController.cameraNode.addChild(Self.rain()) // Vancouver: it always rains a little
         cameraController.centerOn(position: tileMap.worldPosition(col: center, row: center))
 
         inputHandler.gameState = gameState
@@ -162,10 +163,29 @@ final class GameScene: SKScene {
         if savedData != nil {
             gameState.log("Game loaded")
         } else {
-            gameState.log("Welcome to NYC Survive")
+            gameState.log("Welcome to Gastown")
         }
         let args = ProcessInfo.processInfo.arguments
         if savedData == nil, !gameState.isMenuBackdrop, args.contains("-colony") { stageColony(beacon: args.contains("-beacon")) }
+    }
+
+    /// Light rain in screen space: thin pale streaks falling slightly sideways. Same feel as web renderRain.
+    private static func rain() -> SKEmitterNode {
+        let e = SKEmitterNode()
+        e.particleBirthRate = 140
+        e.particleLifetime = 1.6
+        e.particleSpeed = 900; e.particleSpeedRange = 200
+        e.emissionAngle = -.pi / 2 - 0.25
+        e.particleRotation = -0.25
+        e.particleSize = CGSize(width: 1.5, height: 14)
+        e.particleColor = SKColor(red: 0.75, green: 0.8, blue: 0.92, alpha: 1)
+        e.particleColorBlendFactor = 1
+        e.particleAlpha = 0.28
+        e.particlePositionRange = CGVector(dx: 2600, dy: 0)
+        e.position = CGPoint(x: 200, y: 900)
+        e.zPosition = 91
+        e.advanceSimulationTime(2)
+        return e
     }
 
     override func update(_ currentTime: TimeInterval) {

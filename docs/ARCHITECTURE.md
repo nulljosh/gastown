@@ -4,9 +4,9 @@ A survival colony builder where players place buildings, manage colonists, and b
 
 ## How it runs
 
-**macOS**: `Sources/App/NYCSurviveApp.swift` is the entry point. SwiftUI window hosts an `SKView` embedding `GameScene` for rendering and physics. User input (keyboard/mouse on macOS, touch on iOS) goes through `InputHandler`, which emits commands to `GameState`. Each frame, `GameScene` ticks all systems (BuildSystem, JobSystem, NeedsSystem, ResourceSystem, TimeSystem) in order. HUD overlays (built menu, colonist stats, resource bar) are SwiftUI Views layered on top.
+**macOS**: `Sources/App/GastownApp.swift` is the entry point. SwiftUI window hosts an `SKView` embedding `GameScene` for rendering and physics. User input (keyboard/mouse on macOS, touch on iOS) goes through `InputHandler`, which emits commands to `GameState`. Each frame, `GameScene` ticks all systems (BuildSystem, JobSystem, NeedsSystem, ResourceSystem, TimeSystem) in order. HUD overlays (built menu, colonist stats, resource bar) are SwiftUI Views layered on top.
 
-**iOS**: `Sources/AppiOS/NYCSurviveApp.swift` is the entry point. Touch gestures (tap to select, pan to move camera, pinch to zoom) are captured by `InputHandler` and routed to the same `GameScene`. The game runs identically to macOS.
+**iOS**: `Sources/AppiOS/GastownApp.swift` is the entry point. Touch gestures (tap to select, pan to move camera, pinch to zoom) are captured by `InputHandler` and routed to the same `GameScene`. The game runs identically to macOS.
 
 **Saving**: three save slots stored as JSON via `SaveManager`. Game state serializes to `SaveData` containing all colonists, buildings, resources, and grid state.
 
@@ -14,13 +14,13 @@ A survival colony builder where players place buildings, manage colonists, and b
 
 | File | What it owns |
 |---|---|
-| `Sources/App/NYCSurviveApp.swift` | App entry point, scene setup, `SKView` hosting, macOS-specific key/mouse input setup |
+| `Sources/App/GastownApp.swift` | App entry point, scene setup, `SKView` hosting, macOS-specific key/mouse input setup |
 
 ## iOS
 
 | File | What it owns |
 |---|---|
-| `Sources/AppiOS/NYCSurviveApp.swift` | App entry point, scene setup, `UIView` hosting, iOS-specific touch/gesture input setup |
+| `Sources/AppiOS/GastownApp.swift` | App entry point, scene setup, `UIView` hosting, iOS-specific touch/gesture input setup |
 
 ## Game logic
 
@@ -92,7 +92,7 @@ A survival colony builder where players place buildings, manage colonists, and b
 
 | File | What it owns |
 |---|---|
-| `watchos/NYCSurviveWatchApp.swift` + `watchos/ContentView.swift` | watchOS app entry, quick-reference tabs (buildings, traits, weapons stats), NOT a live save mirror, no pairing |
+| `watchos/GastownWatchApp.swift` + `watchos/ContentView.swift` | watchOS app entry, quick-reference tabs (buildings, traits, weapons stats), NOT a live save mirror, no pairing |
 | `tui/main.swift` | Terminal UI reference card using SwiftTUI, quick-reference building costs and stats, NOT a live game |
 
 ## Audio

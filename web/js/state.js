@@ -11,7 +11,7 @@ export const BuildingType = {
     shelter:   { name: 'Shelter',   cost: { materials: 10 },                desc: '+4 beds',                          size: [2,2] },
     generator: { name: 'Generator', cost: { materials: 15 },                desc: '+1 power every 2 ticks',            size: [2,2] },
     drill:     { name: 'Drill',     cost: { materials: 12, power: 2 },      desc: 'Next to a resource: +1 every 2 ticks, burns power', size: [1,1] },
-    beacon:    { name: 'Beacon',    cost: { materials: 8000, power: 1000 },   desc: 'Raise it to win',                   size: [2,2] },
+    beacon:    { name: 'Steam Clock',    cost: { materials: 8000, power: 1000 },   desc: 'Raise it to win',                   size: [2,2] },
 };
 export const BuildingTypes = Object.keys(BuildingType);
 

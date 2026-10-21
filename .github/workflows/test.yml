@@ -31,7 +31,7 @@ jobs:
       - run: brew install xcodegen
       - run: xcodegen generate
       - name: SimTests (macOS)
-        run: set -o pipefail && xcodebuild test -project NYCSurvive.xcodeproj -scheme NYCSurvive -destination 'platform=macOS' -only-testing:SimTests CODE_SIGNING_ALLOWED=NO 2>&1 | grep -E 'error:|failed|Executed|TEST'
+        run: set -o pipefail && xcodebuild test -project Gastown.xcodeproj -scheme Gastown -destination 'platform=macOS' -only-testing:SimTests CODE_SIGNING_ALLOWED=NO 2>&1 | grep -E 'error:|failed|Executed|TEST'
       # The native game must stay winnable: the bot plays it headless to victory or the job fails.
       - name: Headless playthrough
         run: sh scripts/playthrough.sh 120

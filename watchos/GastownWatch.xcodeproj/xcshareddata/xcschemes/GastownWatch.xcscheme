@@ -15,10 +15,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B7CC07D8E63A5AD9166C1057"
-               BuildableName = "NYCSurvive.app"
-               BlueprintName = "NYCSurvive"
-               ReferencedContainer = "container:NYCSurvive.xcodeproj">
+               BlueprintIdentifier = "D69A38B810AF610B90489092"
+               BuildableName = "GastownWatch.app"
+               BlueprintName = "GastownWatch"
+               ReferencedContainer = "container:GastownWatch.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,27 +32,14 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B7CC07D8E63A5AD9166C1057"
-            BuildableName = "NYCSurvive.app"
-            BlueprintName = "NYCSurvive"
-            ReferencedContainer = "container:NYCSurvive.xcodeproj">
+            BlueprintIdentifier = "D69A38B810AF610B90489092"
+            BuildableName = "GastownWatch.app"
+            BlueprintName = "GastownWatch"
+            ReferencedContainer = "container:GastownWatch.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <Testables>
-         <TestableReference
-            skipped = "NO"
-            parallelizable = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "19E4A0207895D5F88219F50D"
-               BuildableName = "SimTests.xctest"
-               BlueprintName = "SimTests"
-               ReferencedContainer = "container:NYCSurvive.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
-      <CommandLineArguments>
-      </CommandLineArguments>
    </TestAction>
    <LaunchAction
       buildConfiguration = "Debug"
@@ -68,14 +55,12 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B7CC07D8E63A5AD9166C1057"
-            BuildableName = "NYCSurvive.app"
-            BlueprintName = "NYCSurvive"
-            ReferencedContainer = "container:NYCSurvive.xcodeproj">
+            BlueprintIdentifier = "D69A38B810AF610B90489092"
+            BuildableName = "GastownWatch.app"
+            BlueprintName = "GastownWatch"
+            ReferencedContainer = "container:GastownWatch.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
-      <CommandLineArguments>
-      </CommandLineArguments>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -87,14 +72,12 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B7CC07D8E63A5AD9166C1057"
-            BuildableName = "NYCSurvive.app"
-            BlueprintName = "NYCSurvive"
-            ReferencedContainer = "container:NYCSurvive.xcodeproj">
+            BlueprintIdentifier = "D69A38B810AF610B90489092"
+            BuildableName = "GastownWatch.app"
+            BlueprintName = "GastownWatch"
+            ReferencedContainer = "container:GastownWatch.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
-      <CommandLineArguments>
-      </CommandLineArguments>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

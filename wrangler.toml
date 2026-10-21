@@ -5,7 +5,7 @@ compatibility_date = "2025-01-01"
 directory = "dist"
 
 [[routes]]
-pattern = "nyc.jaybulb.com"
+pattern = "gastown.jaybulb.com"
 custom_domain = true
 
 [observability]

@@ -1,10 +1,10 @@
-# NYC Survive Technical Whitepaper
+# Gastown Technical Whitepaper
 
 **v1.1.0** | October 2026
 
 Reclaim Times Square with a few survivors and a stockpile that never quite covers everything.
 
-NYC Survive is a survival game about choices. The colonists do only what the player tells them. Nobody auto-assigns a job, and nobody wanders off to work on their own. Buildings run on their own, but every trip out to gather is an order. The player watches the stockpile, plans for the next raid, and decides who goes where. The rules are small on purpose. SpriteKit and Swift 6, one codebase for iPhone, iPad and Mac. The same game runs in a browser at nyc.jaybulb.com/app.
+Gastown is a survival game about choices. The colonists do only what the player tells them. Nobody auto-assigns a job, and nobody wanders off to work on their own. Buildings run on their own, but every trip out to gather is an order. The player watches the stockpile, plans for the next raid, and decides who goes where. The rules are small on purpose. SpriteKit and Swift 6, one codebase for iPhone, iPad and Mac. The same game runs in a browser at gastown.jaybulb.com/app.
 
 ## The Loop
 
@@ -36,7 +36,7 @@ Auto-assignment was removed on 2026-07-02 and again on 2026-08-02, when two othe
 - **Systems.** `TimeSystem` advances the clock. `NeedsSystem` runs upkeep, needs, recruits, raids and victory. `ResourceSystem` handles gathering. `JobSystem` carries out orders. `BuildSystem` places and removes buildings.
 - **Pathfinding.** `Pathfinder.swift` keeps a bitmap of blocked tiles and runs a breadth-first search over it. New Game went from 7.7 seconds to 0.05 seconds when the old grid-graph wall removal was replaced.
 - **World.** A 128 by 128 tile grid with avenues and streets, from `WorldGenerator.swift`.
-- **Type.** The NYC Sans face is Inter, renamed and with proportional figures. `scripts/gen_font.py` builds it.
+- **Type.** The Gastown Sans face is Inter, renamed and with proportional figures. `scripts/gen_font.py` builds it.
 - **Headless.** `DemoBot.swift` plays the game for the `-demo` run and for `scripts/playthrough.sh`. Tests in `Tests/SimTests.swift` and `web/*.test.mjs` cover the same rules.
 
 ## Platforms
@@ -45,7 +45,7 @@ Auto-assignment was removed on 2026-07-02 and again on 2026-08-02, when two othe
 |---|---|
 | iPhone and iPad | iOS 1.1.0, live on the App Store since 2026-10-06 |
 | Mac | macOS 1.1.0, submitted 2026-10-05. Review status lives in App Store Connect |
-| Web | Live at nyc.jaybulb.com/app. Static ES modules, saves in local storage |
+| Web | Live at gastown.jaybulb.com/app. Static ES modules, saves in local storage |
 | Apple Watch | Quick reference for costs, traits and weapon stats. No pairing, no network |
 
 ## Open Work

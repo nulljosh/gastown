@@ -213,7 +213,7 @@ function freshWorld() {
 
     state.lastSaveSlot = 1;
 
-    gameLog(state, 'Welcome to Times Square');
+    gameLog(state, 'Welcome to Gastown');
 }
 
 const hudCallbacks = {

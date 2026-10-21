@@ -1,4 +1,4 @@
-1/ NYC Survive is live. Times Square has gone dark. Keep them alive.. https://nyc.jaybulb.com
+1/ Gastown is live. Times Square has gone dark. Keep them alive.. https://gastown.jaybulb.com
 
 2/ A colony sim set in a besieged Times Square. Command survivors, build shelter and defenses, keep them fed, rested and breathing. No autopilot, every move is yours. Free on web, $0.99 once on the App Store.
 

@@ -1,6 +1,6 @@
 # Controls
 
-How to play NYC Survive on iPhone, iPad and Mac. These match the input code in
+How to play Gastown on iPhone, iPad and Mac. These match the input code in
 `Sources/Game/Input/InputHandler.swift` and the Controls list in Settings.
 
 ## Touch (iPhone and iPad)

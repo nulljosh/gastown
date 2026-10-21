@@ -7,152 +7,152 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1BEA4D31DE7EE3195F075AB3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13F832E9D5F4E30E7D7DFC81 /* Assets.xcassets */; };
-		2F6368DD15F957D6FA42F803 /* BuildingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25DBD4E7CEA9E3AB98B297FD /* BuildingsView.swift */; };
-		4148CA161219F94014691E5F /* NYCSurviveWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6FAAF40F95794F87A72ED6 /* NYCSurviveWatchApp.swift */; };
-		8C8ED6532AF2171D53EF456F /* GameData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BC31A1D42DAE4AC5F8C279 /* GameData.swift */; };
-		BCD532B7BAE8E70779AE7BD0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF34369F99512751F149A1C /* ContentView.swift */; };
+		36803BB418E552B45E4602CE /* GameData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDED885341FC69B0147F4EF7 /* GameData.swift */; };
+		509A71AAED6F00B6AB19B789 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC328C825895356F7B5F36A /* ContentView.swift */; };
+		74814ADBE6450EF63CA0384E /* GastownWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0AC339323C856054CCBBE6 /* GastownWatchApp.swift */; };
+		A14AE32ABFDC75FBB97A5725 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BAB50584D734657378835B9E /* Assets.xcassets */; };
+		F50F471288A35ED3B9A52D0F /* BuildingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296ED4A7567C5725AB1EBE0A /* BuildingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		13F832E9D5F4E30E7D7DFC81 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		1B6FAAF40F95794F87A72ED6 /* NYCSurviveWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NYCSurviveWatchApp.swift; sourceTree = "<group>"; };
-		1DF34369F99512751F149A1C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		25DBD4E7CEA9E3AB98B297FD /* BuildingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingsView.swift; sourceTree = "<group>"; };
-		9B94CB82911F835FC5A74C98 /* NYCSurviveWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NYCSurviveWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		A6BC31A1D42DAE4AC5F8C279 /* GameData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameData.swift; sourceTree = "<group>"; };
+		296ED4A7567C5725AB1EBE0A /* BuildingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingsView.swift; sourceTree = "<group>"; };
+		8F9577FB5CE97CAD8FC5D9CE /* GastownWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GastownWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		ADC328C825895356F7B5F36A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		BAB50584D734657378835B9E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EC0AC339323C856054CCBBE6 /* GastownWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GastownWatchApp.swift; sourceTree = "<group>"; };
+		EDED885341FC69B0147F4EF7 /* GameData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
-		3686D469F09C67108A881F45 /* watchos */ = {
+		045B811BDC6082FFA98B3180 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				13F832E9D5F4E30E7D7DFC81 /* Assets.xcassets */,
-				1DF34369F99512751F149A1C /* ContentView.swift */,
-				1B6FAAF40F95794F87A72ED6 /* NYCSurviveWatchApp.swift */,
-				55887D325FEB917596DA0C9E /* Models */,
-				A1FDF157112295E8CEC9331C /* Views */,
+				296ED4A7567C5725AB1EBE0A /* BuildingsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		05CCE70A77A937347BC7B7EB /* watchos */ = {
+			isa = PBXGroup;
+			children = (
+				BAB50584D734657378835B9E /* Assets.xcassets */,
+				ADC328C825895356F7B5F36A /* ContentView.swift */,
+				EC0AC339323C856054CCBBE6 /* GastownWatchApp.swift */,
+				6038FE4832C23E4A96B7C4F9 /* Models */,
+				045B811BDC6082FFA98B3180 /* Views */,
 			);
 			name = watchos;
 			path = .;
 			sourceTree = "<group>";
 		};
-		55887D325FEB917596DA0C9E /* Models */ = {
+		6038FE4832C23E4A96B7C4F9 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				A6BC31A1D42DAE4AC5F8C279 /* GameData.swift */,
+				EDED885341FC69B0147F4EF7 /* GameData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
 		};
-		5843B8B256EC8481D4CFA64B /* Products */ = {
+		75F80ECA1AD6AD128935BFEE = {
 			isa = PBXGroup;
 			children = (
-				9B94CB82911F835FC5A74C98 /* NYCSurviveWatch.app */,
+				6038FE4832C23E4A96B7C4F9 /* Models */,
+				045B811BDC6082FFA98B3180 /* Views */,
+				05CCE70A77A937347BC7B7EB /* watchos */,
+				FC4BA2922874452D5B7F954B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FC4BA2922874452D5B7F954B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8F9577FB5CE97CAD8FC5D9CE /* GastownWatch.app */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		A1FDF157112295E8CEC9331C /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				25DBD4E7CEA9E3AB98B297FD /* BuildingsView.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		B74B433B6B48EA30CF3A12FD = {
-			isa = PBXGroup;
-			children = (
-				55887D325FEB917596DA0C9E /* Models */,
-				A1FDF157112295E8CEC9331C /* Views */,
-				3686D469F09C67108A881F45 /* watchos */,
-				5843B8B256EC8481D4CFA64B /* Products */,
-			);
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		402C4CE318FE56A09F5474C4 /* NYCSurviveWatch */ = {
+		D69A38B810AF610B90489092 /* GastownWatch */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 911D7C9F18F4871AC963BF86 /* Build configuration list for PBXNativeTarget "NYCSurviveWatch" */;
+			buildConfigurationList = 099D0ABF4B7010FCA1EA0E82 /* Build configuration list for PBXNativeTarget "GastownWatch" */;
 			buildPhases = (
-				E7A5BABD71EC710412A8F47A /* Sources */,
-				AA625DC01911BF8D08EE17DE /* Resources */,
+				D693C2E4C78C228F73B4C63F /* Sources */,
+				E790973A7F22E7B0326E8B57 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = NYCSurviveWatch;
+			name = GastownWatch;
 			packageProductDependencies = (
 			);
-			productName = NYCSurviveWatch;
-			productReference = 9B94CB82911F835FC5A74C98 /* NYCSurviveWatch.app */;
+			productName = GastownWatch;
+			productReference = 8F9577FB5CE97CAD8FC5D9CE /* GastownWatch.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		AAE83AE2067CF8FCEFEEDAFA /* Project object */ = {
+		82EF09EDB9B6BD90456B9F6F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
-					402C4CE318FE56A09F5474C4 = {
+					D69A38B810AF610B90489092 = {
 						DevelopmentTeam = QMM486NPYC;
 						ProvisioningStyle = Automatic;
 					};
 				};
 			};
-			buildConfigurationList = 553A0A784E39BA22A665EACF /* Build configuration list for PBXProject "NYCSurviveWatch" */;
+			buildConfigurationList = 5A27EC34A44DEF1B65EF37FA /* Build configuration list for PBXProject "GastownWatch" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				Base,
 				en,
 			);
-			mainGroup = B74B433B6B48EA30CF3A12FD;
+			mainGroup = 75F80ECA1AD6AD128935BFEE;
 			minimizedProjectReferenceProxies = 1;
 			preferredProjectObjectVersion = 77;
-			productRefGroup = 5843B8B256EC8481D4CFA64B /* Products */;
+			productRefGroup = FC4BA2922874452D5B7F954B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				402C4CE318FE56A09F5474C4 /* NYCSurviveWatch */,
+				D69A38B810AF610B90489092 /* GastownWatch */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		AA625DC01911BF8D08EE17DE /* Resources */ = {
+		E790973A7F22E7B0326E8B57 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1BEA4D31DE7EE3195F075AB3 /* Assets.xcassets in Resources */,
+				A14AE32ABFDC75FBB97A5725 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		E7A5BABD71EC710412A8F47A /* Sources */ = {
+		D693C2E4C78C228F73B4C63F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2F6368DD15F957D6FA42F803 /* BuildingsView.swift in Sources */,
-				BCD532B7BAE8E70779AE7BD0 /* ContentView.swift in Sources */,
-				8C8ED6532AF2171D53EF456F /* GameData.swift in Sources */,
-				4148CA161219F94014691E5F /* NYCSurviveWatchApp.swift in Sources */,
+				F50F471288A35ED3B9A52D0F /* BuildingsView.swift in Sources */,
+				509A71AAED6F00B6AB19B789 /* ContentView.swift in Sources */,
+				36803BB418E552B45E4602CE /* GameData.swift in Sources */,
+				74814ADBE6450EF63CA0384E /* GastownWatchApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		129197873F3E3ECD100F386E /* Release */ = {
+		3285FE9D99D4416674BAB7D1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -160,29 +160,14 @@
 				INFOPLIST_FILE = "";
 				INFOPLIST_KEY_WKWatchOnly = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.heyitsmejosh.nyc.watchos;
-				PRODUCT_NAME = NYCSurvive;
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = 4;
-			};
-			name = Release;
-		};
-		5A3A57267DCCAAF39FDA4F92 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "";
-				INFOPLIST_KEY_WKWatchOnly = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.heyitsmejosh.nyc.watchos;
-				PRODUCT_NAME = NYCSurvive;
+				PRODUCT_NAME = Gastown;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
 			};
 			name = Debug;
 		};
-		B4C3EF70DF227B88B3CFF7CD /* Debug */ = {
+		6C2989798EFEFBAA80BA3225 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -249,7 +234,22 @@
 			};
 			name = Debug;
 		};
-		C0613419D99FDAA566A5397E /* Release */ = {
+		78D22BD62D62ED268268A1DB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "";
+				INFOPLIST_KEY_WKWatchOnly = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.heyitsmejosh.nyc.watchos;
+				PRODUCT_NAME = Gastown;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+			};
+			name = Release;
+		};
+		8AC78B15A0A07E000D77D89F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -312,25 +312,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		553A0A784E39BA22A665EACF /* Build configuration list for PBXProject "NYCSurviveWatch" */ = {
+		099D0ABF4B7010FCA1EA0E82 /* Build configuration list for PBXNativeTarget "GastownWatch" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B4C3EF70DF227B88B3CFF7CD /* Debug */,
-				C0613419D99FDAA566A5397E /* Release */,
+				3285FE9D99D4416674BAB7D1 /* Debug */,
+				78D22BD62D62ED268268A1DB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		911D7C9F18F4871AC963BF86 /* Build configuration list for PBXNativeTarget "NYCSurviveWatch" */ = {
+		5A27EC34A44DEF1B65EF37FA /* Build configuration list for PBXProject "GastownWatch" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5A3A57267DCCAAF39FDA4F92 /* Debug */,
-				129197873F3E3ECD100F386E /* Release */,
+				6C2989798EFEFBAA80BA3225 /* Debug */,
+				8AC78B15A0A07E000D77D89F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = AAE83AE2067CF8FCEFEEDAFA /* Project object */;
+	rootObject = 82EF09EDB9B6BD90456B9F6F /* Project object */;
 }

@@ -1,4 +1,4 @@
-name: NYCSurvive
+name: Gastown
 options:
   bundleIdPrefix: com.heyitsmejosh
   deploymentTarget:
@@ -10,7 +10,7 @@ settings:
   MARKETING_VERSION: "1.1.0"
   CURRENT_PROJECT_VERSION: "202610052145"
 targets:
-  NYCSurvive:
+  Gastown:
     type: application
     platform: macOS
     sources:
@@ -19,22 +19,22 @@ targets:
           - "AppiOS/**"
       - path: Resources
         buildPhase: resources
-      - path: NYC.icon
+      - path: Gastown.icon
     settings:
-      PRODUCT_NAME: "NYC Survive"
-      PRODUCT_MODULE_NAME: NYCSurvive
+      PRODUCT_NAME: "Gastown"
+      PRODUCT_MODULE_NAME: Gastown
       PRODUCT_BUNDLE_IDENTIFIER: com.heyitsmejosh.nyc
       GENERATE_INFOPLIST_FILE: YES
-      ASSETCATALOG_COMPILER_APPICON_NAME: NYC
-      INFOPLIST_KEY_CFBundleDisplayName: "NYC Survive"
+      ASSETCATALOG_COMPILER_APPICON_NAME: Gastown
+      INFOPLIST_KEY_CFBundleDisplayName: "Gastown"
       INFOPLIST_KEY_LSApplicationCategoryType: public.app-category.games
       INFOPLIST_KEY_ITSAppUsesNonExemptEncryption: false
-      CODE_SIGN_ENTITLEMENTS: Resources/NYCSurvive.entitlements
+      CODE_SIGN_ENTITLEMENTS: Resources/Gastown.entitlements
       ENABLE_HARDENED_RUNTIME: YES
     scheme:
       testTargets:
         - SimTests
-  NYCSurvive-iOS:
+  Gastown-iOS:
     type: application
     platform: iOS
     sources:
@@ -45,13 +45,13 @@ targets:
       - path: Sources/AppiOS
       - path: Resources
         buildPhase: resources
-      - path: NYC.icon
+      - path: Gastown.icon
     settings:
       PRODUCT_BUNDLE_IDENTIFIER: com.heyitsmejosh.nyc
       GENERATE_INFOPLIST_FILE: YES
       INFOPLIST_FILE: Resources/Info-iOS.plist
-      ASSETCATALOG_COMPILER_APPICON_NAME: NYC
-      INFOPLIST_KEY_CFBundleDisplayName: "NYC Survive"
+      ASSETCATALOG_COMPILER_APPICON_NAME: Gastown
+      INFOPLIST_KEY_CFBundleDisplayName: "Gastown"
       INFOPLIST_KEY_LSApplicationCategoryType: public.app-category.games
       INFOPLIST_KEY_ITSAppUsesNonExemptEncryption: false
       TARGETED_DEVICE_FAMILY: "1,2"
@@ -61,9 +61,9 @@ targets:
     sources:
       - Tests
     dependencies:
-      - target: NYCSurvive
+      - target: Gastown
     settings:
       PRODUCT_BUNDLE_IDENTIFIER: com.heyitsmejosh.nyc.tests
       GENERATE_INFOPLIST_FILE: YES
-      TEST_HOST: "$(BUILT_PRODUCTS_DIR)/NYC Survive.app/Contents/MacOS/NYC Survive"
+      TEST_HOST: "$(BUILT_PRODUCTS_DIR)/Gastown.app/Contents/MacOS/Gastown"
       BUNDLE_LOADER: "$(TEST_HOST)"

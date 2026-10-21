@@ -12,7 +12,7 @@ enum BuildingType: String, Codable, Sendable, CaseIterable {
         case .shelter: "Shelter"
         case .generator: "Generator"
         case .drill: "Drill"
-        case .beacon: "Beacon"
+        case .beacon: "Steam Clock"
         }
     }
 

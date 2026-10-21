@@ -1,4 +1,4 @@
-/* NYC brand tokens. The accent is the only colour this app owns; spacing, radii and type come from the shared system. */
+/* Gastown brand tokens. The accent is the only colour this app owns; spacing, radii and type come from the shared system. */
 :root {
   --accent: #0b2f8a;
   --accent-light: #3d7bff;

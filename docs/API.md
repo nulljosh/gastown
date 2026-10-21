@@ -1,6 +1,6 @@
 # API
 
-NYC Survive has no HTTP API. It's a client-only browser game built from plain ES
+Gastown has no HTTP API. It's a client-only browser game built from plain ES
 modules with no server and no bundler — all game state lives in memory in the
 page, and saves are written straight to the browser's `localStorage` (keys
 `nyc_save_1` / `nyc_save_2` / `nyc_save_3`, one per save slot) by `web/js/save.js`.

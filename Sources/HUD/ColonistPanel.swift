@@ -13,12 +13,12 @@ struct ColonistPanel: View {
         if picked > 0 {
             VStack(alignment: .leading, spacing: 6) {
                 Text(picked > 1 ? "\(picked) SELECTED" : (gameState.selectedColonist?.name ?? ""))
-                    .font(.nyc(size: 15, weight: .bold))
+                    .font(.gastown(size: 15, weight: .bold))
                     .foregroundStyle(Theme.yellow)
                 Text(picked == 1 && gameState.selectedColonist != nil
                      ? gameState.selectedColonist!.job.rawValue.uppercased()
                      : "Click ground to move, a resource to gather")
-                    .font(.nyc(size: 10, weight: .semibold))
+                    .font(.gastown(size: 10, weight: .semibold))
                     .foregroundStyle(Theme.text2)
             }
             .padding(10)

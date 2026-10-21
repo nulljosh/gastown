@@ -1,5 +1,5 @@
 import XCTest
-@testable import NYCSurvive
+@testable import Gastown
 
 @MainActor
 final class SimTests: XCTestCase {

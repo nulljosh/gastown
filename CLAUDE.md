@@ -1,10 +1,10 @@
-# nyc
+# gastown
 
-v1.1.0 live, 2.0.0 in progress. macOS + iOS colony game, fully player-controlled (no autoplay). 2.0 is the simplification: a swarm you command, machines that run themselves, one goal (the Beacon). Live at `https://nyc.jaybulb.com`, web app at `/app`. License Apache 2.0.
+Gastown (formerly NYC Survive). v1.1.0 live as NYC Survive, 2.0.0 in progress. macOS + iOS colony game set in Vancouver, fully player-controlled (no autoplay). 2.0 is the simplification: a swarm you command, machines that run themselves, one goal (the Beacon). Live at `https://gastown.jaybulb.com`, web app at `/app`. License Apache 2.0.
 
 ## The loop
 
-Live /loop on nyc: fix the game, QA until it works. See `docs/LOOP-HANDOFF.md` for resume state and next steps.
+Live /loop on gastown: fix the game, QA until it works. See `docs/LOOP-HANDOFF.md` for resume state and next steps.
 
 ## Rules
 
@@ -12,7 +12,7 @@ Live /loop on nyc: fix the game, QA until it works. See `docs/LOOP-HANDOFF.md` f
 - Colonists act only on orders. Never reintroduce auto-assignment (removed 2026-07-02 and 2026-08-02). Automation belongs to buildings (drills, generators), never to colonists.
 - Rules that exist twice (Beacon cost and win, gather/drill/generator rates, beds, recruits) must match between `Sources/` and `web/js/`. Change both or neither. `node web/sim.mjs` and `scripts/playthrough.sh` must both keep winning.
 - 2.0 cut: no needs, stats, traits, XP, weapons, raids, quests, oxygen or cash. Saves moved to `nyc2_save_` (web) and `save2_N.json` (native); 1.x saves are ignored.
-- The NYC Sans typeface is built by `scripts/gen_font.py`. Don't hand-edit the .ttf files.
+- The Gastown Sans typeface is built by `scripts/gen_font.py`. Don't hand-edit the .ttf files.
 - No emojis. No em dashes in docs.
 
 ## Structure
@@ -25,7 +25,7 @@ Live /loop on nyc: fix the game, QA until it works. See `docs/LOOP-HANDOFF.md` f
 ## Run
 
 ```bash
-xcodegen generate && open NYCSurvive.xcodeproj
+xcodegen generate && open Gastown.xcodeproj
 ```
 
 ## Key Files
@@ -39,12 +39,12 @@ xcodegen generate && open NYCSurvive.xcodeproj
 - Sources/Models/BuildingModel.swift: the four buildings and the Beacon cost (matches `web/js/state.js`)
 - Sources/Models/GameState.swift: Central state
 - Sources/Models/SaveManager.swift: JSON save/load (3 slots, autosave every 60 ticks)
-- scripts/playthrough.sh: headless win check. `scripts/gen_font.py`: NYC Sans
+- scripts/playthrough.sh: headless win check. `scripts/gen_font.py`: Gastown Sans
 - Tests/SimTests.swift and web/*.test.mjs: `node --test` runs the web tests
 
 ## Imported from Nyc.pdf (2026-06-21)
-- [x] iOS target added 2026-06-30 (`NYCSurvive-iOS` scheme, touch controls), builds clean for simulator.
-- [x] iOS build 2 uploaded to ASC 2026-07-03, generated new IOS_DISTRIBUTION cert (`38S6CX4DJ5`, key kept in login keychain), provisioning profile `HZKYCVUVRH`, exported + uploaded via `asc xcode export` / `asc builds upload`. Support URL set to `https://nyc.jaybulb.com`.
+- [x] iOS target added 2026-06-30 (`Gastown-iOS` scheme, touch controls), builds clean for simulator.
+- [x] iOS build 2 uploaded to ASC 2026-07-03, generated new IOS_DISTRIBUTION cert (`38S6CX4DJ5`, key kept in login keychain), provisioning profile `HZKYCVUVRH`, exported + uploaded via `asc xcode export` / `asc builds upload`. Support URL set to `https://gastown.jaybulb.com`.
 - [x] Build 3 rejected 2026-07-04 (ITMS-90474 missing iPad orientation key, ITMS-90055 bundle ID mismatch). Root cause: `INFOPLIST_KEY_UISupportedInterfaceOrientations~ipad` build-setting syntax does NOT generate the device-qualified plist key, Xcode silently drops it. Fixed by adding a real `Resources/Info-iOS.plist` with both orientation keys. Also fixed iOS target bundle ID from `com.heyitsmejosh.nyc.ios` to `com.heyitsmejosh.nyc` to match the registered ASC app record (created new bundle ID reg + provisioning profile `39Y8RMMQMU`, ExportOptions updated). Build 5 uploaded and processed clean 2026-07-04.
 - [x] Build 5 uploaded 2026-07-04, description/keywords set, 6.5" screenshot uploaded, review contact + encryption declaration filled in. Submission was blocked on 3 things once believed "ASC web UI only", **2 of the 3 turned out to be CLI-fixable and were done 2026-08-03**: (1) App Privacy answers → `asc web privacy apply --file` then `publish --confirm`; (2) privacy policy URL → real page written at `web/privacy.html`, deployed, then `asc localizations update --app 6782618198 --type app-info --locale en-US --privacy-policy-url ...`. Only (3) the iPad Pro 12.9" screenshot remains. See `ROADMAP.md` for the exact finish sequence.
 - [x] macOS 1.0 SUBMITTED 2026-08-03 (WAITING_FOR_REVIEW, submission `55ebe4b1`) after setting the build encryption declaration via `asc builds update --uses-non-exempt-encryption=false`.

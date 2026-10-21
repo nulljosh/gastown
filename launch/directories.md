@@ -1,4 +1,4 @@
-## NYC Survive
+## Gastown
 
 One-liner: Times Square has gone dark. Keep them alive.
 
@@ -6,6 +6,6 @@ Description: A colony sim set in a besieged Times Square. Command survivors, bui
 
 Category: Games / Simulation
 
-Links: https://nyc.jaybulb.com · https://apps.apple.com/app/id6782618198 · https://github.com/nulljosh/labs/tree/main/nyc
+Links: https://gastown.jaybulb.com · https://apps.apple.com/app/id6782618198 · https://github.com/nulljosh/gastown
 
 Submit to: AlternativeTo, Indie Hackers products, Uneed, SaaSHub. Skip BetaList, the game is already public, not pre-launch. Skip dev.to, no build-story hook for this one.

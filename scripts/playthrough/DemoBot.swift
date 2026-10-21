@@ -1,6 +1,6 @@
 import Foundation
 
-/// Plays NYC Survive with the same commands a player's clicks issue: send survivors to a resource,
+/// Plays Gastown with the same commands a player's clicks issue: send survivors to a resource,
 /// build shelters for beds, generators for power, drills on ore, then raise the Beacon. Mirrors web/sim.mjs.
 /// It drives the headless playthrough check (scripts/playthrough.sh) and lives outside Sources/ on
 /// purpose: the app never plays itself (ROADMAP no-autoplay rule).

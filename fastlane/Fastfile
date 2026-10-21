@@ -10,13 +10,13 @@ platform :mac do
     )
     produce(
       app_identifier: "com.heyitsmejosh.nyc",
-      app_name: "NYC Survive",
+      app_name: "Gastown",
       platform: "osx",
       skip_itc: false
     )
     sh("cd .. && xcodegen generate")
     gym(
-      scheme: "NYCSurvive",
+      scheme: "Gastown",
       export_method: "app-store",
       xcargs: "-allowProvisioningUpdates",
       clean: true

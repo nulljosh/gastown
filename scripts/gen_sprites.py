@@ -1,4 +1,4 @@
-"""NYC Survive sprites, drawn pixel by pixel from one palette, so the whole city reads as one place.
+"""Gastown sprites, drawn pixel by pixel from one palette, so the whole city reads as one place.
 
 Look: Deadbolt's noir night (ink outlines, navy dark, one hot accent, light that pools) with Fez's chunky,
 clean shapes and bevelled edges (light top-left, shade bottom-right). Every sprite is original and
@@ -134,14 +134,16 @@ def tile_billboard():
 
 
 def tile_subway():
+    # A SkyTrain station: the elevated guideway on two concrete legs, a blue-and-white car on it.
     c = tile_sidewalk()
-    c.box(9, 8, 14, 22, "night", outline="ink")
-    for y in range(11, 29, 3):
-        c.rect(10, y, 12, 1, "roof2")                             # steps going down
-    c.rect(9, 8, 1, 22, "steel"); c.rect(22, 8, 1, 22, "steel")  # rails
-    for x in (5, 26):                                             # the green globes
-        c.rect(x, 6, 1, 6, "steel")
-        c.disc(x, 4, 2, "green"); c.px(x - 1, 3, "paper")
+    c.shadow(16, 29, 13, 2, 80)
+    for x in (7, 23):
+        c.box(x, 17, 4, 12, "conc2", light="paper", shade="seam")             # columns
+    c.box(1, 11, 30, 7, "fog", light="paper", shade="steel")                  # guideway
+    c.box(4, 3, 24, 9, "paper", light="paper", shade="fog")                   # the car
+    c.rect(5, 8, 22, 2, "blue")                                               # its blue stripe
+    for x in range(7, 26, 5):
+        c.box(x, 4, 4, 4, "deep", light="blue")                               # windows
     return c
 
 
@@ -155,12 +157,13 @@ def tile_sewer():
 
 
 def tile_empty():
+    # Water: Burrard Inlet and False Creek. Deep navy with a few lit wave crests.
     c = C(32, 32, "night")
-    c.speckle(["asph0", "roof"], 0.08, 7)
+    c.speckle([(26, 44, 92), (14, 24, 56)], 0.14, 7)
     rnd = random.Random(8)
-    for _ in range(5):                                            # rubble
-        x, y = rnd.randrange(3, 26), rnd.randrange(3, 26)
-        c.box(x, y, rnd.choice([4, 5, 6]), rnd.choice([3, 4]), "roof2", light="steel", shade="roof")
+    for _ in range(4):
+        x, y = rnd.randrange(2, 24), rnd.randrange(3, 29)
+        c.rect(x, y, 5, 1, (44, 74, 140)); c.rect(x + 1, y - 1, 3, 1, (78, 110, 180))  # a wave
     return c
 
 
@@ -234,26 +237,22 @@ def drill():  # 32x32: a pump-jack drill rig on a steel plate, amber work light
     return c
 
 
-def beacon():  # 64x64: a stepped tower to a lit spire, brand blue
+def beacon():  # 64x64: the Gastown Steam Clock, brick and brass, steam off the top
     c = C(64, 64)
-    c.glow(32, 52, 31, "glow", 70)                                             # light pooling on the street
-    c.shadow(32, 60, 26, 3, 95)
-    c.box(8, 44, 48, 15, "roof3", light="fog", shade="roof2")                 # podium
-    c.box(15, 31, 34, 14, "steel", light="fog", shade="seam")                 # second tier
-    c.box(22, 20, 20, 12, "roof3", light="fog", shade="roof2")                # third tier
-    c.box(27, 12, 10, 9, "steel", light="fog", shade="seam")                  # crown
-    for (x0, y0, x1, y1) in ((11, 48, 52, 56), (18, 35, 45, 42), (25, 23, 38, 29)):
-        for x in range(x0, x1, 4):
-            c.rect(x, y0, 2, y1 - y0, "amber")                                 # lit windows
-            c.rect(x, y0, 2, 2, "glow")
-    c.rect(31, 2, 2, 11, "ink"); c.rect(31, 3, 1, 9, "fog")                    # mast
-    c.disc(32, 3, 3, "ink"); c.disc(32, 3, 2, "clay")                          # the lamp
-    for r, a in ((9, 40), (6, 70)):
-        for i in range(-r, r + 1):
-            for j in range(-r, r + 1):
-                if i * i + j * j <= r * r and (i * i + j * j) > (r - 2) ** 2:
-                    c.px(32 + i, 3 + j, "clay", a)                             # glow ring
-    c.box(28, 50, 8, 9, "night"); c.rect(29, 51, 6, 8, "glow", 200)            # door
+    c.glow(32, 54, 30, "glow", 60)                                             # gas light pooling on the cobbles
+    c.shadow(32, 60, 20, 3, 95)
+    c.box(20, 50, 24, 10, "roof3", light="fog", shade="roof2")                 # granite plinth
+    c.box(23, 22, 18, 29, "clay2", light="clay", shade=(140, 58, 32))          # brick shaft
+    for y in range(26, 49, 4):
+        c.rect(24, y, 16, 1, (140, 58, 32))                                    # brick courses
+    c.box(26, 38, 12, 9, "night"); c.rect(27, 39, 10, 7, "glow", 150)          # glass panel, the works lit
+    c.box(20, 14, 24, 9, "clay", light="clayL", shade="clay2")                 # clock storey
+    c.disc(32, 18, 4, "ink"); c.disc(32, 18, 3, "paper")                       # the face
+    c.rect(32, 16, 1, 3, "ink"); c.rect(32, 18, 2, 1, "ink")                   # hands
+    c.box(24, 8, 16, 7, "steel", light="fog", shade="seam")                    # brass cap
+    c.rect(31, 3, 2, 6, "ink"); c.rect(31, 4, 1, 4, "amber")                   # whistle
+    for (x, y, r) in ((30, 2, 3), (36, 1, 2), (24, 3, 2)):
+        c.disc(x, y, r, "fog")                                                 # steam
     return c
 
 

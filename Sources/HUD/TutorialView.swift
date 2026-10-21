@@ -36,28 +36,28 @@ struct TutorialView: View {
             VStack(spacing: 14) {
                 HStack {
                     Text("TUTORIAL \(step + 1)/3")
-                        .font(.nyc(size: 10))
+                        .font(.gastown(size: 10))
                         .foregroundStyle(Theme.text3)
                     Spacer()
                     Button(action: skip) {
                         Text("SKIP")
-                            .font(.nyc(size: 11, weight: .bold))
+                            .font(.gastown(size: 11, weight: .bold))
                             .foregroundStyle(Theme.red)
                     }
                     .buttonStyle(.plain)
                 }
 
                 Text(stepData.title)
-                    .font(.nyc(size: 22, weight: .bold))
+                    .font(.gastown(size: 22, weight: .bold))
                     .foregroundStyle(Theme.cyan)
 
                 Text(stepData.body)
-                    .font(.nyc(size: 13))
+                    .font(.gastown(size: 13))
                     .foregroundStyle(Theme.text1)
                     .multilineTextAlignment(.center)
 
                 Text(stepData.hint)
-                    .font(.nyc(size: 11))
+                    .font(.gastown(size: 11))
                     .foregroundStyle(Theme.yellow)
                     .opacity(hintPulse ? 1.0 : 0.4)
                     .animation(.easeInOut(duration: 0.9).repeatForever(autoreverses: true), value: hintPulse)

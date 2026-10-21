@@ -56,7 +56,7 @@ struct HUDView: View {
                     .allowsHitTesting(false)
                 VStack(spacing: 12) {
                     Text("PAUSED")
-                        .font(.nyc(size: 36, weight: .bold))
+                        .font(.gastown(size: 36, weight: .bold))
                         .foregroundStyle(Theme.text1)
                     GlassButton(label: "RESUME", isPrimary: true) { gameState.isPaused = false }
                     GlassButton(label: "SETTINGS") {
@@ -73,7 +73,7 @@ struct HUDView: View {
                 HStack {
                     Spacer()
                     Text("Day \(gameState.currentTick / ColonySystem.ticksPerDay + 1) | \(gameState.currentHour):00 | \(gameState.isNight ? "NIGHT" : "DAY")")
-                        .font(.nyc(size: 10))
+                        .font(.gastown(size: 10))
                         .foregroundStyle(Theme.text3)
                         .padding(.horizontal, 8)
                         .padding(.vertical, 5)
@@ -87,10 +87,10 @@ struct HUDView: View {
             if gameState.victoryShown && !gameState.victoryDismissed {
                 VStack(spacing: 8) {
                     Text("THE BEACON STANDS")
-                        .font(.nyc(size: 28, weight: .bold))
+                        .font(.gastown(size: 28, weight: .bold))
                         .foregroundStyle(Theme.accent)
                     Text("Day \(gameState.currentTick / ColonySystem.ticksPerDay + 1). \(gameState.colonists.count) survivors. Keep playing or start a new game.")
-                        .font(.nyc(size: 13))
+                        .font(.gastown(size: 13))
                         .foregroundStyle(Theme.text1)
                     Button("Keep playing") { gameState.victoryDismissed = true; gameState.isPaused = false }
                         .buttonStyle(.borderedProminent)
@@ -106,7 +106,7 @@ struct HUDView: View {
                     HStack {
                         Spacer()
                         Text("SAVED")
-                            .font(.nyc(size: 12, weight: .bold))
+                            .font(.gastown(size: 12, weight: .bold))
                             .foregroundStyle(Theme.green)
                             .padding(.horizontal, 12)
                             .padding(.vertical, 6)
@@ -181,7 +181,7 @@ struct HUDView: View {
         VStack(alignment: .leading, spacing: 2) {
             ForEach(Array(gameState.gameLog.suffix(3).enumerated()), id: \.offset) { _, msg in
                 Text(msg)
-                    .font(.nyc(size: 11))
+                    .font(.gastown(size: 11))
                     .foregroundStyle(Theme.text1)
             }
         }
@@ -194,7 +194,7 @@ struct HUDView: View {
     private func toolbarPill(label: String, isActive: Bool = false, action: @escaping () -> Void) -> some View {
         Button(action: action) {
             Text(label)
-                .font(.nyc(size: 11, weight: .bold))
+                .font(.gastown(size: 11, weight: .bold))
                 .foregroundStyle(isActive ? .white : Theme.text2)
                 .padding(.horizontal, 12)
                 .padding(.vertical, 8)
@@ -253,18 +253,18 @@ struct ControlsHintView: View {
         if visible {
             VStack(alignment: .leading, spacing: 10) {
                 Text("CONTROLS")
-                    .font(.nyc(size: 11, weight: .bold))
+                    .font(.gastown(size: 11, weight: .bold))
                     .foregroundStyle(Theme.yellow)
 
                 VStack(alignment: .leading, spacing: 6) {
                     ForEach(Self.rows) { row in
                         HStack(spacing: 0) {
                             Text(row.key)
-                                .font(.nyc(size: 11, weight: .bold))
+                                .font(.gastown(size: 11, weight: .bold))
                                 .foregroundStyle(Theme.accent)
                                 .frame(width: 150, alignment: .leading)
                             Text(row.action)
-                                .font(.nyc(size: 11))
+                                .font(.gastown(size: 11))
                                 .foregroundStyle(Theme.text2)
                         }
                     }
@@ -272,7 +272,7 @@ struct ControlsHintView: View {
 
                 HStack {
                     Text("Full list in SETTINGS")
-                        .font(.nyc(size: 10))
+                        .font(.gastown(size: 10))
                         .foregroundStyle(Theme.text3)
                     Spacer()
                     GlassButton(label: "GOT IT", isPrimary: true) { seen = true }
