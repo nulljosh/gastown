@@ -26,10 +26,9 @@ The landing is being rebuilt on the Hermes system and is not deployed.
 1. Settings QA after a game. The Full screen switch goes stale if the green window button is used. Check save slots, sound and appearance. The first click into an inactive window only focuses it.
 2. Design system: Theme.accent is still #0071e3 next to brand blue #3d7bff, and the HUD mixes yellow, cyan and red. Record the NYC Sans override in brand/BRAND.md the way Coda does.
 3. Landing: finish the Hermes-style rebuild. Run `scripts/build-site.sh`, deploy, and check nyc.jaybulb.com live.
-4. Move nyc out of labs into its own public repo, nulljosh/nyc, the way curvely left on 2026-10-21. That means a clean root commit, CI moved into the repo, and the folder ignored in labs.
 
 ## Restart prompt
 
 ```
-/loop NYC Survive. Work nyc/docs/LOOP-HANDOFF.md "Next, in order" top to bottom. scripts/playthrough.sh must keep winning after any rule change (same rules on web and native). Commit by exact path with git commit -o, never git add -A. Send screenshots of every visible change.
+/loop NYC Survive. Work nyc/docs/LOOP-HANDOFF.md "Next, in order" top to bottom. scripts/playthrough.sh must keep winning after any rule change (same rules on web and native). nyc is its own repo now (nulljosh/nyc): commit and push there. Send screenshots of every visible change.
 ```
