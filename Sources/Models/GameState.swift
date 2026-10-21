@@ -8,11 +8,9 @@ enum InputMode: String, Sendable {
 @MainActor
 final class GameState {
     var resources: [ResourceType: Int] = [
-        .food: 60,
-        .power: 10,
-        .materials: 30,
-        .oxygen: 60,
-        .cash: 25
+        .food: 30,
+        .materials: 40,
+        .power: 0
     ]
     var colonists: [ColonistModel] = []
     var buildings: [BuildingModel] = []
@@ -39,6 +37,7 @@ final class GameState {
     var autoSaveEnabled: Bool = true
     var showSaveIndicator: Bool = false
     var victoryShown: Bool = false
+    var victoryDismissed: Bool = false
     /// True only for the city running behind the title menu.
     var isMenuBackdrop: Bool = false
 

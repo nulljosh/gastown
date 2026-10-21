@@ -35,7 +35,7 @@ struct SettingsView: View {
                     #if os(macOS)
                     controlRow(key: "WASD",       action: "Pan camera")
                     controlRow(key: "B",          action: "Build menu")
-                    controlRow(key: "1-6",        action: "Select building")
+                    controlRow(key: "1-4",        action: "Select building")
                     controlRow(key: "Space",      action: "Pause")
                     controlRow(key: "Cmd+S",      action: "Save")
                     controlRow(key: "Esc",        action: "Cancel / deselect")

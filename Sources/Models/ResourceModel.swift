@@ -1,15 +1,13 @@
 import Foundation
 
 enum ResourceType: String, Codable, Sendable, CaseIterable, Hashable {
-    case food, power, materials, oxygen, cash
+    case food, materials, power
 
     var symbol: String {
         switch self {
         case .food: "F"
         case .power: "P"
         case .materials: "M"
-        case .oxygen: "O"
-        case .cash: "$"
         }
     }
 }

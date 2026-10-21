@@ -10,8 +10,12 @@ final class BuildSystem {
             for c in col..<(col + ts.w) {
                 guard let tile = tileMap.tileAt(col: c, row: r), tile.isWalkable else { return false }
                 // never wall a survivor in
-                if gameState.colonists.contains(where: { !$0.isDead && $0.col == c && $0.row == r }) { return false }
+                if gameState.colonists.contains(where: { $0.col == c && $0.row == r }) { return false }
             }
+        }
+        if type == .drill { // one drill per ore patch
+            guard let node = ColonySystem.nodeNear(gameState, col: col, row: row),
+                  !gameState.buildings.contains(where: { $0.type == .drill && ColonySystem.nodeNear(gameState, col: $0.col, row: $0.row)?.id == node.id }) else { return false }
         }
         for (resource, amount) in type.cost {
             if (gameState.resources[resource] ?? 0) < amount { return false }

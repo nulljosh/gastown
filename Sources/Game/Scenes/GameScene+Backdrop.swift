@@ -21,7 +21,7 @@ extension GameScene {
         backdrop.wander += dt
         guard backdrop.wander >= 0.8 else { return }
         backdrop.wander = 0
-        guard let c = gameState.colonists.filter({ !$0.isDead }).randomElement() else { return }
+        guard let c = gameState.colonists.randomElement() else { return }
         let last = WorldGenerator.gridSize - 1
         jobSystem.commandMove(
             colonistId: c.id,

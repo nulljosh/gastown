@@ -42,7 +42,6 @@ enum TileType: Int, Codable, Sendable {
 
     var resourceYield: ResourceType? {
         switch self {
-        case .subway: .cash
         case .sewer: .materials
         default: nil
         }

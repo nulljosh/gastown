@@ -6,7 +6,7 @@ final class GameScene: SKScene {
     let gameState: GameState
     private var tileMap: TileMap!
     private var timeSystem = TimeSystem()
-    private var needsSystem = NeedsSystem()
+    private var colonySystem = ColonySystem()
     private var resourceSystem = ResourceSystem()
     private var buildSystem = BuildSystem()
     var jobSystem = JobSystem()
@@ -56,7 +56,7 @@ final class GameScene: SKScene {
             gameState.resourceNodes = save.resourceNodes
             gameState.resources = save.resources
             gameState.currentTick = save.currentTick
-            gameState.currentHour = (save.currentTick % NeedsSystem.ticksPerDay) / 10
+            gameState.currentHour = (save.currentTick % ColonySystem.ticksPerDay) / 10
         } else {
             let result = WorldGenerator.generate()
             grid = result.grid
@@ -68,7 +68,6 @@ final class GameScene: SKScene {
 
         pathfinder = Pathfinder(columns: WorldGenerator.gridSize, rows: WorldGenerator.gridSize)
         pathfinder.buildGraph(grid: grid)
-        jobSystem.pathfinder = pathfinder
 
         for model in gameState.resourceNodes {
             let node = ResourceNode(model: model, tileSize: TileMap.tileSize)
@@ -94,9 +93,9 @@ final class GameScene: SKScene {
             }
         } else {
             // Fresh game: spawn colonists
-            let names = ["Alex", "Jordan", "Casey", "Riley", "Morgan"]
+            let names = ["Alex", "Jordan", "Casey", "Riley"]
             let center = WorldGenerator.gridSize / 2
-            for i in 0..<5 {
+            for i in 0..<4 {
                 var walkableCol = center + i
                 var walkableRow = center
                 var found = false
@@ -187,15 +186,14 @@ final class GameScene: SKScene {
         guard due > 0 else { return }
         for _ in 0..<due where !gameState.isPaused {
             timeSystem.advance(gameState)
-            needsSystem.tick(gameState: gameState)
+            colonySystem.machineTick(gameState: gameState)
             jobSystem.tick(gameState: gameState)
             resourceSystem.tick(gameState: gameState, tileMap: tileMap)
-            needsSystem.recruitTick(gameState: gameState)
-            needsSystem.raidTick(gameState: gameState)
-            if !gameState.victoryShown, NeedsSystem.isVictory(gameState) {
+            colonySystem.recruitTick(gameState: gameState)
+            if !gameState.victoryShown, ColonySystem.isVictory(gameState) {
                 gameState.victoryShown = true
                 gameState.isPaused = true
-                gameState.log("TIMES SQUARE RECLAIMED. Victory on day \(gameState.currentTick / NeedsSystem.ticksPerDay).")
+                gameState.log("THE BEACON STANDS. Victory on day \(gameState.currentTick / ColonySystem.ticksPerDay).")
             }
         }
 
@@ -225,10 +223,6 @@ final class GameScene: SKScene {
                     node.childNode(withName: ringName)?.removeFromParent()
                 }
             }
-        }
-
-        for model in gameState.buildings {
-            buildingNodes[model.id]?.alpha = model.isActive ? 1 : 0.4
         }
 
         for model in gameState.resourceNodes {
@@ -396,8 +390,7 @@ final class GameScene: SKScene {
             if expandedFrame.contains(location) {
                 gameState.selectedColonistIds = [id]
                 gameState.selectedColonistId = id
-                gameState.log("Selected \(gameState.colonists.first { $0.id == id }?.name ?? "colonist")")
-                TutorialView.checkAdvance(gameState: gameState, event: .colonistSelected)
+                                TutorialView.checkAdvance(gameState: gameState, event: .colonistSelected)
                 return
             }
         }
@@ -425,19 +418,6 @@ final class GameScene: SKScene {
             buildingNodes[model.id] = node
             AudioManager.shared.buildingPlaced()
 
-            if type == .shelter {
-                TutorialView.checkAdvance(gameState: gameState, event: .shelterPlaced)
-            }
-
-            // Grant build XP to nearby colonists
-            for i in gameState.colonists.indices {
-                if gameState.colonists[i].job == .build && !gameState.colonists[i].isDead {
-                    let dist = abs(gameState.colonists[i].col - col) + abs(gameState.colonists[i].row - row)
-                    if dist <= 5 {
-                        gameState.colonists[i].grantXP(10)
-                    }
-                }
-            }
         }
     }
 
@@ -460,7 +440,7 @@ final class GameScene: SKScene {
         guard let step = gameState.tutorialStep else { return }
 
         switch step {
-        case 2:
+        case 0:
             // Pulse circles around colonists
             for (_, node) in colonistNodes {
                 let pulse = SKShapeNode(circleOfRadius: 20)

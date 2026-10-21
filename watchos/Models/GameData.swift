@@ -1,52 +1,43 @@
 import Foundation
 
-// Ported directly from Sources/Models/{BuildingModel,ResourceModel,ColonistModel}.swift.
-// NYC Survive is a fully local colony-survival builder (no backend, JSON save-slots on
-// device), so there is no live game state to sync here -- this is a standalone quick-reference
-// for the same static building costs, resource types, and colonist traits the main app ships
-// with, not a mirror of an in-progress save.
+// Ported directly from Sources/Models/{BuildingModel,ResourceModel}.swift.
+// NYC Survive is a fully local colony builder (no backend, JSON save-slots on device), so
+// there is no live game state to sync here. This is a standalone quick-reference for the
+// same static building costs and resource types the main app ships with.
 
 enum ResourceType: String, CaseIterable {
-    case food, power, materials, oxygen, cash
+    case food, materials, power
 
     var symbol: String {
         switch self {
         case .food: "F"
-        case .power: "P"
         case .materials: "M"
-        case .oxygen: "O"
-        case .cash: "$"
+        case .power: "P"
         }
     }
 }
 
 enum BuildingType: String, CaseIterable {
     case shelter
-    case foodStall
     case generator
-    case filterStation
-    case subwayAccess
-    case billboard
+    case drill
+    case beacon
 
     var displayName: String {
         switch self {
         case .shelter: "Shelter"
-        case .foodStall: "Food Stall"
         case .generator: "Generator"
-        case .filterStation: "Filter Station"
-        case .subwayAccess: "Subway Access"
-        case .billboard: "Billboard"
+        case .drill: "Drill"
+        case .beacon: "Beacon"
         }
     }
 
     var cost: [ResourceType: Int] {
         switch self {
         case .shelter: [.materials: 10]
-        case .foodStall: [.materials: 8, .cash: 5]
-        case .generator: [.materials: 15, .cash: 10]
-        case .filterStation: [.materials: 12, .power: 5]
-        case .subwayAccess: [.materials: 20, .cash: 15]
-        case .billboard: [.materials: 5, .cash: 20]
+        case .generator: [.materials: 15]
+        case .drill: [.materials: 12, .power: 2]
+        case .beacon: [.materials: 8000, .power: 1000]
         }
     }
 
@@ -59,65 +50,10 @@ enum BuildingType: String, CaseIterable {
 
     var description: String {
         switch self {
-        case .shelter: "Reduces stress for nearby colonists"
-        case .foodStall: "Converts food resources into meals"
-        case .generator: "Produces power from materials"
-        case .filterStation: "Filters oxygen using power"
-        case .subwayAccess: "Fast travel between subway stations"
-        case .billboard: "Generates cash over time"
-        }
-    }
-}
-
-enum ColonistTrait: String, CaseIterable {
-    case hustler
-    case scavenger
-    case insomniac
-    case ironlung
-    case anxious
-
-    var displayName: String { rawValue.capitalized }
-
-    var description: String {
-        switch self {
-        case .hustler: "+20% XP gain"
-        case .scavenger: "+1 resource per harvest"
-        case .insomniac: "30% slower sleep decay"
-        case .ironlung: "30% slower oxygen decay"
-        case .anxious: "2x stress gain"
-        }
-    }
-}
-
-enum WeaponType: String, CaseIterable {
-    case fists
-    case pipe
-    case bat
-    case pistol
-    case shotgun
-    case rifle
-
-    var displayName: String { rawValue.uppercased() }
-
-    var damage: Double {
-        switch self {
-        case .fists: 5
-        case .pipe: 10
-        case .bat: 12
-        case .pistol: 20
-        case .shotgun: 30
-        case .rifle: 25
-        }
-    }
-
-    var range: Int {
-        switch self {
-        case .fists: 1
-        case .pipe: 1
-        case .bat: 1
-        case .pistol: 5
-        case .shotgun: 3
-        case .rifle: 8
+        case .shelter: "+4 beds"
+        case .generator: "+1 power every 2 ticks"
+        case .drill: "Next to a resource: mines it, burns power"
+        case .beacon: "Raise it to win"
         }
     }
 }

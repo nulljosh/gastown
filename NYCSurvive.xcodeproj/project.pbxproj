@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		008F50FC553A75789F65BE9F /* ColonySystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3375BB10B787C3C9ADA6A9E /* ColonySystem.swift */; };
 		0125D98FB867ABBA2EA07631 /* HUDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D1B1D1E59674A173FAA173 /* HUDView.swift */; };
 		02E912E443029E820A236664 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726C54789E79556FA1775A89 /* AudioManager.swift */; };
 		0533C0DDB2BF863D83D26D0E /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB8E59CA64AAC68D9271EFF /* Resource.swift */; };
 		06D7CDEA381E2375B7943E58 /* SaveManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064B2AEBC8EAAE1BD24D5090 /* SaveManager.swift */; };
 		11EDDE9FBC8406B9E057053B /* NYCSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 410EFC97AB98A89269730A5E /* NYCSans-Bold.ttf */; };
-		12317B05F72B5D21DB6F24B1 /* NeedsSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F36295B5CB23AA72E528580 /* NeedsSystem.swift */; };
 		1575F6671F020DF66AEAEEC0 /* TileMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDE73063F75A3FD12AD3EB7 /* TileMap.swift */; };
 		15B4DE22C8F1FA600AF28F8A /* BuildSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0852054F2EBE0F76F774C060 /* BuildSystem.swift */; };
 		1DF548495BD7C2560FD34A71 /* NYCSans-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0FB190203D3A390A7BF038B7 /* NYCSans-Semibold.ttf */; };
@@ -31,6 +31,7 @@
 		34AF3DA028D941BFDBF97B73 /* View+Glass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31054374AC2BC83D3D7B8BC /* View+Glass.swift */; };
 		3688634442DCC70157180613 /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A62DD5F691C3480F2FA3607 /* GameState.swift */; };
 		3BA2869689D89410C64D7B02 /* TimeSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C698EA5D829B3189276D26 /* TimeSystem.swift */; };
+		3C76723B9A7CA2638B3CD69A /* ColonySystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3375BB10B787C3C9ADA6A9E /* ColonySystem.swift */; };
 		41C57ED1757B8A63A7F95D51 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB8E59CA64AAC68D9271EFF /* Resource.swift */; };
 		432FBB8AC41D437F48338CF7 /* CameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380E49196451FA445E2A4065 /* CameraController.swift */; };
 		51EA4AAB8B7CC152979ABD99 /* NYCSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 87701C84880BE1ABE2AE9C75 /* NYCSans-Medium.ttf */; };
@@ -77,7 +78,6 @@
 		C6AC3284690C6785FA698952 /* NYCSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 87701C84880BE1ABE2AE9C75 /* NYCSans-Medium.ttf */; };
 		CA4613773EB3532475515757 /* ResourceSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB59C23D94F770C687F4E5AE /* ResourceSystem.swift */; };
 		D2EC101C1DBDF2F469D401E5 /* BuildingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A4334A20439528230C3EF3 /* BuildingModel.swift */; };
-		D30D1CD10A86D7D04C14AE15 /* NeedsSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F36295B5CB23AA72E528580 /* NeedsSystem.swift */; };
 		D3401169DDD10E5C7E48E801 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00038E1B47DA09A0EEF5B3C4 /* Assets.xcassets */; };
 		D45CA62ABCC9D812C430AF5B /* TileType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6AA4E11E5678AB148203FC /* TileType.swift */; };
 		DAC697A0FD3C0DDE860DFCD5 /* ResourceSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB59C23D94F770C687F4E5AE /* ResourceSystem.swift */; };
@@ -119,7 +119,6 @@
 		326800A355FDC8F9A4F56EBB /* SimTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimTests.swift; sourceTree = "<group>"; };
 		380E49196451FA445E2A4065 /* CameraController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraController.swift; sourceTree = "<group>"; };
 		410EFC97AB98A89269730A5E /* NYCSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NYCSans-Bold.ttf"; sourceTree = "<group>"; };
-		4F36295B5CB23AA72E528580 /* NeedsSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeedsSystem.swift; sourceTree = "<group>"; };
 		502457C288C5D0DB8F2216AF /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		5691499E000399842B3CB30D /* TutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
 		5D702C1A87282719DA4F0199 /* WorldGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldGenerator.swift; sourceTree = "<group>"; };
@@ -148,6 +147,7 @@
 		C31054374AC2BC83D3D7B8BC /* View+Glass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Glass.swift"; sourceTree = "<group>"; };
 		D74D0A0073C8CEE768991583 /* NYCSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NYCSans-Regular.ttf"; sourceTree = "<group>"; };
 		D76C33D384D2910BBCF73190 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		E3375BB10B787C3C9ADA6A9E /* ColonySystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColonySystem.swift; sourceTree = "<group>"; };
 		EDE4C6EF54870683E05DBBAD /* ColonistModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColonistModel.swift; sourceTree = "<group>"; };
 		F0D9BBA495724A89451770D3 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		FB709F579DC45B3586C45EF7 /* SimTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SimTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -245,8 +245,8 @@
 			isa = PBXGroup;
 			children = (
 				0852054F2EBE0F76F774C060 /* BuildSystem.swift */,
+				E3375BB10B787C3C9ADA6A9E /* ColonySystem.swift */,
 				BDEEE672F22D8FEEA9446954 /* JobSystem.swift */,
-				4F36295B5CB23AA72E528580 /* NeedsSystem.swift */,
 				68E4A32F1DC7BC7E89470C44 /* Pathfinder.swift */,
 				AB59C23D94F770C687F4E5AE /* ResourceSystem.swift */,
 				12C698EA5D829B3189276D26 /* TimeSystem.swift */,
@@ -492,6 +492,7 @@
 				AA3D993DDA47CA1D50248B38 /* Colonist.swift in Sources */,
 				F7E112B33420143AC3A24BF3 /* ColonistModel.swift in Sources */,
 				57799C6F239B6A84280E397A /* ColonistPanel.swift in Sources */,
+				008F50FC553A75789F65BE9F /* ColonySystem.swift in Sources */,
 				AC35C92D99F329E89F25AA67 /* GameScene+Backdrop.swift in Sources */,
 				25E31E8C73E217531187C35A /* GameScene.swift in Sources */,
 				F7DE54BD562CAE78DDC8B997 /* GameState.swift in Sources */,
@@ -501,7 +502,6 @@
 				C320495C0AECC20593EECFF4 /* MenuScene.swift in Sources */,
 				FB2E35CB352E0CF777B5D3DF /* MiniMap.swift in Sources */,
 				7B908715020063DECC3F5B9B /* NYCSurviveApp.swift in Sources */,
-				D30D1CD10A86D7D04C14AE15 /* NeedsSystem.swift in Sources */,
 				DC93431BF3A4429D8C228719 /* Pathfinder.swift in Sources */,
 				0533C0DDB2BF863D83D26D0E /* Resource.swift in Sources */,
 				55BC393E63ADD5A2210D79B4 /* ResourceBar.swift in Sources */,
@@ -532,6 +532,7 @@
 				B4B741251519E1F30F97C3BB /* Colonist.swift in Sources */,
 				74D09F31FE4A8199A28ADAEE /* ColonistModel.swift in Sources */,
 				61E1F8CE1340FF26D472D25F /* ColonistPanel.swift in Sources */,
+				3C76723B9A7CA2638B3CD69A /* ColonySystem.swift in Sources */,
 				1F2A4D0D13E767C09E4E969C /* GameScene+Backdrop.swift in Sources */,
 				2FFE462F497A5E7AC2767511 /* GameScene.swift in Sources */,
 				3688634442DCC70157180613 /* GameState.swift in Sources */,
@@ -541,7 +542,6 @@
 				9F65F2C8D03F85B4005DF138 /* MenuScene.swift in Sources */,
 				33BDF5438AE0765E5D9BA621 /* MiniMap.swift in Sources */,
 				7E0AF68DC69D73953628CFD0 /* NYCSurviveApp.swift in Sources */,
-				12317B05F72B5D21DB6F24B1 /* NeedsSystem.swift in Sources */,
 				F13FF7708B9A5BAD5BDCCA7B /* Pathfinder.swift in Sources */,
 				41C57ED1757B8A63A7F95D51 /* Resource.swift in Sources */,
 				59DCD599448B559FB3025057 /* ResourceBar.swift in Sources */,
@@ -655,7 +655,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.heyitsmejosh.nyc.tests;
 				SDKROOT = macosx;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NYCSurvive.app/Contents/MacOS/NYCSurvive";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NYC Survive.app/Contents/MacOS/NYC Survive";
 			};
 			name = Debug;
 		};
@@ -672,7 +672,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.heyitsmejosh.nyc.tests;
 				SDKROOT = macosx;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NYCSurvive.app/Contents/MacOS/NYCSurvive";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NYC Survive.app/Contents/MacOS/NYC Survive";
 			};
 			name = Release;
 		};

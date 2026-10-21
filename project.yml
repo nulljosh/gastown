@@ -62,3 +62,5 @@ targets:
     settings:
       PRODUCT_BUNDLE_IDENTIFIER: com.heyitsmejosh.nyc.tests
       GENERATE_INFOPLIST_FILE: YES
+      TEST_HOST: "$(BUILT_PRODUCTS_DIR)/NYC Survive.app/Contents/MacOS/NYC Survive"
+      BUNDLE_LOADER: "$(TEST_HOST)"

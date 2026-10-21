@@ -1,6 +1,6 @@
 # nyc
 
-v1.1.0, macOS + iOS colony survival game, fully player-controlled (no autoplay). Live at `https://nyc.jaybulb.com`, web app at `/app`. License Apache 2.0.
+v1.1.0 live, 2.0.0 in progress. macOS + iOS colony game, fully player-controlled (no autoplay). 2.0 is the simplification: a swarm you command, machines that run themselves, one goal (the Beacon). Live at `https://nyc.jaybulb.com`, web app at `/app`. License Apache 2.0.
 
 ## The loop
 
@@ -9,8 +9,9 @@ Live /loop on nyc: fix the game, QA until it works. See `docs/LOOP-HANDOFF.md` f
 ## Rules
 
 - SpriteKit for all rendering, no UIKit/AppKit views in game scene
-- Colonists act only on orders. Never reintroduce auto-assignment (removed 2026-07-02 and 2026-08-02).
-- Rules that exist twice (victory, XP curve, raids, needs) must match between `Sources/` and `web/js/`. Change both or neither.
+- Colonists act only on orders. Never reintroduce auto-assignment (removed 2026-07-02 and 2026-08-02). Automation belongs to buildings (drills, generators), never to colonists.
+- Rules that exist twice (Beacon cost and win, gather/drill/generator rates, beds, recruits) must match between `Sources/` and `web/js/`. Change both or neither. `node web/sim.mjs` and `scripts/playthrough.sh` must both keep winning.
+- 2.0 cut: no needs, stats, traits, XP, weapons, raids, quests, oxygen or cash. Saves moved to `nyc2_save_` (web) and `save2_N.json` (native); 1.x saves are ignored.
 - The NYC Sans typeface is built by `scripts/gen_font.py`. Don't hand-edit the .ttf files.
 - No emojis. No em dashes in docs.
 
@@ -31,11 +32,11 @@ xcodegen generate && open NYCSurvive.xcodeproj
 
 - Sources/Game/Scenes/GameScene.swift: Main gameplay loop, input → command wiring
 - Sources/Game/Systems/JobSystem.swift: Colonist orders (commandMove, commandGather)
-- Sources/Game/Systems/NeedsSystem.swift: Upkeep, needs, recruits, raids, victory (`isVictory`)
+- Sources/Game/Systems/ColonySystem.swift: machines (generator, drill), recruits, victory (`isVictory`)
 - Sources/Game/Systems/Pathfinder.swift: Bitmap plus breadth-first search
 - scripts/playthrough/DemoBot.swift: the bot for the headless playthrough. Outside Sources/ on purpose, the app never plays itself
 - Sources/Game/Systems/BuildSystem.swift: Building placement and demolition
-- Sources/Models/ColonistModel.swift: XP curve (matches `web/js/state.js`)
+- Sources/Models/BuildingModel.swift: the four buildings and the Beacon cost (matches `web/js/state.js`)
 - Sources/Models/GameState.swift: Central state
 - Sources/Models/SaveManager.swift: JSON save/load (3 slots, autosave every 60 ticks)
 - scripts/playthrough.sh: headless win check. `scripts/gen_font.py`: NYC Sans

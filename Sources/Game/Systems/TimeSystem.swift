@@ -3,7 +3,7 @@ import Foundation
 @MainActor
 final class TimeSystem {
     private var accumulated: TimeInterval = 0
-    private let tickInterval: TimeInterval = 1.0
+    private let tickInterval: TimeInterval = 0.25 // web medium pace
     let ticksPerDay = 240
 
     /// How many ticks are due this frame (capped, so a slow frame never runs away). Call `advance` for each.

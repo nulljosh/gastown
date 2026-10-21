@@ -21,7 +21,7 @@ struct MiniMap: View {
                 ctx.fill(Path(CGRect(x: p.x - 2, y: p.y - 2, width: 4, height: 4)), with: .color(Theme.yellow))
             }
             let picked = gameState.selectedColonistIds.union([gameState.selectedColonistId].compactMap { $0 })
-            for c in gameState.colonists where !c.isDead {
+            for c in gameState.colonists {
                 let p = point(c.col, c.row)
                 ctx.fill(Path(ellipseIn: CGRect(x: p.x - 2.5, y: p.y - 2.5, width: 5, height: 5)), with: .color(Theme.accent))
                 if picked.contains(c.id) {

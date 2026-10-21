@@ -166,12 +166,12 @@ final class MenuScene: SKScene {
             ("How to play", true),
             ("Click a survivor, or drag a box around a few", false),
             ("Click the ground to send them there", false),
-            ("Click a resource to gather it", false),
-            ("B opens build, 1-6 picks a building", false),
+            ("Click a resource and they work it until you say otherwise", false),
+            ("B opens build, 1-4 picks a building", false),
             ("WASD pans, scroll zooms, Esc deselects", false),
-            ("Buildings burn materials. Empty pile, they break.", false),
-            ("Every third night: scavengers. PATROL near a building stops them.", false),
-            ("Win: 15 survivors, average level 8.", false),
+            ("Generators make power. Drills on a resource burn power to mine it.", false),
+            ("Shelters add beds. A bed and 10 food brings a survivor each day.", false),
+            ("Win: raise the Beacon.", false),
             ("Tap anywhere to go back", false),
         ]
         for (i, line) in lines.enumerated() {

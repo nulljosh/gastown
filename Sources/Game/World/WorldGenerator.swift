@@ -47,7 +47,7 @@ struct WorldGenerator {
             }
         }
 
-        let resourceTypes: [ResourceType] = [.food, .food, .food, .materials, .materials, .power, .oxygen, .cash]
+        let resourceTypes: [ResourceType] = [.food, .food, .materials, .materials, .materials, .power]
         for row in 0..<gridSize {
             for col in 0..<gridSize {
                 if grid[row][col] == .sidewalk && Int.random(in: 0..<40) == 0 {
@@ -57,8 +57,6 @@ struct WorldGenerator {
                     case .food: maxAmt = 10
                     case .materials: maxAmt = 15
                     case .power: maxAmt = 8
-                    case .oxygen: maxAmt = 12
-                    case .cash: maxAmt = 20
                     }
                     resources.append(ResourceModel(
                         id: UUID(),

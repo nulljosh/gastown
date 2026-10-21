@@ -72,7 +72,7 @@ struct HUDView: View {
                 Spacer()
                 HStack {
                     Spacer()
-                    Text("Day \(gameState.currentTick / NeedsSystem.ticksPerDay + 1) | \(gameState.currentHour):00 | \(gameState.isNight ? "NIGHT" : "DAY")")
+                    Text("Day \(gameState.currentTick / ColonySystem.ticksPerDay + 1) | \(gameState.currentHour):00 | \(gameState.isNight ? "NIGHT" : "DAY")")
                         .font(.nyc(size: 10))
                         .foregroundStyle(Theme.text3)
                         .padding(.horizontal, 8)
@@ -84,15 +84,15 @@ struct HUDView: View {
                 .padding(.bottom, 110)
             }
 
-            if gameState.victoryShown {
+            if gameState.victoryShown && !gameState.victoryDismissed {
                 VStack(spacing: 8) {
-                    Text("TIMES SQUARE RECLAIMED")
+                    Text("THE BEACON STANDS")
                         .font(.nyc(size: 28, weight: .bold))
                         .foregroundStyle(Theme.accent)
-                    Text("Day \(gameState.currentTick / NeedsSystem.ticksPerDay). \(gameState.colonists.filter { !$0.isDead }.count) survivors. Keep playing or start a new game.")
+                    Text("Day \(gameState.currentTick / ColonySystem.ticksPerDay). \(gameState.colonists.count) survivors. Keep playing or start a new game.")
                         .font(.nyc(size: 13))
                         .foregroundStyle(Theme.text1)
-                    Button("Keep playing") { gameState.victoryShown = false; gameState.isPaused = false }
+                    Button("Keep playing") { gameState.victoryDismissed = true; gameState.isPaused = false }
                         .buttonStyle(.borderedProminent)
                 }
                 .padding(24)
@@ -231,7 +231,7 @@ struct ControlsHintView: View {
         Row(key: "Scroll",        action: "Zoom in and out"),
         Row(key: "Click",         action: "Select, place or demolish"),
         Row(key: "B",             action: "Build menu"),
-        Row(key: "1-6",           action: "Pick a building"),
+        Row(key: "1-4",           action: "Pick a building"),
         Row(key: "X",             action: "Demolish mode"),
         Row(key: "Space",         action: "Pause or resume"),
         Row(key: "Esc",           action: "Cancel, or open Settings"),

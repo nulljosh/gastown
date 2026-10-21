@@ -3,7 +3,7 @@ import SwiftUI
 struct ResourceBar: View {
     let gameState: GameState
 
-    // Five pills plus the colonist count overflow a compact iPhone width, and the
+    // Three pills plus the colonist count overflow a compact iPhone width, and the
     // Texts were wrapping mid-word ("FOO / D", "CAS / H"). The icon and colour already
     // identify the resource, so the word is what gives way when space is tight.
     #if os(iOS)
@@ -15,11 +15,11 @@ struct ResourceBar: View {
 
     var body: some View {
         HStack(spacing: 4) {
-            ForEach([ResourceType.food, .power, .materials, .oxygen, .cash], id: \.self) { type in
+            ForEach([ResourceType.food, .materials, .power], id: \.self) { type in
                 resourcePill(type: type)
             }
             Spacer()
-            Text("\(gameState.colonists.filter { !$0.isDead }.count) alive")
+            Text("\(gameState.colonists.count) survivors")
                 .font(.nyc(size: 11, weight: .bold))
                 .foregroundStyle(Theme.text2)
                 .fixedSize()

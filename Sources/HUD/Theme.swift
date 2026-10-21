@@ -179,8 +179,6 @@ let resourceMeta: [ResourceType: ResourceMeta] = [
     .food:      ResourceMeta(icon: "hexagon",    label: "FOOD", color: Theme.green),
     .power:     ResourceMeta(icon: "diamond",    label: "PWR",  color: Theme.yellow),
     .materials: ResourceMeta(icon: "square.fill",label: "MAT",  color: Theme.orange),
-    .oxygen:    ResourceMeta(icon: "circle",     label: "O2",   color: Theme.cyan),
-    .cash:      ResourceMeta(icon: "dollarsign", label: "CASH", color: Theme.pink),
 ]
 
 struct GlassPanel<Content: View>: View {

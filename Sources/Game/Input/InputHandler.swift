@@ -41,11 +41,9 @@ final class InputHandler {
             TutorialView.checkAdvance(gameState: gameState, event: .buildMenuOpened)
         case " ": gameState.isPaused.toggle()
         case "1": selectBuilding(.shelter, gameState: gameState)
-        case "2": selectBuilding(.foodStall, gameState: gameState)
-        case "3": selectBuilding(.generator, gameState: gameState)
-        case "4": selectBuilding(.filterStation, gameState: gameState)
-        case "5": selectBuilding(.subwayAccess, gameState: gameState)
-        case "6": selectBuilding(.billboard, gameState: gameState)
+        case "2": selectBuilding(.generator, gameState: gameState)
+        case "3": selectBuilding(.drill, gameState: gameState)
+        case "4": selectBuilding(.beacon, gameState: gameState)
         case "x", "X":
             if gameState.inputMode == .demolish {
                 gameState.inputMode = .normal

@@ -31,7 +31,7 @@ final class SaveManager {
     }()
 
     private func fileURL(for slot: Int) -> URL {
-        saveDir.appendingPathComponent("save\(slot).json")
+        saveDir.appendingPathComponent("save2_\(slot).json")
     }
 
     func save(slot: Int, gameState: GameState, grid: [[TileType]]) throws {
@@ -42,8 +42,8 @@ final class SaveManager {
             slot: slot,
             saveName: "Slot \(slot)",
             timestamp: Date(),
-            dayCount: gameState.currentTick / NeedsSystem.ticksPerDay,
-            colonistCount: gameState.colonists.filter { !$0.isDead }.count
+            dayCount: gameState.currentTick / ColonySystem.ticksPerDay,
+            colonistCount: gameState.colonists.count
         )
 
         let data = SaveData(

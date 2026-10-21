@@ -5,8 +5,6 @@ final class ColonistNode: SKSpriteNode {
     let colonistId: UUID
     private var isMoving = false
     private let indicator: SKShapeNode
-    private let healthBarBg: SKShapeNode
-    private let healthBarFill: SKShapeNode
 
     init(id: UUID) {
         self.colonistId = id
@@ -19,17 +17,6 @@ final class ColonistNode: SKSpriteNode {
         indicator.lineWidth = 1
         indicator.zPosition = -1
 
-        healthBarBg = SKShapeNode(rect: CGRect(x: -12, y: 0, width: 24, height: 3), cornerRadius: 1)
-        healthBarBg.fillColor = SKColor(white: 0.2, alpha: 0.8)
-        healthBarBg.strokeColor = .clear
-        healthBarBg.position = CGPoint(x: 0, y: 20)
-        healthBarBg.zPosition = 20
-
-        healthBarFill = SKShapeNode(rect: CGRect(x: -12, y: 0, width: 24, height: 3), cornerRadius: 1)
-        healthBarFill.fillColor = SKColor(red: 0.19, green: 0.82, blue: 0.35, alpha: 1)
-        healthBarFill.strokeColor = .clear
-        healthBarFill.position = CGPoint(x: 0, y: 20)
-        healthBarFill.zPosition = 21
 
         let tex = SKTexture(imageNamed: "colonist_idle")
         tex.filteringMode = .nearest
@@ -38,49 +25,16 @@ final class ColonistNode: SKSpriteNode {
         self.zPosition = 10
 
         addChild(indicator)
-        addChild(healthBarBg)
-        addChild(healthBarFill)
     }
 
     @available(*, unavailable)
     required init?(coder: NSCoder) { fatalError() }
 
+    /// Green while working a resource, grey when idle. The one thing you need to see at a glance.
     func update(model: ColonistModel) {
-        let texName: String
-        switch model.state {
-        case .healthy: texName = "colonist_idle"
-        case .hungry: texName = "colonist_hungry"
-        case .suffocating: texName = "colonist_suffocating"
-        case .exhausted: texName = "colonist_exhausted"
-        case .dead: texName = "colonist_dead"
-        }
-        let tex = SKTexture(imageNamed: texName)
-        tex.filteringMode = .nearest
-        self.texture = tex
-
-        // Update indicator color to match state
-        let indicatorColor: SKColor
-        switch model.state {
-        case .healthy: indicatorColor = SKColor(red: 0.19, green: 0.82, blue: 0.35, alpha: 1)
-        case .hungry: indicatorColor = SKColor(red: 1.0, green: 0.84, blue: 0.04, alpha: 1)
-        case .suffocating: indicatorColor = SKColor(red: 0.39, green: 0.82, blue: 1.0, alpha: 1)
-        case .exhausted: indicatorColor = SKColor(red: 1.0, green: 0.62, blue: 0.04, alpha: 1)
-        case .dead: indicatorColor = SKColor(red: 0.4, green: 0.4, blue: 0.4, alpha: 1)
-        }
-        indicator.fillColor = indicatorColor.withAlphaComponent(0.35)
-        indicator.strokeColor = indicatorColor.withAlphaComponent(0.8)
-
-        let hpFrac = max(0, min(1, model.health / 100.0))
-        healthBarFill.xScale = CGFloat(hpFrac)
-        let hpColor: SKColor
-        if model.health > 60 {
-            hpColor = SKColor(red: 0.19, green: 0.82, blue: 0.35, alpha: 1)
-        } else if model.health > 30 {
-            hpColor = SKColor(red: 1.0, green: 0.84, blue: 0.04, alpha: 1)
-        } else {
-            hpColor = SKColor(red: 1.0, green: 0.27, blue: 0.23, alpha: 1)
-        }
-        healthBarFill.fillColor = hpColor
+        let c = model.job == .gather ? SKColor(red: 0.19, green: 0.82, blue: 0.35, alpha: 1) : SKColor(white: 0.55, alpha: 1)
+        indicator.fillColor = c.withAlphaComponent(0.35)
+        indicator.strokeColor = c.withAlphaComponent(0.8)
     }
 
     func moveToward(target: CGPoint, speed: CGFloat) {

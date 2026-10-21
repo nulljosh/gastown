@@ -1,51 +1,43 @@
 import Foundation
 
+/// Machines run on their own (ColonySystem.machineTick). The Beacon is the win. Same list as web/js/state.js.
 enum BuildingType: String, Codable, Sendable, CaseIterable {
     case shelter
-    case foodStall
     case generator
-    case filterStation
-    case subwayAccess
-    case billboard
+    case drill
+    case beacon
 
     var displayName: String {
         switch self {
         case .shelter: "Shelter"
-        case .foodStall: "Food Stall"
         case .generator: "Generator"
-        case .filterStation: "Filter Station"
-        case .subwayAccess: "Subway Access"
-        case .billboard: "Billboard"
+        case .drill: "Drill"
+        case .beacon: "Beacon"
         }
     }
 
     var cost: [ResourceType: Int] {
         switch self {
         case .shelter: [.materials: 10]
-        case .foodStall: [.materials: 8, .cash: 5]
-        case .generator: [.materials: 15, .cash: 10]
-        case .filterStation: [.materials: 12, .power: 5]
-        case .subwayAccess: [.materials: 20, .cash: 15]
-        case .billboard: [.materials: 5, .cash: 20]
+        case .generator: [.materials: 15]
+        case .drill: [.materials: 12, .power: 2]
+        case .beacon: [.materials: 8000, .power: 1000]
         }
     }
 
     var description: String {
         switch self {
-        case .shelter: "Reduces stress for nearby colonists"
-        case .foodStall: "Converts food resources into meals"
-        case .generator: "Produces power from materials"
-        case .filterStation: "Filters oxygen using power"
-        case .subwayAccess: "Fast travel between subway stations"
-        case .billboard: "Generates cash over time"
+        case .shelter: "+4 beds"
+        case .generator: "+1 power every 2 ticks"
+        case .drill: "Next to a resource: +1 every 4 ticks, burns power"
+        case .beacon: "Raise it to win"
         }
     }
 
     var tileSize: (w: Int, h: Int) {
         switch self {
-        case .shelter, .generator, .filterStation: (2, 2)
-        case .foodStall, .subwayAccess: (1, 1)
-        case .billboard: (2, 1)
+        case .shelter, .generator, .beacon: (2, 2)
+        case .drill: (1, 1)
         }
     }
 }
@@ -55,5 +47,4 @@ struct BuildingModel: Identifiable, Codable, Sendable {
     var type: BuildingType
     var col: Int
     var row: Int
-    var isActive: Bool = true
 }

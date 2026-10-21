@@ -10,9 +10,7 @@
 		1BEA4D31DE7EE3195F075AB3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13F832E9D5F4E30E7D7DFC81 /* Assets.xcassets */; };
 		2F6368DD15F957D6FA42F803 /* BuildingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25DBD4E7CEA9E3AB98B297FD /* BuildingsView.swift */; };
 		4148CA161219F94014691E5F /* NYCSurviveWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6FAAF40F95794F87A72ED6 /* NYCSurviveWatchApp.swift */; };
-		6AC9708A556D5D8121DB2901 /* WeaponsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A2ADEACFA0D27F579E8F6F /* WeaponsView.swift */; };
 		8C8ED6532AF2171D53EF456F /* GameData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BC31A1D42DAE4AC5F8C279 /* GameData.swift */; };
-		9FE7BD12026FD42D0AC81486 /* TraitsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFA9CA75C1F5883BD9263FE /* TraitsView.swift */; };
 		BCD532B7BAE8E70779AE7BD0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF34369F99512751F149A1C /* ContentView.swift */; };
 /* End PBXBuildFile section */
 
@@ -22,9 +20,7 @@
 		1DF34369F99512751F149A1C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		25DBD4E7CEA9E3AB98B297FD /* BuildingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingsView.swift; sourceTree = "<group>"; };
 		9B94CB82911F835FC5A74C98 /* NYCSurviveWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NYCSurviveWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		9DFA9CA75C1F5883BD9263FE /* TraitsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraitsView.swift; sourceTree = "<group>"; };
 		A6BC31A1D42DAE4AC5F8C279 /* GameData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameData.swift; sourceTree = "<group>"; };
-		C3A2ADEACFA0D27F579E8F6F /* WeaponsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeaponsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -61,8 +57,6 @@
 			isa = PBXGroup;
 			children = (
 				25DBD4E7CEA9E3AB98B297FD /* BuildingsView.swift */,
-				9DFA9CA75C1F5883BD9263FE /* TraitsView.swift */,
-				C3A2ADEACFA0D27F579E8F6F /* WeaponsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -152,8 +146,6 @@
 				BCD532B7BAE8E70779AE7BD0 /* ContentView.swift in Sources */,
 				8C8ED6532AF2171D53EF456F /* GameData.swift in Sources */,
 				4148CA161219F94014691E5F /* NYCSurviveWatchApp.swift in Sources */,
-				9FE7BD12026FD42D0AC81486 /* TraitsView.swift in Sources */,
-				6AC9708A556D5D8121DB2901 /* WeaponsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
