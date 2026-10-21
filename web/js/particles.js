@@ -12,26 +12,6 @@ export function spawnAtTile(col, row, opts) {
     spawnParticle({ x: col * TILE_SIZE + TILE_SIZE / 2, y: row * TILE_SIZE + TILE_SIZE / 2, ...opts });
 }
 
-export function spawnDamage(col, row, amount) {
-    spawnAtTile(col, row, { text: `-${Math.floor(amount)}`, color: '#ff375f', life: 30, vy: -0.8 });
-}
-
-export function spawnXP(col, row, amount) {
-    spawnAtTile(col, row, { text: `+${amount} XP`, color: '#ffd60a', life: 35, vy: -0.6 });
-}
-
-export function spawnLevelUp(col, row, level) {
-    spawnAtTile(col, row, { text: `LVL ${level}`, color: '#ffd60a', life: 50, vy: -0.4, size: 9 });
-    // Burst particles
-    for (let i = 0; i < 6; i++) {
-        const angle = (i / 6) * Math.PI * 2;
-        spawnAtTile(col, row, {
-            text: '*', color: '#ffd60a', life: 25,
-            vx: Math.cos(angle) * 1.2, vy: Math.sin(angle) * 1.2, size: 6,
-        });
-    }
-}
-
 export function spawnBuildDust(col, row, w, h) {
     for (let i = 0; i < 4; i++) {
         spawnParticle({
@@ -41,10 +21,6 @@ export function spawnBuildDust(col, row, w, h) {
             vx: (Math.random() - 0.5) * 1.5, vy: -Math.random() * 0.8, size: 5,
         });
     }
-}
-
-export function spawnQuestComplete(col, row) {
-    spawnAtTile(col, row, { text: '\u2713', color: '#30d158', life: 40, vy: -0.5, size: 10 });
 }
 
 export function tickParticles() {

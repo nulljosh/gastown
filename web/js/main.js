@@ -1,13 +1,11 @@
 // Main entry -- game loop, init, auto-start
 
-import { createGameState, createColonist, gameLog, grantXP, BuildingType, migrateQuestData,
-    randomColonistName, activeQuests, addQuest, completeQuestInList, syncQuestsToLocalStorage,
-    checkVictory, currentPhase } from './state.js';
+import { createGameState, createColonist, gameLog, BuildingType, randomColonistName, checkVictory } from './state.js';
 import { initClaudeBridge } from './claude.js';
 import { generateWorld, GRID_SIZE, TILE_SIZE, tileAt, worldToTile } from './world.js';
 import { Pathfinder } from './pathfinder.js';
-import { raidTick, recruitTick, timeTick, needsTick, resourceTick, jobTick, placeBuilding, demolishBuilding,
-    questTick, wallpaperCameraTick, setDifficulty, demoTick } from './systems.js';
+import { recruitTick, timeTick, machineTick, resourceTick, jobTick, placeBuilding, demolishBuilding,
+    wallpaperCameraTick, setDifficulty, demoTick } from './systems.js';
 import { Camera } from './camera.js';
 import { renderWorld, renderMinimap } from './renderer.js';
 import { setupInput } from './input.js';
@@ -136,12 +134,6 @@ function startGame(loadSlot, demo = false) {
             state.currentHour = Math.floor((save.currentTick % 240) / 10);
             state.lastSaveSlot = loadSlot;
             state.tutorialStep = null;
-            // Restore quest data from save
-            if (save.questList) state.questList = save.questList;
-            if (save.rewardList) state.rewardList = save.rewardList;
-            if (save.playerXP) state.playerXP = save.playerXP;
-            if (save.playerStreak) state.playerStreak = save.playerStreak;
-            if (save.playerLastActive) state.playerLastActive = save.playerLastActive;
             gameLog(state, 'Game loaded');
         } else {
             freshWorld();
@@ -151,9 +143,6 @@ function startGame(loadSlot, demo = false) {
         const mult = selectedDifficulty === 'easy' ? 1.5 : selectedDifficulty === 'hard' ? 0.6 : 1;
         Object.keys(state.resources).forEach(k => { state.resources[k] = Math.round((state.resources[k] || 0) * mult); });
     }
-
-    // Migrate quest data from standalone Quest app
-    migrateQuestData(state);
 
     pathfinder.buildGraph(grid);
 
@@ -165,19 +154,15 @@ function startGame(loadSlot, demo = false) {
         Object.keys(state.resources).forEach(k => { state.resources[k] = (state.resources[k] || 0) + 400; });
     }
 
-    // Expose state for quest board HUD
+    // Expose state for the HUD
     window._gameState = state;
     window._camera = camera;
     window._gameCallbacks = {
-        addQuest: (data) => { addQuest(state, data); updateHUD(state, hudCallbacks); },
-        completeQuest: (id) => { completeQuestInList(state, id); updateHUD(state, hudCallbacks); },
         toggleWallpaper: () => {
             state.wallpaperMode = !state.wallpaperMode;
             updateHUD(state, hudCallbacks);
         },
     };
-
-    initClaudeBridge(state);
 
     if (!demo) setupInput(canvas, camera, state, {
         onSelectEntity: (wx, wy) => selectEntity(wx, wy),
@@ -204,7 +189,7 @@ function freshWorld() {
     state.resourceNodes = result.resources;
 
     const center = GRID_SIZE / 2;
-    for (let i = 0; i < 8; i++) {
+    for (let i = 0; i < 4; i++) {
         const name = randomColonistName(state.colonists);
         let col = center, row = center;
         for (let dc = 0; dc < 10; dc++) {
@@ -241,12 +226,10 @@ function gameLoop(timestamp, id) {
         wallpaperCameraTick(camera, state);
 
         if (timeTick(dt, state)) {
-            needsTick(state);
-            jobTick(state, pathfinder);
+            machineTick(state);
+            jobTick(state);
             resourceTick(state);
-            questTick(state, grid, pathfinder);
             recruitTick(state);
-            raidTick(state);
             demoTick(state, grid, pathfinder);
             tickParticles();
 
@@ -254,17 +237,14 @@ function gameLoop(timestamp, id) {
             if (!state.demoMode && checkVictory(state) && !state.victoryShown) {
                 state.victoryShown = true;
                 state.isPaused = true;
-                gameLog(state, 'TIMES SQUARE RECLAIMED');
-                const elapsed = Math.floor(state.currentTick / 60);
-                state.toastMessage = { text: `Victory in ${elapsed} minutes`, ticks: 300 };
+                gameLog(state, 'THE BEACON STANDS');
+                const elapsed = Math.floor(state.currentTick / 4 / 60);
+                state.toastMessage = { text: `Beacon raised in ${elapsed} minutes`, ticks: 300 };
             }
 
             if (!state.demoMode && state.autoSaveEnabled && state.currentTick > 0 && state.currentTick % 60 === 0 && state.lastSaveSlot) {
                 performSave(state.lastSaveSlot);
             }
-
-            // Sync quests to localStorage periodically
-            if (!state.demoMode && state.currentTick % 120 === 0) syncQuestsToLocalStorage(state);
 
             if (!state.demoMode) updateHUD(state, hudCallbacks);
         }
@@ -299,7 +279,7 @@ function selectEntity(wx, wy) {
         if (Math.abs(wx - cx) < 20 && Math.abs(wy - cy) < 20) {
             state.selectedColonistId = c.id;
             state.selectedColonistIds = new Set([c.id]);
-            gameLog(state, `Selected ${c.name}`);
+            checkTutorialAdvance(state, 'colonistSelected');
             updateHUD(state, hudCallbacks);
             return;
         }
@@ -309,7 +289,7 @@ function selectEntity(wx, wy) {
         Math.abs(rn.col - tile.col) <= 1 && Math.abs(rn.row - tile.row) <= 1);
     for (const id of pickedIds()) {
         const c = state.colonists.find(k => k.id === id);
-        if (!c || c.state === 'dead') continue;
+        if (!c) continue;
         const path = node ? pathfinder.findPathNear(c.col, c.row, node.col, node.row) : pathfinder.findPath(c.col, c.row, tile.col, tile.row);
         if (!path.length) continue;
         c.job = node ? 'gather' : 'idle';
@@ -340,9 +320,7 @@ function boxSelect(start, end) {
     if (state.selectedColonistIds.size === 1) {
         state.selectedColonistId = state.selectedColonistIds.values().next().value;
     }
-    if (state.selectedColonistIds.size > 0) {
-        gameLog(state, `Selected ${state.selectedColonistIds.size} colonists`);
-    }
+    if (state.selectedColonistIds.size > 0) checkTutorialAdvance(state, 'colonistSelected');
     updateHUD(state, hudCallbacks);
 }
 
@@ -352,12 +330,6 @@ function handlePlace(col, row) {
     if (model) {
         const bt = BuildingType[state.selectedBuildingType];
         spawnBuildDust(col, row, bt.size[0], bt.size[1]);
-        for (const c of state.colonists) {
-            if (c.job === 'build' && c.state !== 'dead') {
-                const dist = Math.abs(c.col - col) + Math.abs(c.row - row);
-                if (dist <= 5) grantXP(c, 10);
-            }
-        }
         updateHUD(state, hudCallbacks);
     }
 }
@@ -417,12 +389,8 @@ export function mcpGetState() {
         currentHour: state.currentHour,
         isNight: state.isNight,
         isPaused: state.isPaused,
-        phase: currentPhase(state),
-        colonistsAlive: state.colonists.filter(c => c.state !== 'dead').length,
-        colonistsTotal: state.colonists.length,
+        colonists: state.colonists.length,
         buildingCount: state.buildings.length,
-        playerXP: state.playerXP,
-        playerStreak: state.playerStreak,
         lastSaveSlot: state.lastSaveSlot,
         difficulty: selectedDifficulty,
     };

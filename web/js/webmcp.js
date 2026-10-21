@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // -- read-only --
         {
             name: 'get_game_state',
-            description: 'Get the current city state: resources, tick/hour, pause state, colonist counts, building count, and quest progress. Returns null if no game is currently loaded (still on the menu).',
+            description: 'Get the current city state: resources, tick/hour, pause state, colonist count and building count. Returns null if no game is currently loaded (still on the menu).',
             inputSchema: { type: 'object', properties: {} },
             execute: async () => mcpGetState(),
         },

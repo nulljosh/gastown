@@ -1,6 +1,6 @@
 // Save/load -- localStorage, 3 slots
 
-const SAVE_KEY = 'nyc_save_';
+const SAVE_KEY = 'nyc2_save_'; // 2.0 changed the rules; 1.x saves (nyc_save_) are left alone, never loaded
 
 export function saveGame(slot, state, grid) {
     const flatGrid = [];
@@ -21,19 +21,12 @@ export function saveGame(slot, state, grid) {
         currentTick: state.currentTick,
         flatGrid,
         gridSize: grid.length,
-        // Quest data
-        questList: state.questList,
-        rewardList: state.rewardList,
-        playerXP: state.playerXP,
-        playerStreak: state.playerStreak,
-        playerLastActive: state.playerLastActive,
-        questLog: state.questLog,
         slot: {
             slot,
             saveName: `Slot ${slot}`,
             timestamp: Date.now(),
             dayCount: Math.floor(state.currentTick / 240),
-            colonistCount: state.colonists.filter(c => c.state !== 'dead').length,
+            colonistCount: state.colonists.length,
         }
     };
 

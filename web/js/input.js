@@ -36,10 +36,6 @@ export function setupInput(canvas, camera, state, callbacks) {
             case 's': camera.panY = 1; break;
             case 'a': camera.panX = -1; break;
             case 'd': camera.panX = 1; break;
-            case 'q':
-                state.showQuestBoard = !state.showQuestBoard;
-                safe(() => callbacks.onHudUpdate());
-                break;
             case 'b':
                 state.showBuildMenu = !state.showBuildMenu;
                 if (!state.showBuildMenu) state.inputMode = 'normal';
@@ -51,7 +47,7 @@ export function setupInput(canvas, camera, state, callbacks) {
                 state.isPaused = !state.isPaused;
                 safe(() => callbacks.onHudUpdate());
                 break;
-            case '1': case '2': case '3': case '4': case '5': case '6':
+            case '1': case '2': case '3': case '4':
                 const idx = parseInt(e.key) - 1;
                 if (idx < BuildingTypes.length) {
                     state.selectedBuildingType = BuildingTypes[idx];

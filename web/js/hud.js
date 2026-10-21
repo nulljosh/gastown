@@ -1,23 +1,15 @@
 // HUD -- HTML overlay updates
 
-import { ResourceTypes, BuildingType, BuildingTypes, ColonistJobs,
-    Traits, WeaponTypes, selectedColonist, colonistXpForNext, colonistXpProgress,
-    questLevel, questTitle, questXPProgress, activeQuests, completedQuests,
-    DifficultyXP, CategoryInfo, colonistClass, DifficultyRanks, QuestCategories,
-    currentPhase, GamePhase } from './state.js';
+import { ResourceTypes, BuildingType, BuildingTypes, selectedColonist } from './state.js';
 import { listSlots } from './save.js';
-import { QUEST_WORK_TICKS } from './systems.js';
 import { toggleTheme, resolvedTheme } from './theme.js';
 
-const RES_COLORS = { food:'var(--green)', power:'var(--yellow)', materials:'var(--orange)', oxygen:'var(--cyan)', cash:'var(--pink)' };
-const STATE_COLORS = { healthy:'var(--green)', hungry:'var(--yellow)', suffocating:'var(--cyan)', exhausted:'var(--orange)', dead:'var(--text-3)' };
+const RES_COLORS = { food:'var(--green)', power:'var(--yellow)', materials:'var(--orange)' };
 
 const RESOURCE_META = {
     food:      { icon:'⬡', label:'FOOD' },
     power:     { icon:'◈', label:'PWR'  },
     materials: { icon:'▪', label:'MAT'  },
-    oxygen:    { icon:'◎', label:'O₂'  },
-    cash:      { icon:'$', label:'CASH' },
 };
 
 export function updateHUD(state, callbacks) {
@@ -32,7 +24,6 @@ export function updateHUD(state, callbacks) {
     hud.style.pointerEvents = 'none'; // children opt back in via CSS; 'auto' here blocked every canvas click
 
     updateResourceBar(state);
-    updatePlayerProfile(state);
     updateBuildMenu(state, callbacks);
     updateColonistPanel(state, callbacks);
     updateGameLog(state);
@@ -41,175 +32,7 @@ export function updateHUD(state, callbacks) {
     updateSaveIndicator(state);
     updateSettings(state, callbacks);
     updateTutorial(state, callbacks);
-    updateQuestBoard(state);
     updateToast(state);
-}
-
-function updatePlayerProfile(state) {
-    let el = document.getElementById('player-profile');
-    if (!el) {
-        el = document.createElement('div');
-        el.id = 'player-profile';
-        document.getElementById('hud').appendChild(el);
-    }
-    const prog = questXPProgress(state.playerXP);
-    const title = questTitle(prog.level);
-    const alive = state.colonists.filter(c => c.state !== 'dead').length;
-
-    el.textContent = '';
-    const titleDiv = document.createElement('div');
-    titleDiv.className = 'pp-title';
-    titleDiv.textContent = `Lvl ${prog.level} ${title}`;
-    el.appendChild(titleDiv);
-
-    const track = document.createElement('div');
-    track.className = 'pp-xp-track';
-    const fill = document.createElement('div');
-    fill.className = 'pp-xp-fill';
-    fill.style.width = Math.min(prog.percent, 100) + '%';
-    track.appendChild(fill);
-    el.appendChild(track);
-
-    const stats = document.createElement('div');
-    stats.className = 'pp-stats';
-    stats.textContent = `${state.playerXP} XP | ${state.playerStreak}d streak | ${alive} alive`;
-    el.appendChild(stats);
-
-    const quests = document.createElement('div');
-    quests.className = 'pp-quests';
-    quests.textContent = `${activeQuests(state).length} active quests [Q]`;
-    quests.onclick = () => { state.showQuestBoard = !state.showQuestBoard; };
-    el.appendChild(quests);
-}
-
-function updateQuestBoard(state) {
-    let el = document.getElementById('quest-board');
-    if (!el) {
-        el = document.createElement('div');
-        el.id = 'quest-board';
-        document.getElementById('hud').appendChild(el);
-    }
-    el.style.display = state.showQuestBoard ? 'block' : 'none';
-    if (!state.showQuestBoard) return;
-
-    const active = activeQuests(state);
-    const done = completedQuests(state);
-    el.textContent = '';
-
-    const header = document.createElement('div');
-    header.className = 'qb-header';
-    header.textContent = 'QUEST BOARD';
-    const close = document.createElement('span');
-    close.className = 'qb-close';
-    close.textContent = 'X';
-    close.onclick = () => { state.showQuestBoard = false; };
-    header.appendChild(close);
-    el.appendChild(header);
-
-    const addBtn = document.createElement('div');
-    addBtn.className = 'qb-add';
-    addBtn.textContent = '+ ADD QUEST';
-    el.appendChild(addBtn);
-
-    const form = document.createElement('div');
-    form.className = 'qb-form';
-    form.style.display = 'none';
-
-    const titleInput = document.createElement('input');
-    titleInput.className = 'qb-input';
-    titleInput.placeholder = 'Quest name...';
-    form.appendChild(titleInput);
-
-    const row1 = document.createElement('div');
-    row1.className = 'qb-row';
-    const diffSel = document.createElement('select');
-    diffSel.className = 'qb-select';
-    DifficultyRanks.forEach(r => {
-        const opt = document.createElement('option');
-        opt.value = r;
-        opt.textContent = `${r} (${DifficultyXP[r]}xp)`;
-        if (r === 'C') opt.selected = true;
-        diffSel.appendChild(opt);
-    });
-    row1.appendChild(diffSel);
-    const catSel = document.createElement('select');
-    catSel.className = 'qb-select';
-    QuestCategories.forEach(c => {
-        const opt = document.createElement('option');
-        opt.value = c;
-        opt.textContent = CategoryInfo[c].label;
-        catSel.appendChild(opt);
-    });
-    row1.appendChild(catSel);
-    form.appendChild(row1);
-
-    const row2 = document.createElement('div');
-    row2.className = 'qb-row';
-    const submitBtn = document.createElement('button');
-    submitBtn.className = 'qb-btn';
-    submitBtn.textContent = 'INSCRIBE';
-    submitBtn.onclick = () => {
-        const t = titleInput.value.trim();
-        if (!t) return;
-        window._gameCallbacks?.addQuest({ title: t, difficulty: diffSel.value, category: catSel.value });
-        form.style.display = 'none';
-        titleInput.value = '';
-    };
-    row2.appendChild(submitBtn);
-    const cancelBtn = document.createElement('button');
-    cancelBtn.className = 'qb-btn dim';
-    cancelBtn.textContent = 'CANCEL';
-    cancelBtn.onclick = () => { form.style.display = 'none'; };
-    row2.appendChild(cancelBtn);
-    form.appendChild(row2);
-    el.appendChild(form);
-    addBtn.onclick = () => { form.style.display = form.style.display === 'none' ? 'block' : 'none'; };
-
-    const secActive = document.createElement('div');
-    secActive.className = 'qb-section';
-    secActive.textContent = `ACTIVE (${active.length})`;
-    el.appendChild(secActive);
-
-    for (const q of active) {
-        const cat = CategoryInfo[q.category] || {};
-        const row = document.createElement('div');
-        row.className = 'qb-quest';
-        const rank = document.createElement('span');
-        rank.className = 'qb-rank';
-        rank.style.color = cat.color || 'var(--text-1)';
-        rank.textContent = q.difficulty;
-        row.appendChild(rank);
-        const name = document.createElement('span');
-        name.className = 'qb-name';
-        name.textContent = q.title;
-        row.appendChild(name);
-        const xp = document.createElement('span');
-        xp.className = 'qb-xp';
-        xp.textContent = (DifficultyXP[q.difficulty] || 50) + 'xp';
-        row.appendChild(xp);
-        const check = document.createElement('span');
-        check.className = 'qb-complete';
-        check.textContent = '✓';
-        check.onclick = () => { window._gameCallbacks?.completeQuest(q.id); };
-        row.appendChild(check);
-        el.appendChild(row);
-    }
-
-    if (done.length) {
-        const secDone = document.createElement('div');
-        secDone.className = 'qb-section';
-        secDone.textContent = `COMPLETED (${done.length})`;
-        el.appendChild(secDone);
-        for (const q of done.slice(0, 10)) {
-            const row = document.createElement('div');
-            row.className = 'qb-quest done';
-            const name = document.createElement('span');
-            name.className = 'qb-name';
-            name.textContent = q.title;
-            row.appendChild(name);
-            el.appendChild(row);
-        }
-    }
 }
 
 function updateToast(state) {
@@ -256,7 +79,7 @@ function updateResourceBar(state) {
     }
     const alive = document.createElement('span');
     alive.style.cssText = 'margin-left:auto;font-size:11px;font-weight:700;color:var(--text-2)';
-    alive.textContent = `${state.colonists.filter(c => c.state !== 'dead').length} alive`;
+    alive.textContent = `${state.colonists.length} survivors`;
     resBar.appendChild(alive);
 }
 
@@ -305,204 +128,26 @@ function updateBuildMenu(state, callbacks) {
     buildMenu.appendChild(demBtn);
 }
 
-function updateColonistPanel(state, callbacks) {
+function updateColonistPanel(state) {
     const panel = document.getElementById('colonist-panel');
-    const col = selectedColonist(state);
-    if (!col) { panel.style.display = 'none'; return; }
+    const n = new Set(state.selectedColonistIds || []);
+    if (state.selectedColonistId) n.add(state.selectedColonistId);
+    if (!n.size) { panel.style.display = 'none'; return; }
     panel.style.display = 'block';
     panel.className = 'corners';
     panel.textContent = '';
-
-    const trait = Traits[col.trait];
-    const weapon = WeaponTypes[col.weapon];
-
-    const header = document.createElement('div');
-    header.className = 'panel-header';
-    const nameEl = document.createElement('span');
-    nameEl.className = 'hud-panel-name';
-    nameEl.textContent = col.name;
-    const lvl = document.createElement('span');
-    lvl.className = 'hud-panel-level';
-    lvl.textContent = `Lv.${col.level}`;
-    header.appendChild(nameEl);
-    header.appendChild(lvl);
-    panel.appendChild(header);
-
-    const stateEl = document.createElement('div');
-    stateEl.style.cssText = `color:${STATE_COLORS[col.state]};font-size:11px`;
-    stateEl.textContent = col.state.toUpperCase();
-    panel.appendChild(stateEl);
-
-    const traitEl = document.createElement('div');
-    traitEl.className = 'trait-badge';
-    traitEl.textContent = `${trait.name.toUpperCase()} ${trait.desc}`;
-    panel.appendChild(traitEl);
-
-    panel.appendChild(createHR());
-    panel.appendChild(createNeedBar('HP',  col.health,         '#ff453a'));
-    panel.appendChild(createNeedBar('HNG', col.hunger,         '#30d158'));
-    panel.appendChild(createNeedBar('O2',  col.oxygen,         '#64d2ff'));
-    panel.appendChild(createNeedBar('STS', 100 - col.stress,   '#ff375f'));
-    panel.appendChild(createNeedBar('SLP', col.sleep,          '#0071e3'));
-    panel.appendChild(createHR());
-
-    const statsTitle = document.createElement('div');
-    statsTitle.style.cssText = 'font-size:10px;color:var(--text-2);font-weight:bold';
-    statsTitle.textContent = 'STATS';
-    panel.appendChild(statsTitle);
-
-    panel.appendChild(createStatBar('STR', col.stats.str));
-    panel.appendChild(createStatBar('INT', col.stats.int));
-    panel.appendChild(createStatBar('AGI', col.stats.agi));
-    panel.appendChild(createStatBar('END', col.stats.end));
-    panel.appendChild(createStatBar('CHA', col.stats.cha));
-    panel.appendChild(createXPBar(col));
-    panel.appendChild(createHR());
-
-    const jobLabel = document.createElement('div');
-    jobLabel.style.cssText = 'font-size:10px;color:var(--text-2);font-weight:bold';
-    jobLabel.textContent = `JOB: ${col.job.toUpperCase()}`;
-    panel.appendChild(jobLabel);
-
-    const jobBtns = document.createElement('div');
-    jobBtns.className = 'job-buttons';
-    ColonistJobs.forEach(job => {
-        const btn = document.createElement('button');
-        btn.className = 'job-btn' + (col.job === job ? ' active' : '');
-        btn.textContent = job.slice(0, 4).toUpperCase();
-        btn.onclick = () => {
-            const idx = state.colonists.findIndex(c => c.id === state.selectedColonistId);
-            if (idx >= 0) { state.colonists[idx].job = job; callbacks.onHudUpdate(); }
-        };
-        jobBtns.appendChild(btn);
-    });
-    panel.appendChild(jobBtns);
-    panel.appendChild(createHR());
-
-    const weaponEl = document.createElement('div');
-    weaponEl.style.fontSize = '10px';
-    weaponEl.textContent = `WEAPON: ${weapon.name}  DMG:${Math.floor(weapon.damage)} RNG:${weapon.range}`;
-    panel.appendChild(weaponEl);
-
-    const posEl = document.createElement('div');
-    posEl.style.cssText = 'font-size:10px;color:var(--text-3)';
-    posEl.textContent = `Pos: (${col.col}, ${col.row})`;
-    panel.appendChild(posEl);
-
-    panel.appendChild(createHR());
-    const questTitleEl = document.createElement('div');
-    questTitleEl.style.cssText = 'font-size:10px;color:var(--text-2);font-weight:bold';
-    const cls = colonistClass(col);
-    questTitleEl.textContent = cls ? `${cls.toUpperCase()} | ${col.questsCompleted || 0} QUESTS` : `${col.questsCompleted || 0} QUESTS DONE`;
-    panel.appendChild(questTitleEl);
-
-    if (col.activeQuest) {
-        const aq = document.createElement('div');
-        aq.style.cssText = 'font-size:11px;color:#ffd60a;margin-top:4px';
-        aq.textContent = `Active: ${col.activeQuest.title}`;
-        panel.appendChild(aq);
-        const prog = document.createElement('div');
-        prog.style.cssText = 'font-size:9px;color:var(--text-3)';
-        const pct = Math.max(0, Math.floor((1 - col.activeQuest.ticksRemaining / QUEST_WORK_TICKS) * 100));
-        prog.textContent = `Progress: ${pct}% | ${col.activeQuest.difficulty}-rank | ${col.activeQuest.category}`;
-        panel.appendChild(prog);
-    } else {
-        const idle = document.createElement('div');
-        idle.style.cssText = 'font-size:10px;color:var(--text-3);margin-top:2px';
-        idle.textContent = 'No active quest';
-        panel.appendChild(idle);
-    }
-
-    const recentQuests = (state.questLog || []).filter(l => l.colonist === col.name).slice(-3);
-    if (recentQuests.length) {
-        const logTitle = document.createElement('div');
-        logTitle.style.cssText = 'font-size:9px;color:var(--text-3);margin-top:6px';
-        logTitle.textContent = 'RECENT:';
-        panel.appendChild(logTitle);
-        for (const l of recentQuests) {
-            const entry = document.createElement('div');
-            entry.style.cssText = 'font-size:9px;color:var(--text-3);padding-left:4px';
-            entry.textContent = `- ${l.quest}`;
-            panel.appendChild(entry);
-        }
-    }
+    const c = selectedColonist(state);
+    const head = document.createElement('div');
+    head.className = 'hud-panel-name';
+    head.textContent = n.size > 1 ? `${n.size} SELECTED` : c ? c.name : '';
+    panel.appendChild(head);
+    const hint = document.createElement('div');
+    hint.style.cssText = 'font-size:11px;color:var(--text-2);margin-top:4px';
+    hint.textContent = c && n.size === 1 ? c.job.toUpperCase() : 'Click ground to move, a resource to gather';
+    panel.appendChild(hint);
 }
 
 function createHR() { return document.createElement('hr'); }
-
-function vitalColor(v) {
-    return v > 60 ? '#30d158' : v > 30 ? '#ffd60a' : '#ff453a';
-}
-
-function createNeedBar(label, value, color) {
-    const v = Math.max(0, Math.min(100, value));
-    const c = color || vitalColor(v);
-    const row = document.createElement('div');
-    row.className = 'need-row';
-    const lbl = document.createElement('span');
-    lbl.className = 'need-label';
-    lbl.textContent = label;
-    const bg = document.createElement('div');
-    bg.className = 'bar-bg';
-    const fill = document.createElement('div');
-    fill.className = 'bar-fill';
-    fill.style.transform = `scaleX(${v / 100})`;
-    fill.style.background = c;
-    bg.appendChild(fill);
-    const val = document.createElement('span');
-    val.className = 'need-val';
-    val.textContent = Math.floor(value);
-    row.appendChild(lbl);
-    row.appendChild(bg);
-    row.appendChild(val);
-    return row;
-}
-
-function createStatBar(label, value) {
-    const row = document.createElement('div');
-    row.className = 'need-row';
-    const lbl = document.createElement('span');
-    lbl.className = 'need-label';
-    lbl.textContent = label;
-    const dots = document.createElement('div');
-    dots.className = 'stat-dots';
-    for (let i = 0; i < 10; i++) {
-        const dot = document.createElement('span');
-        dot.className = 'stat-dot' + (i < value ? ' filled' : '');
-        dots.appendChild(dot);
-    }
-    const val = document.createElement('span');
-    val.className = 'need-val';
-    val.textContent = value;
-    row.appendChild(lbl);
-    row.appendChild(dots);
-    row.appendChild(val);
-    return row;
-}
-
-function createXPBar(c) {
-    const pct = colonistXpProgress(c) * 100;
-    const row = document.createElement('div');
-    row.className = 'need-row';
-    const lbl = document.createElement('span');
-    lbl.className = 'need-label';
-    lbl.textContent = 'XP';
-    const bg = document.createElement('div');
-    bg.className = 'bar-bg';
-    const fill = document.createElement('div');
-    fill.className = 'bar-fill';
-    fill.style.transform = `scaleX(${pct / 100})`;
-    fill.style.background = '#ffd60a';
-    bg.appendChild(fill);
-    const val = document.createElement('span');
-    val.className = 'need-val';
-    val.style.width = '50px';
-    val.textContent = `${c.xp}/${colonistXpForNext(c)}`;
-    row.appendChild(lbl);
-    row.appendChild(bg);
-    row.appendChild(val);
-    return row;
-}
 
 function updateGameLog(state) {
     const logEl = document.getElementById('game-log');
@@ -514,22 +159,9 @@ function updateGameLog(state) {
     });
 }
 
-const PHASE_COLORS = {
-    [GamePhase.SURVIVAL]: 'var(--pink)',
-    [GamePhase.GROWTH]:   'var(--yellow)',
-    [GamePhase.MASTERY]:  'var(--accent)',
-    [GamePhase.VICTORY]:  'var(--green)',
-};
-
 function updateTimeDisplay(state) {
-    const phase = currentPhase(state);
     const el = document.getElementById('time-display');
-    el.textContent = '';
-    el.appendChild(document.createTextNode(`Day ${Math.floor(state.currentTick / 240) + 1} | ${state.currentHour}:00 | ${state.isNight ? 'NIGHT' : 'DAY'} | `));
-    const phaseSpan = document.createElement('span');
-    phaseSpan.style.cssText = `color:${PHASE_COLORS[phase] || 'var(--text-1)'};font-weight:bold`;
-    phaseSpan.textContent = phase;
-    el.appendChild(phaseSpan);
+    el.textContent = `Day ${Math.floor(state.currentTick / 240) + 1} | ${state.currentHour}:00 | ${state.isNight ? 'NIGHT' : 'DAY'}`;
 }
 
 function updatePauseOverlay(state, callbacks) {
@@ -594,7 +226,7 @@ function updateSettings(state, callbacks) {
 
     const controls = [
         ['WASD / Arrows','Pan camera'], ['Scroll / Pinch','Zoom'], ['Right-drag','Pan camera'],
-        ['B','Toggle build menu'], ['1-6','Select building'], ['X','Toggle demolish'],
+        ['B','Toggle build menu'], ['1-4','Select building'], ['X','Toggle demolish'],
         ['Space','Pause/resume'], ['Ctrl+S','Save game'], ['Esc','Settings / cancel'],
         ['Drag','Box select'], ['Click ground / resource','Move / gather'],
     ];
@@ -675,16 +307,9 @@ function updateTutorial(state, callbacks) {
     el.textContent = '';
 
     const steps = [
-        { title:'WELCOME',   body:'Welcome to Times Square. You control a group of survivors.',                          hint:'Click to continue' },
-        { title:'NEEDS',     body:'Your colonists have NEEDS — hunger, oxygen, stress, sleep, health. Keep them alive.', hint:'Click to continue' },
-        { title:'STATS',     body:'Each colonist has RPG STATS — STR, INT, AGI, END, CHA. Click a figure.',             hint:'Click a colonist' },
-        { title:'CAMERA',    body:'WASD to pan the camera. Scroll to zoom.',                                            hint:'Click to continue' },
-        { title:'BUILD',     body:'Press B to open the BUILD menu. Buildings keep your colony running.',                hint:'Press B' },
-        { title:'SHELTER',   body:'Place a SHELTER to reduce stress and let colonists sleep.',                          hint:'Place a shelter' },
-        { title:'COMMAND',   body:'Click a survivor, or drag a box around several. Click the ground to move them. Click a resource to gather it.', hint:'Click to continue' },
-        { title:'UPKEEP',    body:'Every building burns materials. Let the pile hit zero and they break until you gather more.', hint:'Click to continue' },
-        { title:'RAIDS',     body:'Every third night scavengers rob the stockpile. Put a survivor on PATROL near your buildings and they turn back.', hint:'Click to continue' },
-        { title:'GOOD LUCK', body:'Press SPACE to pause. Ctrl+S to save. Esc deselects. Good luck.',   hint:'Click to dismiss' },
+        { title:'COMMAND',   body:'Click a survivor, or drag a box around several. Click the ground to move them. Click a resource and they work it until you say otherwise.', hint:'Click a colonist' },
+        { title:'BUILD',     body:'Press B. A Generator makes power. A Drill next to a resource mines it for you, burning power. Shelters add beds, and a bed plus 10 food brings a new survivor each day.', hint:'Press B' },
+        { title:'THE BEACON', body:'Gather materials and power, then raise the Beacon. That is the whole game.', hint:'Click to dismiss' },
     ];
 
     const step = state.tutorialStep;
@@ -758,8 +383,6 @@ function updateTutorial(state, callbacks) {
 export function checkTutorialAdvance(state, event) {
     if (state.tutorialStep === null || state.tutorialStep === undefined) return;
     const step = state.tutorialStep;
-    if (step === 2 && event === 'colonistSelected') state.tutorialStep = 3;
-    else if (step === 3 && event === 'wasdPressed') state.tutorialStep = 4;
-    else if (step === 4 && event === 'buildMenuOpened') state.tutorialStep = 5;
-    else if (step === 5 && event === 'shelterPlaced') state.tutorialStep = 6;
+    if (step === 0 && event === 'colonistSelected') state.tutorialStep = 1;
+    else if (step === 1 && event === 'buildMenuOpened') state.tutorialStep = 2;
 }

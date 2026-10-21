@@ -79,8 +79,8 @@ export function generateWorld() {
     }
 
     const resources = [];
-    const resTypes = ['food','food','food','materials','materials','power','oxygen','cash'];
-    const maxAmounts = { food: 10, materials: 15, power: 8, oxygen: 12, cash: 20 };
+    const resTypes = ['food','food','materials','materials','materials','power'];
+    const maxAmounts = { food: 10, materials: 15, power: 8 };
 
     for (let r = 0; r < GRID_SIZE; r++) {
         for (let c = 0; c < GRID_SIZE; c++) {
