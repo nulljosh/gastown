@@ -1,5 +1,5 @@
 /* Gastown design tokens, same system as the Hermes landing: 8 point grid, one radius set, 48 point capsule controls.
-   The brand blue (brand/tokens.css) is the only colour Gastown owns. Light #3d7bff, deep #0b2f8a. */
+   Clay (brand/tokens.css) is the only colour Gastown owns, on the game's noir night. Light #e07a52, deep #b5502c. */
 @font-face { font-family: "Gastown Sans"; src: url("fonts/GastownSans-Regular.woff2") format("woff2"); font-weight: 400; font-display: swap; }
 @font-face { font-family: "Gastown Sans"; src: url("fonts/GastownSans-Medium.woff2") format("woff2"); font-weight: 500; font-display: swap; }
 @font-face { font-family: "Gastown Sans"; src: url("fonts/GastownSans-Semibold.woff2") format("woff2"); font-weight: 600; font-display: swap; }
@@ -7,14 +7,14 @@
 
 :root {
   /* colour */
-  --accent: #0b2f8a;          /* actions and links; deep brand blue, AA on paper */
-  --accent-light: #3d7bff;    /* icon gradient top */
-  --accent-deep: #0b2f8a;     /* icon gradient bottom */
-  --btn: #0b2f8a;             /* solid buttons, white label */
-  --frame: #0b2f8a;           /* the thin frame down the window edges */
-  --band: #0b2f8a;            /* full-bleed blue sections */
-  --band-sub: #d6e0fa;        /* secondary text on the band, AA */
-  --band-art: #7ea3ff;        /* halftone photographs on the band */
+  --accent: #b5502c;          /* actions and links; Gastown clay, AA on paper */
+  --accent-light: #e07a52;    /* icon gradient top */
+  --accent-deep: #b5502c;     /* icon gradient bottom */
+  --btn: #b5502c;             /* solid buttons, white label */
+  --frame: #b5502c;           /* the thin frame down the window edges */
+  --band: #141a2e;            /* full-bleed sections: the game's rainy night */
+  --band-sub: #d9dde8;        /* secondary text on the band, AA */
+  --band-art: #e07a52;        /* halftone art on the band, clay */
   --band-line: rgba(255, 255, 255, .22);
   --ring: color-mix(in srgb, var(--accent) 30%, transparent);
   --bg: #ffffff;
@@ -47,12 +47,12 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --accent: #6c9bff;
-    --btn: #2a63e9;
-    --frame: #2a63e9;
-    --band: #0b2f8a;
-    --band-sub: #c9d6fb;
-    --band-art: #6f98ff;
+    --accent: #e8906c;
+    --btn: #b5502c;
+    --frame: #b5502c;
+    --band: #141a2e;
+    --band-sub: #d9dde8;
+    --band-art: #e07a52;
     --bg: #05070d;            /* near black, a breath of blue */
     --surface: #10131c;
     --line: #272c3a;

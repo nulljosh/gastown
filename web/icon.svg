@@ -1,1 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><rect width="200" height="200" rx="44" fill="#12161c"/><path d="M177.6,91.7 L177.6,108.3 L160.8,112.0 L156.3,126.0 L167.6,138.9 L157.9,152.3 L142.2,145.5 L130.2,154.1 L131.9,171.2 L116.1,176.3 L107.4,161.6 L92.6,161.6 L83.9,176.3 L68.1,171.2 L69.8,154.1 L57.8,145.5 L42.1,152.3 L32.4,138.9 L43.7,126.0 L39.2,112.0 L22.4,108.3 L22.4,91.7 L39.2,88.0 L43.7,74.0 L32.4,61.1 L42.1,47.7 L57.8,54.5 L69.8,45.9 L68.1,28.8 L83.9,23.7 L92.6,38.4 L107.4,38.4 L116.1,23.7 L131.9,28.8 L130.2,45.9 L142.2,54.5 L157.9,47.7 L167.6,61.1 L156.3,74.0 L160.8,88.0 Z" fill="#f0a202"/><circle cx="100" cy="100" r="26" fill="#12161c"/><circle cx="100" cy="100" r="18" fill="#f0a202" opacity=".25"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 1024 1024"><defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e07a52"/><stop offset="1" stop-color="#b5502c"/></linearGradient></defs><rect width="1024" height="1024" rx="224" fill="url(#g)"/><g fill="#fff">
+  <circle cx="548" cy="232" r="26"/><circle cx="598" cy="196" r="36"/><circle cx="660" cy="160" r="28"/>
+  <rect x="500" y="236" width="24" height="56" rx="6"/>
+  <polygon points="384,350 512,280 640,350"/>
+  <path fill-rule="evenodd" d="M396 350 h232 a20 20 0 0 1 20 20 v148 a20 20 0 0 1 -20 20 h-232 a20 20 0 0 1 -20 -20 v-148 a20 20 0 0 1 20 -20 z M512 386 a58 58 0 1 0 0.1 0 z"/>
+  <rect x="506" y="402" width="12" height="44" rx="6"/><rect x="506" y="434" width="40" height="12" rx="6"/>
+  <rect x="436" y="538" width="152" height="232" rx="10"/>
+  <rect x="392" y="770" width="240" height="66" rx="16"/>
+</g></svg>
