@@ -1,7 +1,6 @@
 // Main entry -- game loop, init, auto-start
 
 import { createGameState, createColonist, gameLog, BuildingType, randomColonistName, checkVictory } from './state.js';
-import { initClaudeBridge } from './claude.js';
 import { generateWorld, GRID_SIZE, TILE_SIZE, tileAt, worldToTile } from './world.js';
 import { Pathfinder } from './pathfinder.js';
 import { recruitTick, timeTick, machineTick, resourceTick, jobTick, placeBuilding, demolishBuilding,
@@ -203,8 +202,6 @@ function freshWorld() {
         state.colonists.push(createColonist(name, col, row));
     }
 
-    state.colonists[0].job = 'gather';
-    state.colonists[1].job = 'gather';
     state.lastSaveSlot = 1;
 
     gameLog(state, 'Welcome to Times Square');

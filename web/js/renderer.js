@@ -1,11 +1,22 @@
 // Canvas renderer -- 16-bit style sprites, cached to offscreen canvases
 
 import { TILE_SIZE, TileColors, GRID_SIZE } from './world.js';
-import { BuildingType, ResourceSymbol } from './state.js';
+import { BuildingType } from './state.js';
 import { renderParticles } from './particles.js';
 
 const GAP = 1;
 const TILE_R = 4;
+
+// Sprites come from scripts/gen_sprites.py: the same noir pixel art the native app ships, at 2x.
+// Nothing draws until its image has loaded.
+const TILE_SPRITE = ['tile_road', 'tile_sidewalk', 'tile_building', 'tile_billboard', 'tile_subway', 'tile_sewer', 'tile_empty'];
+const sprites = {};
+for (const n of [...TILE_SPRITE, 'colonist_idle', 'colonist_walk1', 'colonist_walk2', 'shelter', 'generator', 'drill', 'beacon', 'res_food', 'res_materials', 'res_power']) {
+    const im = new Image();
+    im.src = `sprites/${n}.png`;
+    sprites[n] = im;
+}
+const sprite = n => (sprites[n]?.complete && sprites[n].naturalWidth > 0 ? sprites[n] : null);
 
 // Canvas can't read CSS custom properties. Neutral "ink" (labels, washes, tile
 // detail) has to flip with the theme or it vanishes; saturated status colors don't.
@@ -35,11 +46,6 @@ let INK = INK_DARK;
 
 export function setRenderTheme(theme) {
     INK = theme === 'light' ? INK_LIGHT : INK_DARK;
-    clearTileSprites();
-}
-
-export function clearTileSprites() {
-    for (const k in tileSprites) delete tileSprites[k];
 }
 
 const JOB_COLORS = { idle: '#8e8e93', gather: '#30d158' };
@@ -48,20 +54,6 @@ const RESOURCE_COLORS = {
     food: '#30d158',
     power: '#ffd60a',
     materials: '#ff9f0a',
-};
-
-const BUILDING_COLORS = {
-    shelter: 'rgba(41, 151, 255, 0.25)',
-    generator: 'rgba(255, 214, 10, 0.25)',
-    drill: 'rgba(255, 159, 10, 0.25)',
-    beacon: 'rgba(255, 55, 95, 0.3)',
-};
-
-const BUILDING_BORDER = {
-    shelter: 'rgba(41, 151, 255, 0.5)',
-    generator: 'rgba(255, 214, 10, 0.5)',
-    drill: 'rgba(255, 159, 10, 0.5)',
-    beacon: 'rgba(255, 55, 95, 0.6)',
 };
 
 function roundRect(ctx, x, y, w, h, r) {
@@ -79,162 +71,8 @@ function roundRect(ctx, x, y, w, h, r) {
 }
 
 // Tile sprites with terrain variation (4 brightness variants per type)
-const tileSprites = {};
-function getTileSprite(tileType, col, row) {
-    const variant = (col * 7 + row * 13) % 4;
-    const key = `${tileType}_${variant}`;
-    if (tileSprites[key]) return tileSprites[key];
-    const size = TILE_SIZE;
-    const c = document.createElement('canvas');
-    c.width = size;
-    c.height = size;
-    const cx = c.getContext('2d');
-    const baseColor = TileColors[tileType] || INK.tile;
-
-    // Parse and shift brightness
-    const shift = [-6, -3, 0, 4][variant];
-    cx.fillStyle = shiftColor(baseColor, shift);
-    roundRect(cx, GAP, GAP, size - GAP * 2, size - GAP * 2, TILE_R);
-    cx.fill();
-
-    // Sidewalk details (deterministic per position)
-    if (tileType === 1 && variant === 0) { // sidewalk + variant 0 = manhole
-        cx.fillStyle = INK.detail;
-        cx.fillRect(10, 10, 12, 12);
-    } else if (tileType === 1 && variant === 3) { // cracks
-        cx.strokeStyle = INK.crack;
-        cx.lineWidth = 1;
-        cx.beginPath();
-        cx.moveTo(8, 16);
-        cx.lineTo(24, 18);
-        cx.stroke();
-    }
-
-    tileSprites[key] = c;
-    return c;
-}
-
-function shiftColor(hex, amount) {
-    if (hex.startsWith('rgba')) return hex;
-    const r = Math.max(0, Math.min(255, parseInt(hex.slice(1, 3), 16) + amount));
-    const g = Math.max(0, Math.min(255, parseInt(hex.slice(3, 5), 16) + amount));
-    const b = Math.max(0, Math.min(255, parseInt(hex.slice(5, 7), 16) + amount));
-    return `rgb(${r},${g},${b})`;
-}
-
-// Skin tones from name hash
-const SKIN_TONES = ['#f5d0a9', '#e8b88a', '#d4956b', '#c47a50', '#8d5524', '#6b3e1f'];
-function skinTone(name) {
-    let hash = 0;
-    for (let i = 0; i < name.length; i++) hash = ((hash << 5) - hash + name.charCodeAt(i)) | 0;
-    return SKIN_TONES[Math.abs(hash) % SKIN_TONES.length];
-}
-
 // Render tick for walk animation
 let renderTick = 0;
-
-// Draw a 16-bit style colonist directly (no cache for simplicity + dynamic state)
-function drawColonist16bit(ctx, c, x, y, state) {
-    const bodyColor = JOB_COLORS[c.job] || '#666';
-    const skin = skinTone(c.name);
-    const isMoving = c.pathIndex < c.pathCols.length;
-    // 4-frame walk cycle: 0=right-forward, 1=neutral, 2=left-forward, 3=neutral
-    const walkFrame = isMoving ? Math.floor(renderTick % 16 / 4) : -1;
-
-    // Legs (2px wide, 5px long) -- 4-frame cycle
-    ctx.fillStyle = '#2c2c2e';
-    if (walkFrame === 0) {
-        ctx.fillRect(x - 3, y + 5, 2, 5);
-        ctx.fillRect(x + 1, y + 3, 2, 5);
-    } else if (walkFrame === 2) {
-        ctx.fillRect(x - 3, y + 3, 2, 5);
-        ctx.fillRect(x + 1, y + 5, 2, 5);
-    } else {
-        ctx.fillRect(x - 3, y + 3, 2, 6);
-        ctx.fillRect(x + 1, y + 3, 2, 6);
-    }
-
-    // Body (8x10 torso)
-    ctx.fillStyle = bodyColor;
-    ctx.fillRect(x - 4, y - 5, 8, 10);
-
-    // Arms (2px wide) -- 4-frame swing
-    ctx.fillStyle = skin;
-    if (walkFrame === 0) {
-        ctx.fillRect(x - 6, y - 3, 2, 5);
-        ctx.fillRect(x + 4, y - 5, 2, 5);
-    } else if (walkFrame === 2) {
-        ctx.fillRect(x - 6, y - 5, 2, 5);
-        ctx.fillRect(x + 4, y - 3, 2, 5);
-    } else {
-        ctx.fillRect(x - 6, y - 4, 2, 5);
-        ctx.fillRect(x + 4, y - 4, 2, 5);
-    }
-
-    // Head (8x8 circle-ish)
-    ctx.fillStyle = skin;
-    ctx.beginPath();
-    ctx.arc(x, y - 9, 4, 0, Math.PI * 2);
-    ctx.fill();
-
-    // Eyes (2 black dots)
-    ctx.fillStyle = '#000';
-    ctx.fillRect(x - 2, y - 10, 1, 1);
-    ctx.fillRect(x + 1, y - 10, 1, 1);
-
-    // Mouth
-    ctx.fillRect(x - 1, y - 8, 2, 1);
-
-}
-
-// Building icon symbols
-const BUILDING_ICONS = {
-    shelter: (cx, x, y, w, h) => {
-        // House with roof
-        cx.fillStyle = 'rgba(41, 151, 255, 0.6)';
-        cx.beginPath();
-        cx.moveTo(x + w/2, y + 4);
-        cx.lineTo(x + w - 6, y + h/2 - 2);
-        cx.lineTo(x + 6, y + h/2 - 2);
-        cx.closePath();
-        cx.fill();
-        cx.fillRect(x + w/2 - 6, y + h/2 - 2, 12, h/2 - 4);
-        // Window
-        cx.fillStyle = INK.wash;
-        cx.fillRect(x + w/2 - 2, y + h/2, 4, 4);
-    },
-    generator: (cx, x, y, w, h) => {
-        // Box with lightning bolt
-        cx.fillStyle = 'rgba(255, 214, 10, 0.4)';
-        cx.fillRect(x + 8, y + 8, w - 16, h - 16);
-        cx.strokeStyle = 'rgba(255, 214, 10, 0.8)';
-        cx.lineWidth = 2;
-        cx.beginPath();
-        cx.moveTo(x + w/2 + 2, y + 10);
-        cx.lineTo(x + w/2 - 2, y + h/2);
-        cx.lineTo(x + w/2 + 2, y + h/2);
-        cx.lineTo(x + w/2 - 2, y + h - 10);
-        cx.stroke();
-    },
-    drill: (cx, x, y, w, h) => {
-        // Bit and shaft
-        cx.fillStyle = 'rgba(255, 159, 10, 0.7)';
-        cx.beginPath();
-        cx.moveTo(x + w/2 - 7, y + 6);
-        cx.lineTo(x + w/2 + 7, y + 6);
-        cx.lineTo(x + w/2, y + h - 6);
-        cx.closePath();
-        cx.fill();
-    },
-    beacon: (cx, x, y, w, h) => {
-        // Spire and light
-        cx.fillStyle = 'rgba(255, 55, 95, 0.7)';
-        cx.fillRect(x + w/2 - 3, y + 14, 6, h - 20);
-        cx.beginPath();
-        cx.arc(x + w/2, y + 10, 5, 0, Math.PI * 2);
-        cx.fill();
-    },
-};
 
 export function renderWorld(ctx, canvas, camera, grid, state) {
     renderTick++;
@@ -243,10 +81,13 @@ export function renderWorld(ctx, canvas, camera, grid, state) {
 
     const bounds = camera.visibleBounds(canvas);
 
-    // Tiles (sprite-cached with terrain variation)
+    ctx.imageSmoothingEnabled = false; // pixel art
+
+    // Tiles
     for (let r = bounds.minRow; r <= bounds.maxRow; r++) {
         for (let c = bounds.minCol; c <= bounds.maxCol; c++) {
-            ctx.drawImage(getTileSprite(grid[r][c], c, r), c * TILE_SIZE, r * TILE_SIZE);
+            const im = sprite(TILE_SPRITE[grid[r][c]]);
+            if (im) ctx.drawImage(im, c * TILE_SIZE, r * TILE_SIZE, TILE_SIZE, TILE_SIZE);
         }
     }
 
@@ -277,16 +118,9 @@ export function renderWorld(ctx, canvas, camera, grid, state) {
         ctx.fill();
 
         ctx.globalAlpha = alpha;
-        ctx.beginPath();
-        ctx.arc(x, y, 11, 0, Math.PI * 2);
-        ctx.fill();
+        const im = sprite('res_' + rn.type);
+        if (im) ctx.drawImage(im, x - 12, y - 12, 24, 24);
         ctx.globalAlpha = 1;
-
-        ctx.fillStyle = '#fff';
-        ctx.font = 'bold 11px -apple-system, sans-serif';
-        ctx.textAlign = 'center';
-        ctx.textBaseline = 'middle';
-        ctx.fillText(ResourceSymbol[rn.type] || '', x, y);
         if (rn.remaining > 0) {
             ctx.fillStyle = INK.labelStrong;
             ctx.font = '600 9px -apple-system, sans-serif';
@@ -306,20 +140,8 @@ export function renderWorld(ctx, canvas, camera, grid, state) {
         if (bx + bw < bounds.minCol * TILE_SIZE || bx > (bounds.maxCol + 1) * TILE_SIZE) continue;
         if (by + bh < bounds.minRow * TILE_SIZE || by > (bounds.maxRow + 1) * TILE_SIZE) continue;
 
-        ctx.fillStyle = BUILDING_COLORS[b.type] || INK.track;
-        roundRect(ctx, bx, by, bw, bh, TILE_R + 2);
-        ctx.fill();
-
-        ctx.strokeStyle = BUILDING_BORDER[b.type] || INK.washSoft;
-        ctx.lineWidth = 1;
-        roundRect(ctx, bx, by, bw, bh, TILE_R + 2);
-        ctx.stroke();
-
-        // Draw building icon
-        const iconFn = BUILDING_ICONS[b.type];
-        if (iconFn) {
-            iconFn(ctx, bx, by, bw, bh);
-        }
+        const bim = sprite(b.type);
+        if (bim) ctx.drawImage(bim, b.col * TILE_SIZE, b.row * TILE_SIZE, w * TILE_SIZE, h * TILE_SIZE);
 
         // Name label
         ctx.fillStyle = INK.labelSoft;
@@ -352,16 +174,22 @@ export function renderWorld(ctx, canvas, camera, grid, state) {
             ctx.stroke();
         }
 
-        // ponytail: scale the 12px pixel figure up in place rather than redraw it at a new size
-        ctx.save(); ctx.translate(x, y); ctx.scale(1.8, 1.8); ctx.translate(-x, -y);
-        drawColonist16bit(ctx, c, x, y, state);
-        ctx.restore();
+        // Job ring under the feet, then the sprite: walk frames while moving
+        ctx.fillStyle = JOB_COLORS[c.job] || '#666';
+        ctx.globalAlpha = 0.55;
+        ctx.beginPath();
+        ctx.ellipse(x, y + 12, 11, 4, 0, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.globalAlpha = 1;
+        const moving = c.pathIndex < c.pathCols.length;
+        const cim = sprite(moving ? (Math.floor(renderTick / 8) % 2 ? 'colonist_walk1' : 'colonist_walk2') : 'colonist_idle');
+        if (cim) ctx.drawImage(cim, x - 18, y - 22, 36, 36);
 
         // Name
         ctx.fillStyle = INK.label;
         ctx.font = '600 7px -apple-system, sans-serif';
         ctx.textAlign = 'center';
-        ctx.fillText(c.name, x, y - 22);
+        ctx.fillText(c.name, x, y - 26);
 
     }
 
