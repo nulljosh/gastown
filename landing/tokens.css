@@ -4,8 +4,6 @@
 @font-face { font-family: "NYC Sans"; src: url("fonts/NYCSans-Medium.woff2") format("woff2"); font-weight: 500; font-display: swap; }
 @font-face { font-family: "NYC Sans"; src: url("fonts/NYCSans-Semibold.woff2") format("woff2"); font-weight: 600; font-display: swap; }
 @font-face { font-family: "NYC Sans"; src: url("fonts/NYCSans-Bold.woff2") format("woff2"); font-weight: 700; font-display: swap; }
-/* NYC Display: Antonio (SIL OFL 1.1, fonts/OFL-Antonio.txt), condensed caps for headlines and labels only */
-@font-face { font-family: "NYC Display"; src: url("fonts/NYCDisplay.woff2") format("woff2"); font-weight: 100 700; font-display: swap; }
 
 :root {
   /* colour */
@@ -26,7 +24,7 @@
   --sub: #5f5f66;
 
   /* type */
-  --display: "NYC Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --display: var(--font);    /* one face everywhere: NYC Sans, built by scripts/gen_font.py */
   --font: "NYC Sans", -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
   --size-body: 17px;          /* 24 line */
   --size-footnote: 13px;      /* 16 line */
