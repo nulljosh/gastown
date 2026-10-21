@@ -10,6 +10,11 @@
     }, { rootMargin: '0px 0px -8% 0px' });
     items.forEach(function (e) { io.observe(e); });
   }
+  // The nav's Play now waits until the hero's own Play now scrolls away, so the two never show at once.
+  var heroCta = document.querySelector('.hero .btn'), nav = document.querySelector('.nav');
+  if (heroCta && nav && 'IntersectionObserver' in window) {
+    new IntersectionObserver(function (en) { nav.classList.toggle('cta-off', en[0].isIntersecting); }).observe(heroCta);
+  }
   if (still) return;
 
   // Parallax. data-parallax="s": the element moves by s of its distance from the viewport centre
