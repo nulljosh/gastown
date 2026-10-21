@@ -78,6 +78,8 @@ export function generateWorld() {
         }
     }
 
+    addWater(grid);
+
     const resources = [];
     const resTypes = ['food','food','materials','materials','materials','power'];
     const maxAmounts = { food: 10, materials: 15, power: 8 };
@@ -92,6 +94,20 @@ export function generateWorld() {
     }
 
     return { grid, resources };
+}
+
+// Vancouver: Burrard Inlet along the north edge and False Creek across the south, each with a
+// seawall path, and one bridge over the creek. Water is TileType.empty. Same shape as WorldGenerator.addWater.
+const INLET_END = 9, CREEK = [106, 112], CREEK_COLS = 88, BRIDGE = [32, 36];
+function addWater(grid) {
+    for (let r = 0; r < GRID_SIZE; r++) {
+        for (let c = 0; c < GRID_SIZE; c++) {
+            const inCreek = r >= CREEK[0] && r < CREEK[1] && c < CREEK_COLS, bridge = c >= BRIDGE[0] && c < BRIDGE[1];
+            if (r < INLET_END || (inCreek && !bridge)) grid[r][c] = TileType.empty;
+            else if (r === INLET_END || ((r === CREEK[0] - 1 || r === CREEK[1]) && c < CREEK_COLS && !bridge)) grid[r][c] = TileType.sidewalk;
+            else if (inCreek) grid[r][c] = TileType.road;
+        }
+    }
 }
 
 export function tileAt(grid, col, row) {

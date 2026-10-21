@@ -47,6 +47,8 @@ struct WorldGenerator {
             }
         }
 
+        addWater(&grid)
+
         let resourceTypes: [ResourceType] = [.food, .food, .materials, .materials, .materials, .power]
         for row in 0..<gridSize {
             for col in 0..<gridSize {
@@ -72,6 +74,20 @@ struct WorldGenerator {
         }
 
         return (grid, resources)
+    }
+
+    /// Vancouver: Burrard Inlet along the north edge and False Creek across the south, each with a
+    /// seawall path, and one bridge over the creek. Water is `.empty`. Same shape as web/js/world.js addWater.
+    static let inletRows = 0..<9, creekRows = 106..<112, creekCols = 0..<88, bridgeCols = 32..<36
+    private static func addWater(_ grid: inout [[TileType]]) {
+        for row in 0..<gridSize {
+            for col in 0..<gridSize {
+                let creek = creekRows.contains(row) && creekCols.contains(col)
+                if inletRows.contains(row) || (creek && !bridgeCols.contains(col)) { grid[row][col] = .empty }
+                else if row == inletRows.upperBound || ((row == creekRows.lowerBound - 1 || row == creekRows.upperBound) && creekCols.contains(col) && !bridgeCols.contains(col)) { grid[row][col] = .sidewalk }
+                else if creek { grid[row][col] = .road }
+            }
+        }
     }
 
     private static func isAvenueColumn(_ col: Int) -> Bool {
