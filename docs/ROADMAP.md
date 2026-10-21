@@ -86,6 +86,7 @@ Cloudflare edge cache can serve the old page for a minute or two afterward; the 
 Availability confirmed fine (175/175 territories, free price schedule), the "dashboard-only dead end" belief was a CLI paging bug (fetch territories with `--limit 200`).
 
 ## Phase 2: Factorio Game Mechanics (TODO)
+- [ ] **2.0.0 screenshots are blocked on Apple (2026-10-21).** Every new screenshot upload ends in `ASSET_FAILED` with no detail, on all three sets (iPhone 6.5 and 6.7, iPad 13, Mac): PNG and JPEG, magick and sips, with and without alpha, native and resized sizes, through `asc screenshots upload` and the raw API (`.asc/upload-shot.py SET_ID FILE`). The 1.x shots were replaced, so all 2.0.0 sets are empty. Frames are ready in `.asc/screenshots/2.0/`. Retry later; if it still fails, drag them in through the App Store Connect web page.
 - [ ] ItemType enum (ore, iron_plate, copper_ore, etc.)
 - [ ] Recipe system (inputs → outputs, timeTicks)
 - [ ] ProductionBuilding model (replace colonist jobs)
