@@ -19,15 +19,15 @@ Get Gastown 2.0.0 through CI and into App Review, then keep polishing. Stop at 9
 - **Player-facing copy.** The menu, HUD, win banner ("THE STEAM CLOCK STANDS") and landing say Steam Clock and colonists, not Beacon and survivors. The menu tagline no longer clips on iPhone. The Mac entitlements file and the iOS export profile carry the Gastown name, which fixed two shipping breaks.
 - **Landing on phones.** No embedded game. On phones only Safari's App Store banner shows; the black store bar is desktop only.
 - **Store.** iOS and Mac 1.1.0 are live as NYC Survive. iOS and Mac 2.0.0 exist in App Store Connect with the Gastown name and listing text (subtitle "Raise the Steam Clock", description, keywords, what's new). Both builds are uploaded, processed and attached. Nothing is submitted.
-- **Screenshots, the blocker.** Apple fails every new screenshot upload with ASSET_FAILED, on every set. A one-pixel edit of a screenshot Apple had already accepted fails too, on Gastown and on Epiphany, so the fault is on Apple's side and account-wide. Tested with PNG and JPEG, two encoders, native and resized sizes, through asc and the raw API. The new frames are ready in `.asc/screenshots/2.0/`.
+- **Screenshots, done 2026-10-31.** The Apple-side ASSET_FAILED fault cleared. iPhone 6.5" (2), iPad 12.9" (2) and Mac (2) frames are uploaded and COMPLETE on the iOS and Mac 2.0.0 versions. The iPhone 6.7" set stays empty on purpose: it wants 1290x2796, and the 6.5" set already covers iPhone. App Review notes and What's New were rewritten for 2.0 on both versions, with no old-name text.
 
 ## Next, in order
 
-1. **Screenshots.** Retry the upload with `python3 .asc/upload-shot.py SET_ID FILE` from `.asc/screenshots/2.0/`, one set at a time, and again later. If it still fails after a day or two, ask Apple developer support, with the one-pixel test as evidence.
+1. **Screenshots.** Done, see above.
 2. **Submit, on Joshua's yes only.** Once every set has its frames, submit iOS and Mac 2.0.0. Never run `asc workflow run ship-ios` as is: `.asc/workflow.json` sets `SUBMIT` to true by default, so it would send the build to review on its own.
 3. **CI.** Keep main green. If a run goes red, fix the cause and do not mute it.
-4. **Listing check.** Read the Gastown listing on both 2.0.0 versions before any submit, including What's New and the App Review notes.
-5. **Docs.** Rewrite `docs/API.md`, `docs/ARCHITECTURE.md`, `docs/CONTROLS.md` and `WHITEPAPER.md`, which still use 1.x terms, for the 2.0 rules.
+4. **Listing check.** Done 2026-10-31: description, keywords, What's New, support URL and review notes read on both versions.
+5. **Docs.** Done 2026-10-31: API, ARCHITECTURE, CONTROLS and WHITEPAPER rewritten for the 2.0 rules.
 
 ## Restart prompt
 

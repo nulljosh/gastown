@@ -3,7 +3,7 @@
 Gastown has no HTTP API. It's a client-only browser game built from plain ES
 modules with no server and no bundler — all game state lives in memory in the
 page, and saves are written straight to the browser's `localStorage` (keys
-`nyc_save_1` / `nyc_save_2` / `nyc_save_3`, one per save slot) by `web/js/save.js`.
+`nyc2_save_1` / `nyc2_save_2` / `nyc2_save_3`, one per save slot; 1.x `nyc_save_` slots are ignored) by `web/js/save.js`.
 
 ## WebMCP
 
@@ -17,8 +17,8 @@ game. Registration happens in `web/js/webmcp.js`, wired in with its own
 
 | tool | what it does |
 |------|---------------|
-| `get_game_state` | Returns the current city state: resources, tick/hour, pause state, game phase, colonist counts, building count, and quest/XP progress. Returns `null` if no game is loaded yet (still on the menu). |
-| `list_saves` | Lists the 3 local save slots with day count and living colonist count for each. Empty slots are `null`. |
+| `get_game_state` | Returns the current city state: resources (food, materials, power), tick/hour, pause state, colonist count and building count. Returns `null` if no game is loaded yet (still on the menu). |
+| `list_saves` | Lists the 3 local save slots with day count and colonist count for each. Empty slots are `null`. |
 
 ### Reversible writes
 

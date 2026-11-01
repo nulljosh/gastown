@@ -24,7 +24,7 @@ How to play Gastown on iPhone, iPad and Mac. These match the input code in
 | Drag over empty ground | Box-select several colonists (a drag under 6 pt is a click) |
 | Settings, then Full screen | Full screen on or off. The window also resizes |
 | B | Open or close the build menu |
-| 1 to 6 | Pick a building to place (1 shelter, 2 food stall, 3 generator, 4 filter station, 5 subway access, 6 billboard) |
+| 1 to 4 | Pick a building to place (1 shelter, 2 generator, 3 drill, 4 Steam Clock) |
 | X | Toggle demolish mode, then click a building to remove it |
 | Space | Pause or resume |
 | Cmd+S | Save |
