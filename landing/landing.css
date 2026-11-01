@@ -1,5 +1,5 @@
 /* Gastown landing, built on the Hermes landing system: a near-black page in a thin blue frame, giant thin condensed caps,
-   tiny caps labels, small square buttons, all in Gastown Sans, and one full-bleed blue band where an old photograph of New York sits in halftone.
+   tiny caps labels, small square buttons, all in the bold system font, and one full-bleed blue band where an old photograph of New York sits in halftone.
    Every colour, both faces and the radii come from tokens.css. */
 :root {
   --scan: repeating-linear-gradient(to bottom, #000 0 1.5px, transparent 1.5px 3px);  /* scanlines for the engravings */
@@ -26,7 +26,7 @@ h1 { font-size: clamp(60px, 11vw, 168px); line-height: .92; font-weight: 700; te
 .hero-h1 { font-size: clamp(40px, 7vw, 104px); line-height: .95; text-transform: none; letter-spacing: -.035em; max-width: 1000px; margin: 0 auto; }
 h2 { font-size: clamp(40px, 6vw, 88px); line-height: .95; font-weight: 700; text-transform: uppercase; letter-spacing: -.025em; }
 h3 { font-size: 28px; line-height: 32px; font-weight: 600; letter-spacing: -.01em; }
-.label { font-size: 13px; line-height: 16px; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; color: var(--sub); margin-bottom: var(--sp-4); }
+.label { font-size: 13px; line-height: 16px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--sub); margin-bottom: var(--sp-4); }
 
 .btn { white-space: nowrap; height: 40px; padding: 0 var(--sp-4); border-radius: var(--r-sq); display: inline-flex; align-items: center; font-family: var(--display); font-weight: 600; font-size: 14px; letter-spacing: .08em; text-transform: uppercase; text-decoration: none; border: 1px solid transparent; transition: background var(--motion), color var(--motion), border-color var(--motion); }
 .btn-solid { background: var(--btn); color: #fff; }
@@ -36,9 +36,9 @@ h3 { font-size: 28px; line-height: 32px; font-weight: 600; letter-spacing: -.01e
 .btn:focus-visible, .foot-cols a:focus-visible, .nav-brand:focus-visible, .nav-links a:focus-visible { outline: 3px solid var(--ring); outline-offset: 2px; }
 
 .nav { position: sticky; top: 0; z-index: 10; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: var(--sp-5); height: 56px; padding: 0 var(--sp-5); background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid var(--line); }
-.nav-brand { display: flex; align-items: center; gap: var(--sp-2); font-family: var(--display); font-weight: 500; font-size: 20px; letter-spacing: .08em; text-transform: uppercase; text-decoration: none; }
+.nav-brand { display: flex; align-items: center; gap: var(--sp-2); font-family: var(--display); font-weight: 700; font-size: 20px; letter-spacing: .08em; text-transform: uppercase; text-decoration: none; }
 .nav-brand img { width: 28px; height: 28px; border-radius: var(--r-icon); }
-.nav-links { display: flex; gap: var(--sp-5); font-family: var(--display); font-size: 15px; letter-spacing: .08em; text-transform: uppercase; }
+.nav-links { display: flex; gap: var(--sp-5); font-family: var(--display); font-weight: 600; font-size: 15px; letter-spacing: .08em; text-transform: uppercase; }
 .nav-links a { text-decoration: none; color: var(--sub); }
 .nav-links a:hover { color: var(--text); }
 .nav-brand { grid-column: 2; }
@@ -56,7 +56,9 @@ h3 { font-size: 28px; line-height: 32px; font-weight: 600; letter-spacing: -.01e
 .hero .label, .hero .lead, .hero .fine { color: rgba(255,255,255,.78); }
 .hero .btn-ghost { background: rgba(255,255,255,.1); border-color: rgba(255,255,255,.4); color: #fff; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
 .hero .btn-ghost:hover { border-color: #fff; }
-.hero-copy { will-change: transform, opacity; }
+.hero-copy { position: relative; z-index: 1; will-change: transform, opacity; }
+/* melt the film into the page, so parallax never shows a hard edge */
+.hero::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 28%; z-index: 0; pointer-events: none; background: linear-gradient(transparent, var(--bg)); }
 .store-bar { display: flex; align-items: center; justify-content: center; gap: var(--sp-3); min-height: 48px; padding: var(--sp-1) var(--sp-4); background: #000; color: #fff; text-decoration: none; font-size: 14px; }
 .store-bar img { display: block; height: 32px; width: auto; }
 .store-bar:hover span { text-decoration: underline; }
@@ -173,3 +175,4 @@ h3 { font-size: 28px; line-height: 32px; font-weight: 600; letter-spacing: -.01e
   .js .reveal { opacity: 1; transform: none; transition: none; }
   .btn { transition: none; }
 }
+@media (max-width: 600px) { .nav { grid-template-columns: auto 1fr; } .nav-brand { grid-column: 1; } .nav-end { grid-column: 2; justify-self: end; } }
