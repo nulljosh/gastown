@@ -22,6 +22,8 @@ h1, h2, h3 { text-wrap: balance; }
 /* the wing, in the accent, over a section title */
 .wing { display: block; width: 56px; height: 56px; margin: 0 auto var(--sp-4); background: var(--accent); -webkit-mask: url(mark.svg) center / contain no-repeat; mask: url(mark.svg) center / contain no-repeat; }
 h1 { font-size: clamp(60px, 11vw, 168px); line-height: .92; font-weight: 700; text-transform: uppercase; letter-spacing: -.03em; }
+/* the hero leads with the line that sells; the nav and label carry the name */
+.hero-h1 { font-size: clamp(40px, 7vw, 104px); line-height: .95; text-transform: none; letter-spacing: -.035em; max-width: 1000px; margin: 0 auto; }
 h2 { font-size: clamp(40px, 6vw, 88px); line-height: .95; font-weight: 700; text-transform: uppercase; letter-spacing: -.025em; }
 h3 { font-size: 28px; line-height: 32px; font-weight: 600; letter-spacing: -.01em; }
 .label { font-size: 13px; line-height: 16px; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; color: var(--sub); margin-bottom: var(--sp-4); }
