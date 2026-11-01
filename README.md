@@ -4,7 +4,7 @@
 
 Raise the Steam Clock.
 
-Gastown (formerly NYC Survive) is a small colony game set in rainy Vancouver. You send a crew of survivors to work, build machines that run on their own, and raise the Gastown Steam Clock. Think Pikmin's crew and Factorio's machines, cut down to four buildings and one goal. You decide what everyone does.
+Gastown is a small colony game set in rainy Vancouver. You send a crew of survivors to work, build machines that run on their own, and raise the Gastown Steam Clock. Think Pikmin's crew and Factorio's machines, cut down to four buildings and one goal. You decide what everyone does.
 
 **[gastown.jaybulb.com](https://gastown.jaybulb.com)** · **[Play in the browser](https://gastown.jaybulb.com/app/)** · **[App Store](https://apps.apple.com/app/id6782618198)**
 

@@ -1,6 +1,6 @@
 # gastown
 
-Gastown (formerly NYC Survive). v1.1.0 live as NYC Survive, 2.0.0 in progress. macOS + iOS colony game set in Vancouver, fully player-controlled (no autoplay). 2.0 is the simplification: a swarm you command, machines that run themselves, one goal (raise the Gastown Steam Clock, internal id `beacon`). Live at `https://gastown.jaybulb.com`, web app at `/app`. License Apache 2.0.
+Gastown. v1.1.0 live, 2.0.0 in progress. macOS + iOS colony game set in Vancouver, fully player-controlled (no autoplay). 2.0 is the simplification: a swarm you command, machines that run themselves, one goal (raise the Gastown Steam Clock, internal id `beacon`). Live at `https://gastown.jaybulb.com`, web app at `/app`. License Apache 2.0.
 
 ## The loop
 
