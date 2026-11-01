@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" fill="currentColor" color="inherit"><g fill="currentColor">
+  <circle cx="548" cy="232" r="26"/><circle cx="598" cy="196" r="36"/><circle cx="660" cy="160" r="28"/>
+  <rect x="500" y="236" width="24" height="56" rx="6"/>
+  <polygon points="384,350 512,280 640,350"/>
+  <path fill-rule="evenodd" d="M396 350 h232 a20 20 0 0 1 20 20 v148 a20 20 0 0 1 -20 20 h-232 a20 20 0 0 1 -20 -20 v-148 a20 20 0 0 1 20 -20 z M512 386 a58 58 0 1 0 0.1 0 z"/>
+  <rect x="506" y="402" width="12" height="44" rx="6"/><rect x="506" y="434" width="40" height="12" rx="6"/>
+  <rect x="436" y="538" width="152" height="232" rx="10"/>
+  <rect x="392" y="770" width="240" height="66" rx="16"/>
+</g></svg>
