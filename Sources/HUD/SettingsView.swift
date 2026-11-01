@@ -75,6 +75,9 @@ struct SettingsView: View {
                 }
                 .toggleStyle(.switch)
                 .tint(Theme.accent)
+                // The green window button and Control-Command-F change full screen behind the switch's back.
+                .onReceive(NotificationCenter.default.publisher(for: NSWindow.didEnterFullScreenNotification)) { _ in isFullScreen = true }
+                .onReceive(NotificationCenter.default.publisher(for: NSWindow.didExitFullScreenNotification)) { _ in isFullScreen = false }
                 #endif
 
                 Toggle(isOn: Binding(
