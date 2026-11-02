@@ -6,6 +6,7 @@ import AppKit
 struct SettingsView: View {
     @Bindable var gameState: GameState
     @State private var themeChoice = Theme.choice
+    @State private var slots = SaveManager.shared.listSlots()
     #if os(macOS)
     @State private var isFullScreen = NSApp.keyWindow?.styleMask.contains(.fullScreen) ?? false
     #endif
@@ -113,7 +114,6 @@ struct SettingsView: View {
                     .font(.gastown(size: 11, weight: .bold))
                     .foregroundStyle(Theme.yellow)
 
-                let slots = SaveManager.shared.listSlots()
                 ForEach(0..<3, id: \.self) { i in
                     HStack {
                         if let slot = slots[i] {
@@ -146,6 +146,7 @@ struct SettingsView: View {
                     .foregroundStyle(Theme.text3)
             }
             .padding(24)
+            .onChange(of: gameState.saveCount) { slots = SaveManager.shared.listSlots() }
             .frame(width: 300)
             .frame(maxHeight: .infinity)
             .background(.ultraThinMaterial)

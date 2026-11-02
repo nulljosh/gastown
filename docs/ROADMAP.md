@@ -328,6 +328,5 @@ nyc/ROADMAP.md
 ## QA 2026-10-21 (Mac, full pass)
 - [ ] Record the demo once it can win: `"NYC Survive.app/Contents/MacOS/NYC Survive" -demo 200` (menu, scripted tutorial, then DemoBot at 200 ticks/s, window floats on top) and record the window region with `screencapture -v -R`. Send the video.
 - [ ] First click into an inactive window only focuses it; MenuSKView.acceptsFirstMouse does not get through SwiftUI's host view.
-- [ ] Settings QA after the game: Full screen switch goes stale if the green window button is used; check save slots, sound, appearance.
 - [ ] Design system: in-app Theme.accent is still #0071e3 next to brand blue #3d7bff; HUD mixes yellow headers, cyan tutorial titles, red SKIP. Record the NYC Sans override in CLAUDE.md and brand/BRAND.md (as Coda does).
 - [ ] Landing (Joshua: C-): rebuild against hermes/landing for real, load NYC Sans from landing/fonts, add the missing dist copy step (no deploy.sh copies landing/ into dist/), deploy, check live at nyc.jaybulb.com.

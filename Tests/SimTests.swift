@@ -265,4 +265,15 @@ final class SimTests: XCTestCase {
         TutorialView.checkAdvance(gameState: gs, event: .colonistSelected)
         XCTAssertNil(gs.tutorialStep)
     }
+
+    func testSettingsSwitchesPersistButNotFromTheMenuBackdrop() {
+        let key = "autoSaveEnabled", before = UserDefaults.standard.object(forKey: key)
+        defer { UserDefaults.standard.set(before, forKey: key) }
+        let gs = GameState()
+        gs.autoSaveEnabled = false
+        XCTAssertFalse(GameState().autoSaveEnabled, "a new game remembers the switch")
+        gs.autoSaveEnabled = true
+        _ = GameState.menuBackdrop()
+        XCTAssertTrue(GameState().autoSaveEnabled, "the title screen city does not turn autosave off for the player")
+    }
 }

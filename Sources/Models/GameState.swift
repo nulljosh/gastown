@@ -33,8 +33,13 @@ final class GameState {
     var tutorialStep: Int? = nil  // nil = done/skipped, 0-7 = active
 
     // Save system
-    var lastSaveSlot: Int? = nil
-    var autoSaveEnabled: Bool = true
+    var lastSaveSlot: Int? = nil { didSet { saveCount += 1 } } // set on every successful save
+    // Stored (so SwiftUI sees the switch flip) and kept across launches.
+    var autoSaveEnabled: Bool = UserDefaults.standard.object(forKey: "autoSaveEnabled") as? Bool ?? true {
+        didSet { if !isMenuBackdrop { UserDefaults.standard.set(autoSaveEnabled, forKey: "autoSaveEnabled") } }
+    }
+    /// Bumped on every successful save (through lastSaveSlot), so the settings slot list refreshes.
+    var saveCount = 0
     var showSaveIndicator: Bool = false
     var victoryShown: Bool = false
     var victoryDismissed: Bool = false
@@ -42,9 +47,9 @@ final class GameState {
     var isMenuBackdrop: Bool = false
 
     // Audio
-    var soundEnabled: Bool {
-        get { AudioManager.shared.soundEnabled }
-        set { AudioManager.shared.soundEnabled = newValue }
+    // Stored rather than computed over UserDefaults: Observation only tracks stored properties.
+    var soundEnabled: Bool = AudioManager.shared.soundEnabled {
+        didSet { AudioManager.shared.soundEnabled = soundEnabled }
     }
 
     var selectedColonist: ColonistModel? {

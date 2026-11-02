@@ -278,9 +278,9 @@ extension GameState {
     /// A throwaway city that runs behind the menu. It never autosaves and skips the tutorial.
     static func menuBackdrop() -> GameState {
         let state = GameState()
+        state.isMenuBackdrop = true // first, so the autosave switch below is not saved as the player's choice
         state.autoSaveEnabled = false
         state.tutorialStep = nil
-        state.isMenuBackdrop = true
         return state
     }
 }
