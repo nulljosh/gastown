@@ -14,10 +14,11 @@ targets:
     type: application
     platform: watchOS
     sources:
-      - path: .
-        excludes:
-          - "*.xcodeproj"
-          - "*.yml"
+      - GastownWatchApp.swift
+      - ContentView.swift
+      - Models
+      - Views
+      - Assets.xcassets
     settings:
       INFOPLIST_FILE: ""
       GENERATE_INFOPLIST_FILE: YES

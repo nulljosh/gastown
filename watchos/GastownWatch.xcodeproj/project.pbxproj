@@ -7,20 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		265EDC70F4A1071C6E18FBA7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE3ACFB1EB99037076C5B323 /* Assets.xcassets */; };
 		36803BB418E552B45E4602CE /* GameData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDED885341FC69B0147F4EF7 /* GameData.swift */; };
-		509A71AAED6F00B6AB19B789 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC328C825895356F7B5F36A /* ContentView.swift */; };
-		74814ADBE6450EF63CA0384E /* GastownWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0AC339323C856054CCBBE6 /* GastownWatchApp.swift */; };
-		A14AE32ABFDC75FBB97A5725 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BAB50584D734657378835B9E /* Assets.xcassets */; };
+		561BF5F419178C9D1BA17B17 /* GastownWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01574C0791249CCA3FA009CD /* GastownWatchApp.swift */; };
 		F50F471288A35ED3B9A52D0F /* BuildingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296ED4A7567C5725AB1EBE0A /* BuildingsView.swift */; };
+		F6F15D1A7B6AF5589FE5B7FE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FF5999A2D05263C828200D /* ContentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		01574C0791249CCA3FA009CD /* GastownWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GastownWatchApp.swift; sourceTree = "<group>"; };
 		296ED4A7567C5725AB1EBE0A /* BuildingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingsView.swift; sourceTree = "<group>"; };
 		8F9577FB5CE97CAD8FC5D9CE /* GastownWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GastownWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		ADC328C825895356F7B5F36A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		BAB50584D734657378835B9E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		EC0AC339323C856054CCBBE6 /* GastownWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GastownWatchApp.swift; sourceTree = "<group>"; };
+		AE3ACFB1EB99037076C5B323 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EDED885341FC69B0147F4EF7 /* GameData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameData.swift; sourceTree = "<group>"; };
+		F1FF5999A2D05263C828200D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -30,19 +30,6 @@
 				296ED4A7567C5725AB1EBE0A /* BuildingsView.swift */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		05CCE70A77A937347BC7B7EB /* watchos */ = {
-			isa = PBXGroup;
-			children = (
-				BAB50584D734657378835B9E /* Assets.xcassets */,
-				ADC328C825895356F7B5F36A /* ContentView.swift */,
-				EC0AC339323C856054CCBBE6 /* GastownWatchApp.swift */,
-				6038FE4832C23E4A96B7C4F9 /* Models */,
-				045B811BDC6082FFA98B3180 /* Views */,
-			);
-			name = watchos;
-			path = .;
 			sourceTree = "<group>";
 		};
 		6038FE4832C23E4A96B7C4F9 /* Models */ = {
@@ -56,9 +43,11 @@
 		75F80ECA1AD6AD128935BFEE = {
 			isa = PBXGroup;
 			children = (
+				AE3ACFB1EB99037076C5B323 /* Assets.xcassets */,
+				F1FF5999A2D05263C828200D /* ContentView.swift */,
+				01574C0791249CCA3FA009CD /* GastownWatchApp.swift */,
 				6038FE4832C23E4A96B7C4F9 /* Models */,
 				045B811BDC6082FFA98B3180 /* Views */,
-				05CCE70A77A937347BC7B7EB /* watchos */,
 				FC4BA2922874452D5B7F954B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -131,7 +120,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A14AE32ABFDC75FBB97A5725 /* Assets.xcassets in Resources */,
+				265EDC70F4A1071C6E18FBA7 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,9 +132,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				F50F471288A35ED3B9A52D0F /* BuildingsView.swift in Sources */,
-				509A71AAED6F00B6AB19B789 /* ContentView.swift in Sources */,
+				F6F15D1A7B6AF5589FE5B7FE /* ContentView.swift in Sources */,
 				36803BB418E552B45E4602CE /* GameData.swift in Sources */,
-				74814ADBE6450EF63CA0384E /* GastownWatchApp.swift in Sources */,
+				561BF5F419178C9D1BA17B17 /* GastownWatchApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
