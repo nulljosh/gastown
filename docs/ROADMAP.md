@@ -329,3 +329,6 @@ nyc/ROADMAP.md
 - [ ] First click into an inactive window only focuses it; MenuSKView.acceptsFirstMouse does not get through SwiftUI's host view.
 - [ ] Design system: in-app Theme.accent is still #0071e3 next to brand blue #3d7bff; HUD mixes yellow headers, cyan tutorial titles, red SKIP. Record the NYC Sans override in CLAUDE.md and brand/BRAND.md (as Coda does).
 - [ ] Landing (Joshua: C-): rebuild against hermes/landing for real, load NYC Sans from landing/fonts, add the missing dist copy step (no deploy.sh copies landing/ into dist/), deploy, check live at nyc.jaybulb.com.
+
+## Ingested 2026-11-13
+- [ ] Game is much more built out but still kind of confusing. Needs a better but shorter, straightforward tutorial. Maybe simplify the core mechanic too.
